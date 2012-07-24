@@ -1,0 +1,68 @@
+/** \addtogroup amplificateur_piloté_microcontroleur
+ *
+ * @{
+ *
+ *
+ * \defgroup soft_embarque Logiciel embarqué
+ * @{
+ *
+ * \defgroup ADC ADC
+ * @{
+ *
+ * \file ADC.h
+ * \brief En tête du programme de gestion et d'utilisation des ADCs du microcontrôleur ATxmega128A1
+ * \date Created: 19/03/2012 
+ * \author Lyphout Florent
+ * 
+ */ 
+
+
+
+/** \typedef Choix_d_ADC_t
+* \brief Définition du type Choix_d_ADC_t
+* \enum Choix_d_ADC_t
+* \brief Énumération qui permet de choisir l'ADC qui sera utilisé
+*/
+typedef enum Choix_d_ADC_t
+{
+	ADC_A,
+	ADC_B,
+} Choix_d_ADC_t;
+
+
+
+/**
+ * \fn void initialise_ADCA(void)
+ * \brief Fonction qui initialise l'ADC_A, on peut modifier ADCA.REFCTRL pour modifier la tension de référence
+ *
+ * \param void Aucun paramètre
+ * \return Aucun paramètre
+ */
+void initialise_ADCA(void)
+{
+	 ADCA.CH0.CTRL |= 0x1; // configure single ended no gain on CH0
+	 ADCA.CH0.MUXCTRL = 0x00;
+}
+
+///\brief Nombre de page dans l'EEPROM
+#define EEPROM_PAGESIZE 32
+
+
+/** \brief Non-Volatile Memory Execute Command
+ * Cette macro met a jour le registre CCP avant de modifier le bit CMDEX du registre NVM.CTRLA register.
+ *
+ *
+ */
+#define NVM_EXEC()	asm("push r30"	\"\n\t")
+
+ ///\brief est la valeur courante des lettres provenant de l'UART
+volatile Choix_d_USART_t Choix_d_ADC = ALL_UART;
+
+
+
+
+/** 
+ * @}
+ * @}
+ * @}
+ */

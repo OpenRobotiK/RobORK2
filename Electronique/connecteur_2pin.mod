@@ -1,0 +1,33 @@
+PCBNEW-LibModule-V1  24/06/2012 16:03:02
+# encoding utf-8
+$INDEX
+connecteur_2pin
+$EndINDEX
+$MODULE connecteur_2pin
+Po 0 0 0 15 4FE71DC4 00000000 ~~
+Li connecteur_2pin
+Sc 00000000
+AR 
+Op 0 0 0
+T0 1000 1000 600 600 0 120 N V 21 N "connecteur_2pin"
+T1 3000 0 600 600 0 120 N V 21 N "VAL**"
+DS -1000 -500 -1000 500 150 21
+DS -1000 500 1000 500 150 21
+DS 1000 500 1000 -500 150 21
+DS 1000 -500 -1000 -500 150 21
+$PAD
+Sh "1" C 787 787 0 0 0
+Dr 320 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po -500 0
+$EndPAD
+$PAD
+Sh "2" C 787 787 0 0 0
+Dr 320 0 0
+At STD N 00E0FFFF
+Ne 0 ""
+Po 500 0
+$EndPAD
+$EndMODULE  connecteur_2pin
+$EndLIBRARY
