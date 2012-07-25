@@ -1,0 +1,60 @@
+!SESSION 2012-07-25 18:24:17.150 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 4 2012-07-25 18:24:42.048
+!MESSAGE Unable to find view with id: com.crt.trueview.views.DisassemblyViewer, when creating perspective com.crt.lite.perspective.CRTPerspective
+!SESSION 2012-07-25 18:26:23.639 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\Florent\Documents\GitHub\RobORK2\Programmation
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 18:28:27.839
+!MESSAGE Indexed 'CMSISv2p00_LPC17xx' (2 sources, 27 headers) in 0,96 sec: 1 220 declarations; 2 133 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 18:28:27.963
+!MESSAGE Indexed 'test_project' (7 sources, 11 headers) in 0,12 sec: 148 declarations; 165 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 18:32:23.582
+!MESSAGE Indexed 'uart' (3 sources, 26 headers) in 0,32 sec: 456 declarations; 440 references; 8 unresolved inclusions; 0 syntax errors; 117 unresolved names (11,55 %)
+
+!ENTRY com.crt.log 1 0 2012-07-25 18:49:55.035
+!MESSAGE Drivers loaded in 2046 milliseconds
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:03:18.466
+!MESSAGE Indexed 'ssp_spi' (5 sources, 26 headers) in 0,28 sec: 553 declarations; 1 111 references; 9 unresolved inclusions; 0 syntax errors; 148 unresolved names (8,17 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:06.940
+!MESSAGE Indexed 'CMSISv1p30_LPC17xx' (2 sources, 25 headers) in 0,46 sec: 1 205 declarations; 2 088 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.148
+!MESSAGE Indexed 'lib_small_printf_m3' (4 sources, 25 headers) in 0,19 sec: 331 declarations; 440 references; 5 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.296
+!MESSAGE Indexed 'adc_buzzer' (5 sources, 14 headers) in 0,14 sec: 222 declarations; 472 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.419
+!MESSAGE Indexed 'adc_semihosting' (4 sources, 12 headers) in 0,11 sec: 215 declarations; 517 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.502
+!MESSAGE Indexed 'dac' (3 sources, 11 headers) in 0,08 sec: 149 declarations; 132 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.616
+!MESSAGE Indexed 'dma_dac' (3 sources, 11 headers) in 0,10 sec: 187 declarations; 381 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.741
+!MESSAGE Indexed 'rgb' (4 sources, 12 headers) in 0,10 sec: 254 declarations; 649 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.892
+!MESSAGE Indexed 'ssp_spi' (5 sources, 13 headers) in 0,14 sec: 364 declarations; 1 392 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-07-25 19:04:07.999
+!MESSAGE Indexed 'uart' (3 sources, 13 headers) in 0,10 sec: 267 declarations; 660 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0,00 %)
+
+!ENTRY com.crt.log 1 0 2012-07-25 19:39:58.890
+!MESSAGE Drivers loaded in 1745 milliseconds
