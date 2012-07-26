@@ -1,3 +1,4 @@
-#Wed Jul 25 19:36:27 CEST 2012
+#Thu Jul 26 19:27:57 CEST 2012
+UIActivities.org.eclipse.cdt.debug.cdigdbActivity=true
 eclipse.preferences.version=1
 org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands>\r\n<keyBinding commandId\="org.eclipse.ui.project.buildProject" contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F5"/>\r\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F5"/>\r\n<keyBinding contextId\="org.eclipse.ui.contexts.window" keyConfigurationId\="org.eclipse.ui.defaultAcceleratorConfiguration" keySequence\="F5"/>\r\n</org.eclipse.ui.commands>

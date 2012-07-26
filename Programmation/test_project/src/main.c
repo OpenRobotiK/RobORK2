@@ -36,9 +36,7 @@
 // See crp.h header for more information
 __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 
-// TODO: insert other include files here
 
-// TODO: insert other definitions and declarations here
 
 int main(void) {
 	
@@ -52,14 +50,14 @@ int main(void) {
 
 
 	/* test uart*/
-	char buf[3]={'a','b','\0'};
 
-	UARTInit( 3, 9600 );	//fonctionne
-	UARTSend( 3, buf, 3 );	// fonctionne
+	uint8_t buf[3]={'a','b','\0'};
+
+	init_uart3(9600);		//fonctionne
+	send_uart3(buf, 3 );	// fonctionne
 	//uart3 U3IER=1;
-	UART3_IRQHandler();		// ne sais pas trop ce que c'est je pense que
-	//c'est pour validé l'interruption mais je ne sais pas comment declarer cette
-	// interruption.
+	NVIC_EnableIRQ(UART3_IRQn);
+	UART3_IRQHandler();
 
 
 

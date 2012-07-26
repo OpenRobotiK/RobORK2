@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="22" version="2.0">
+<workbench progressCount="25" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="160" y="160">
 <fastViewData fastViewLocation="1024"/>
@@ -8,7 +8,7 @@
 </perspectiveBar>
 <coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="126" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="157" y="22"/>
 <coolItem id="com.crt.quickstart.toolbar.favorite" itemType="typeToolBarContribution" x="199" y="22"/>
 <coolItem id="com.crt.quickstart.toolbar.project" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="com.crt.quickstart.toolbar.import" itemType="typeToolBarContribution" x="176" y="22"/>
@@ -18,27 +18,47 @@
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.cdt.ui.buildConfigActionSet" itemType="typeToolBarContribution" x="97" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="88" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="57" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="80" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="38" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.cdt.ui.editor.CEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.ui.browser.editor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page focus="true" label="Workspace - Develop">
+<page aggregateWorkingSetId="Aggregate for window 1343234226881" focus="true" label="Workspace - Develop">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/main.c" title="main.c" tooltip="test_project/src/main.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/main.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="979" selectionTopPixel="957"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UART.c" partName="UART.c" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/UART.c" title="UART.c" tooltip="test_project/src/UART.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/UART.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3968" selectionTopPixel="60"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="UART.h" partName="UART.h" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/UART.h" title="UART.h" tooltip="test_project/src/UART.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/UART.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1019" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ADC.h" partName="ADC.h" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/ADC.h" title="ADC.h" tooltip="test_project/src/ADC.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/ADC.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -48,8 +68,23 @@
 <view id="com.crt.quickstart.views.QuickstartView" partName="Quickstart Panel">
 <viewState/>
 </view>
-<view id="org.eclipse.debug.ui.MemoryView" partName="Memory"/>
-<view id="org.eclipse.ui.views.ProblemView" partName="Problems"/>
+<view id="org.eclipse.debug.ui.MemoryView" partName="Memory">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
@@ -58,7 +93,7 @@
 <view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints"/>
 <view id="org.eclipse.debug.ui.VariableView" partName="Variables"/>
 </views>
-<perspectives activePart="org.eclipse.ui.browser.editor" activePerspective="com.crt.lite.perspective.CRTPerspective">
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="com.crt.lite.perspective.CRTPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.crt.lite.perspective.CRTPerspectiveFactory" id="com.crt.lite.perspective.CRTPerspective" label="Develop"/>
 <alwaysOnActionSet id="com.crt.utils.support.actionSet"/>
@@ -69,6 +104,7 @@
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
 <alwaysOnActionSet id="org.eclipse.cdt.ui.buildConfigActionSet"/>
 <alwaysOnActionSet id="com.crt.branding.toolbar.utilityactions"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
 <alwaysOffActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
 <alwaysOffActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
 <alwaysOffActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
@@ -114,10 +150,11 @@
 <info folder="true" part="top" ratio="0.3296593" ratioLeft="329" ratioRight="669" relationship="2" relative="topLeft">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.DebugView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.1737649" ratioLeft="102" ratioRight="485" relationship="4" relative="top"/>
-<info folder="true" part="consoleEtc" ratio="0.79897785" ratioLeft="469" ratioRight="118" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.27626458" ratioLeft="284" ratioRight="744" relationship="4" relative="top"/>
+<info folder="true" part="consoleEtc" ratio="0.67412454" ratioLeft="693" ratioRight="335" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -154,7 +191,166 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/main.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/UART.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/UART.h"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\nxp\LPCXpresso_4.2.3_292\lpcxpresso\Tools\arm-none-eabi\include\NXP\LPC17xx\uart.h" project="test_project"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CMSISv2p00_LPC17xx/inc/core_cm3.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/ADC.h"/>
+</editors>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1200" y="20"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="760" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1200" y="20"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="358" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="614" y="7"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="997" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="708" y="28"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="614" y="7"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1863" y="39"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="727" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3414" y="53"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="727" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3470" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="727" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3470" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3630" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="368" y="33"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="405" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="738" y="1"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1366" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="619" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1366" y="0"/>
+</item>
+<item historyLabel="uart.h" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="419" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="671" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="419" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="368" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="738" y="1"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="727" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1952" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="727" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="760" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="964" y="31"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1009" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="979" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="671" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1863" y="39"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="624" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="759" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="0" y="194"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="97" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="1019" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3968" y="0"/>
+</item>
+<item historyLabel="core_cm3.h" index="4">
+<position info="not_deleted" x="60985" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3968" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="979" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3968" y="0"/>
+</item>
+<item historyLabel="ADC.h" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="UART.h" index="2">
+<position info="not_deleted" x="1019" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -172,6 +368,30 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ADC.h" tooltip="test_project/src/ADC.h">
+<persistable path="/test_project/src/ADC.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="core_cm3.h" tooltip="CMSISv2p00_LPC17xx/inc/core_cm3.h">
+<persistable path="/CMSISv2p00_LPC17xx/inc/core_cm3.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="LPC17xx.h" tooltip="CMSISv2p00_LPC17xx/inc/LPC17xx.h">
+<persistable path="/CMSISv2p00_LPC17xx/inc/LPC17xx.h"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="uart.h" tooltip="C:\nxp\LPCXpresso_4.2.3_292\lpcxpresso\Tools\arm-none-eabi\include\NXP\LPC17xx\uart.h">
+<persistable path="C:\nxp\LPCXpresso_4.2.3_292\lpcxpresso\Tools\arm-none-eabi\include\NXP\LPC17xx\uart.h" project="test_project"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="cr_startup_lpc176x.c" tooltip="test_project/src/cr_startup_lpc176x.c">
+<persistable path="/test_project/src/cr_startup_lpc176x.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UART.h" tooltip="test_project/src/UART.h">
+<persistable path="/test_project/src/UART.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="UART.c" tooltip="test_project/src/UART.c">
+<persistable path="/test_project/src/UART.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" tooltip="test_project/src/main.c">
+<persistable path="/test_project/src/main.c"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".project" tooltip="C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\test_project\.project">
 <persistable uri="file:/C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/.project"/>
 </file>

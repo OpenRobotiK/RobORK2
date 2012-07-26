@@ -58,3 +58,36 @@ Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\Florent\Do
 
 !ENTRY com.crt.log 1 0 2012-07-25 19:39:58.890
 !MESSAGE Drivers loaded in 1745 milliseconds
+!SESSION 2012-07-26 18:27:32.542 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.crt.log 1 0 2012-07-26 18:40:22.472
+!MESSAGE Drivers loaded in 1957 milliseconds
+
+!ENTRY com.crt.log 1 0 2012-07-26 18:41:09.900
+!MESSAGE Drivers loaded in 1879 milliseconds
+
+!ENTRY com.crt.log 1 0 2012-07-26 18:47:57.103
+!MESSAGE Drivers loaded in 1844 milliseconds
+
+!ENTRY com.crt.ctrlcenter 4 -1 2012-07-26 19:28:03.485
+!MESSAGE Error launching Debug\test_project.axf
+The program file specified in the launch configuration does not exist: C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\test_project\Debug\test_project.axf not found
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2012-07-26 19:33:53.123
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: No registers.[No registers.]
+	at org.eclipse.cdt.debug.mi.core.cdi.RegisterManager.update(RegisterManager.java:425)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:314)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:100)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:791)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:46)
+
+!ENTRY com.crt.log 1 0 2012-07-26 20:01:36.778
+!MESSAGE Drivers loaded in 1928 milliseconds
