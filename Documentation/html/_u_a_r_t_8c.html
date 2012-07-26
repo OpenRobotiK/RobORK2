@@ -37,6 +37,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
     <ul class="tablist">
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -59,6 +60,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -66,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Groupes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Groupes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,29 +79,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4d06172e743057d802c15f06bdf7b776.html">Programme</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_c8e28b16e3f893d332a4b5758137fe53.html">Programmation</a></li><li class="navelem"><a class="el" href="dir_0fab1c0c1bccc62457c3d0d6e2ab6b86.html">test_project</a></li><li class="navelem"><a class="el" href="dir_29e3a42f5aa3d8a109d6618e8642a83a.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier UART.c<div class="ingroups"><a class="el" href="group___u_a_r_t.html">UART</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>UART.  
+<p>uart  
 <a href="#details">Plus de détails...</a></p>
-
+<div class="textblock"><code>#include &quot;<a class="el" href="_l_p_c17xx_8h_source.html">LPC17xx.h</a>&quot;</code><br/>
+<code>#include &quot;type.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_u_a_r_t_8h_source.html">UART.h</a>&quot;</code><br/>
+</div>
 <p><a href="_u_a_r_t_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ga121b51364ca932bf6b88e2110fcf88da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga121b51364ca932bf6b88e2110fcf88da"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UART3_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:gab4e574a521e685aec220b34f53b89708"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab4e574a521e685aec220b34f53b89708"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>init_uart3</b> (uint32_t baudrate)</td></tr>
+<tr class="memitem:gaac442c01f409e1c3754361c220f5a790"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaac442c01f409e1c3754361c220f5a790"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>send_uart3</b> (uint8_t *BufferPtr, uint32_t Length)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga58eb370da2853b009765aea438b9848c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga58eb370da2853b009765aea438b9848c"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>UART3Status</b></td></tr>
+<tr class="memitem:gadd3b9bbef19cb27d891a78589a788d33"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadd3b9bbef19cb27d891a78589a788d33"></a>
+volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>UART3TxEmpty</b> = 1</td></tr>
+<tr class="memitem:ga61e485fcbdcf6adb3c912f54d261ee05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga61e485fcbdcf6adb3c912f54d261ee05"></a>
+volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>UART3Buffer</b> [BUFSIZE]</td></tr>
+<tr class="memitem:ga28d541bd23b5df1426a5958abeb4eaec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga28d541bd23b5df1426a5958abeb4eaec"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>UART3Count</b> = 0</td></tr>
+</table>
 <a name="details" id="details"></a><h2>Description détaillée</h2>
-<div class="textblock"><p>UART. </p>
+<div class="textblock"><p>uart </p>
 <dl class="section date"><dt>Date</dt><dd>Created: 13/07/2012 </dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>Lyphout Florent et Mael Gaudy </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Lyphout Florent et Maël Gaudy </dd></dl>
 
 <p>Définition dans le fichier <a class="el" href="_u_a_r_t_8c_source.html">UART.c</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Dimanche Juillet 15 2012 15:34:21 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Jeudi Juillet 26 2012 22:37:56 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
