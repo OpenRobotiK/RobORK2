@@ -16,9 +16,13 @@
  * * <a href="..\datasheet\encoder-specification-ig32e-35k.pdf">\link Encodeur </a> \n
  * * <a href="..\datasheet\pont en h.pdf">\link Pont en H </a> \n
  * * <a href="..\datasheet\technical-drawing-data-ig32e-35k.pdf">\link Moteur </a> \n
- * 
+ * * <a href="..\datasheet\DS_MM232R.pdf">\link Convertiseur UART </a> \n
+ * * <a href="..\datasheet\lpcxpresso.lpc1769.schematic.pdf">\link Schema carte LPCXpresso </a> \n
+ * * <a href="..\datasheet\UM10360.pdf">\link Datasheet Microcontroleur </a> \n
+ *
+ *
  * \section codeinfo Information sur le code
- * Git : <a href=" https://github.com/OpenRobotiK/RobORK ">\link Code source </a>  \n
+ * Git : <a href=" https://github.com/OpenRobotiK/RobORK2 ">\link Code source </a>  \n
  * * \ref ADC \n
  * * \ref EEPROM \n
  * * \ref main \n

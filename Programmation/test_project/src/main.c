@@ -52,14 +52,11 @@ int main(void) {
 	/* test uart*/
 
 	uint8_t buf[3]={'a','b','\0'};
-
 	init_uart3(9600);		//fonctionne
 	send_uart3(buf, 3 );	// fonctionne
 	//uart3 U3IER=1;
 	NVIC_EnableIRQ(UART3_IRQn);
 	UART3_IRQHandler();
-
-
 
 	/*fin test uart*/
 

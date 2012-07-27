@@ -665,7 +665,8 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories 
 # with spaces.
 
-INPUT                  = ../
+INPUT                  = ../Programmation/test_project \
+                         .
 
 # This tag can be used to specify the character encoding of the source files 
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is 
@@ -699,13 +700,7 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is 
 # run.
 
-EXCLUDE                = "../Programme/Programme sur PC/numero de serie/numero_de_serie/1er_page.Designer.cs" \
-                         "../Programme/Programme sur PC/numero de serie/numero_de_serie/navigateur_internet.Designer.cs" \
-                         "../Programme/Programme sur PC/numero de serie/numero_de_serie/numero_de_serie.Designer.cs" \
-                         "../Programme/Programme sur PC/numero de serie/numero_de_serie/Terminal.Designer.cs" \
-                         "../Programme/Programme sur PC/numero de serie/numero_de_serie/Properties/AssemblyInfo.cs" \
-                         "../Programme/Programme sur PC/numero de serie/numero_de_serie/Properties/Resources.Designer.cs" \
-                         "../Programme/Programme sur PC/numero de serie/numero_de_serie/Properties/Settings.Designer.cs"
+EXCLUDE                = 
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or 
 # directories that are symbolic links (a Unix file system feature) are excluded 

@@ -33,6 +33,7 @@ local.properties
 *.pydevproject
 .project
 .metadata
+/Programmation/.metadata
 bin/**
 tmp/**
 tmp/**/*
