@@ -36,6 +36,7 @@
 #define LSR_TEMT	0x40
 #define LSR_RXFE	0x80
 
+///\brief Size of the reception buffer
 #define BUFSIZE		0x40
 
 uint32_t init_uart3(uint32_t baudrate );
@@ -44,9 +45,7 @@ void UART3_IRQHandler (void);
 
 
 #endif /* end __UART_H */
-/*****************************************************************************
-**                            End Of File
-******************************************************************************/
+
 
 /**
  * @}

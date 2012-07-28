@@ -287,15 +287,15 @@ OUTPUT(test_project.axf elf32-littlearm)
  .debug_info    0x00001683       0x29 ./src/watchdog.o
  .debug_info    0x000016ac      0x38f C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_line     0x00000000     0x10fa
+.debug_line     0x00000000     0x10f8
  .debug_line    0x00000000       0x2d ./src/ADC.o
  .debug_line    0x0000002d       0x30 ./src/EEPROM.o
  .debug_line    0x0000005d       0x2d ./src/PWM.o
  .debug_line    0x0000008a      0x426 ./src/UART.o
  .debug_line    0x000004b0      0x3d7 ./src/cr_startup_lpc176x.o
- .debug_line    0x00000887      0x46e ./src/main.o
- .debug_line    0x00000cf5       0x32 ./src/watchdog.o
- .debug_line    0x00000d27      0x3d3 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x00000887      0x46c ./src/main.o
+ .debug_line    0x00000cf3       0x32 ./src/watchdog.o
+ .debug_line    0x00000d25      0x3d3 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
 .debug_macinfo  0x00000000    0x1f848
  .debug_macinfo

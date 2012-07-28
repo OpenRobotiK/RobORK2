@@ -24,15 +24,14 @@ volatile uint8_t UART3Buffer[BUFSIZE];
 volatile uint32_t UART3Count = 0;
 
 
-/*****************************************************************************
-** Function name:		UART0_IRQHandler
-**
-** Descriptions:		UART0 interrupt handler
-**
-** parameters:			None
-** Returned value:		None
-**
-*****************************************************************************/
+
+/**
+ * \fn void UART3_IRQHandler (void)
+ * \brief UART3 interrupt handler
+ *
+ * \param void None
+ * \return None
+ */
 void UART3_IRQHandler (void)
 {
   uint8_t IIRValue;
@@ -61,18 +60,14 @@ void UART3_IRQHandler (void)
 }
 
 
-/*****************************************************************************
-** Function name:		UARTInit
-**
-** Descriptions:		Initialize UART port, setup pin select,
-**						clock, parity, stop bits, FIFO, etc.
-**
-** parameters:			portNum(0 or 1) and UART baudrate
-** Returned value:		true or false, return false only if the
-**						interrupt handler can't be installed to the
-**						VIC table
-**
-*****************************************************************************/
+
+/**
+ * \fn uint32_t init_uart3(uint32_t baudrate )
+ * \brief initialisation of UART 3
+ *
+ * \param void baudrate of UART 3
+ * \return return 1 if everything it's ok
+ */
 uint32_t init_uart3(uint32_t baudrate )
 {
   uint32_t Fdiv;
@@ -114,16 +109,15 @@ uint32_t init_uart3(uint32_t baudrate )
 	  return (TRUE);
 }
 
-/*****************************************************************************
-** Function name:		UARTSend
-**
-** Descriptions:		Send a block of data to the UART 0 port based
-**						on the data length
-**
-** parameters:			portNum, buffer pointer, and data length
-** Returned value:		None
-**
-*****************************************************************************/
+
+/**
+ * \fn void send_uart3(uint8_t *BufferPtr, uint32_t Length )
+ * \brief initialisation of UART 3
+ *
+ * \param BufferPtr is the word to send
+ * \param Length is the length of BufferPtr
+ * \return None
+ */
 void send_uart3(uint8_t *BufferPtr, uint32_t Length )
 {
     while ( Length != 0 )
@@ -138,9 +132,7 @@ void send_uart3(uint8_t *BufferPtr, uint32_t Length )
 return;
 }
 
-/******************************************************************************
-**                            End Of File
-******************************************************************************/
+
 
 /**
  * @}
