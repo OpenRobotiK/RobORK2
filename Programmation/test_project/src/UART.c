@@ -34,13 +34,14 @@ volatile uint32_t UART3Count = 0;
  */
 void UART3_IRQHandler (void)
 {
-  uint8_t IIRValue;
+  uint8_t IIRValue, LSRValue;
   uint8_t Dummy = Dummy;
 
   IIRValue = LPC_UART3->IIR;
 
   IIRValue >>= 1;			/* skip pending bit in IIR */
   IIRValue &= 0x07;			/* check bit 1~3, interrupt identification */
+
   if ( IIRValue == IIR_RDA )	/* Receive Data Available */
   {
 	/* Receive Data Available */
@@ -48,13 +49,28 @@ void UART3_IRQHandler (void)
 	UART3Count++;
 
 	/***	echo uart ***********************************/
-	uint8_t buf[1]={UART3Buffer[UART3Count-1]};
-	send_uart3(buf, 1 );
-	/***	fin echo uart********************************/
+		uint8_t buf[1]={UART3Buffer[UART3Count-1]};
+		send_uart3(buf, 1 );
+		/***	fin echo uart********************************/
 
 	if ( UART3Count == BUFSIZE )
 	{
 	  UART3Count = 0;		/* buffer overflow */
+	}
+  }
+
+  else if ( IIRValue == IIR_THRE )	/* THRE, transmit holding register empty */
+  {
+	/* THRE interrupt */
+	LSRValue = LPC_UART3->LSR;		/* Check status in the LSR to see if
+									valid data in U0THR or not */
+	if ( LSRValue & LSR_THRE )
+	{
+	  UART3TxEmpty = 1;
+	}
+	else
+	{
+	  UART3TxEmpty = 0;
 	}
   }
 }
