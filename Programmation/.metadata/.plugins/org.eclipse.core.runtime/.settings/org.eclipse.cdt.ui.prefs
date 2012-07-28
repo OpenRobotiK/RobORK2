@@ -1,5 +1,15 @@
-#Wed Jul 25 18:26:22 CEST 2012
-spelling_locale_initialized=true
-useAnnotationsPrefPage=true
-eclipse.preferences.version=1
+#Sat Jul 28 17:40:30 CEST 2012
 useQuickDiffPrefPage=true
+useAnnotationsPrefPage=true
+editor_folding_default_functions=true
+sourceHoverBackgroundColor=255,255,225
+editor_folding_default_comments=true
+editor_folding_preprocessor_enabled=true
+editor_folding_enabled=true
+spelling_locale_initialized=true
+eclipse.preferences.version=1
+hoverModifierMasks=org.eclipse.cdt.ui.BestMatchHover;0;org.eclipse.cdt.debug.internal.ui.editors.DebugTextHover;0;org.eclipse.cdt.ui.ProblemHover;0;org.eclipse.cdt.ui.CDocHover;0;org.eclipse.cdt.ui.CMacroExpansionHover;0;org.eclipse.cdt.ui.CSourceHover;131072;org.eclipse.cdt.ui.AnnotationHover;0;
+editor_folding_statements=true
+hoverModifiers=org.eclipse.cdt.ui.BestMatchHover;0;org.eclipse.cdt.debug.internal.ui.editors.DebugTextHover;\!0;org.eclipse.cdt.ui.ProblemHover;\!0;org.eclipse.cdt.ui.CDocHover;\!0;org.eclipse.cdt.ui.CMacroExpansionHover;\!0;org.eclipse.cdt.ui.CSourceHover;Shift;org.eclipse.cdt.ui.AnnotationHover;\!0;
+editor_folding_default_methods=true
+content_assist_disabled_computers=
