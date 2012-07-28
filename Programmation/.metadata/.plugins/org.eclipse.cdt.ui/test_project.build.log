@@ -2,12 +2,14 @@
 **** Build of configuration Debug for project test_project ****
 
 make all 
+Building file: ../src/UART.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__USE_CMSIS_DSPLIB=CMSISv2p00_DSPLIB_CM3 -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\inc" -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_DSPLIB_CM3\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/UART.d" -MT"src/UART.d" -o"src/UART.o" "../src/UART.c"
+Finished building: ../src/UART.c
+ 
 Building file: ../src/main.c
 Invoking: MCU C Compiler
 arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__USE_CMSIS_DSPLIB=CMSISv2p00_DSPLIB_CM3 -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\inc" -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_DSPLIB_CM3\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o"src/main.o" "../src/main.c"
-../src/main.c: In function 'main':
-../src/main.c:82:2: warning: pointer targets in passing argument 1 of 'send_uart3' differ in signedness
-../src/UART.h:43:6: note: expected 'uint8_t *' but argument is of type 'char *'
 Finished building: ../src/main.c
  
 Building target: test_project.axf

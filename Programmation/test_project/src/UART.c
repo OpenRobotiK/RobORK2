@@ -23,7 +23,7 @@ volatile uint8_t UART3TxEmpty = 1;
 volatile uint8_t UART3Buffer[BUFSIZE];
 volatile uint32_t UART3Count = 0;
 
-
+extern char commande[255];
 
 /**
  * \fn void UART3_IRQHandler (void)

@@ -447,3 +447,9 @@ HandlerActivation(commandId=org.eclipse.cdt.ui.refactor.hide.method,
 
 !ENTRY com.crt.log 1 0 2012-07-28 16:38:33.224
 !MESSAGE Drivers loaded in 2057 milliseconds
+
+!ENTRY com.crt.log 1 0 2012-07-28 18:37:52.972
+!MESSAGE Drivers loaded in 2023 milliseconds
+
+!ENTRY com.crt.log 1 0 2012-07-28 18:40:04.746
+!MESSAGE Drivers loaded in 1903 milliseconds
