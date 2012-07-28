@@ -91,20 +91,24 @@ int main(void) {
 	volatile static int i = 0 ;
 	while(1) {
 		i++ ;
-		/*reprise de test ADC*/
-		/*test = ADC0Read(0);
-			millier=test/1000;
-			test=test%1000;
-			centaine=test/100;
-			test=test%100;
-			dixaine=test/10;
-			test=test%10;
 
-			buff[0]=(uint8_t)millier+0x30;
-			buff[1]=(uint8_t)centaine+0x30;
-			buff[2]=(uint8_t)dixaine+0x30;
-			buff[3]=(uint8_t)test+0x30;
-			send_uart3(buff,4);*/
+		/*reprise de test ADC*/
+		if(!strcmp(commande,"ADC"))
+			{
+				test = ADC0Read(0);
+				millier=test/1000;
+				test=test%1000;
+				centaine=test/100;
+				test=test%100;
+				dixaine=test/10;
+				test=test%10;
+				buff[0]=(uint8_t)millier+0x30;
+				buff[1]=(uint8_t)centaine+0x30;
+				buff[2]=(uint8_t)dixaine+0x30;
+				buff[3]=(uint8_t)test+0x30;
+				send_uart3(buff,4);;
+			}
+
 		/*fin test adc*/
 
 	}

@@ -17,6 +17,7 @@
 #include "LPC17xx.h"
 #include "type.h"
 #include "UART.h"
+#include <string.h>
 
 volatile uint32_t UART3Status;
 volatile uint8_t UART3TxEmpty = 1;
@@ -52,7 +53,17 @@ void UART3_IRQHandler (void)
 		uint8_t buf[1]={UART3Buffer[UART3Count-1]};
 		send_uart3(buf, 1 );
 		/***	fin echo uart********************************/
-
+	if( UART3Buffer[UART3Count-1] == (uint8_t)'\n' || UART3Buffer[UART3Count-1] == (uint8_t)'\r' )
+	{
+		UART3Buffer[UART3Count-1] = '\0';	// ajoute le caratere de fin de chaine
+		strcpy(commande,(char*)UART3Buffer);
+		int i = 0;
+		for(i = 0; i == strlen((char*)UART3Buffer); i++)
+		{
+			UART3Buffer[i] = 0x00;
+		}
+		UART3Count = 0;		/* buffer overflow */
+	}
 	if ( UART3Count == BUFSIZE )
 	{
 	  UART3Count = 0;		/* buffer overflow */
