@@ -113,7 +113,7 @@ END GROUP
                 0x10008000                __top_RamLoc32 = 0x10008000
                 0x20084000                __top_RamAHB32 = 0x20084000
 
-.text           0x00000000      0xd9c
+.text           0x00000000      0xea8
  FILL mask 0xff
  *(.isr_vector)
  .isr_vector    0x00000000       0xcc ./src/cr_startup_lpc176x.o
@@ -121,16 +121,16 @@ END GROUP
                 0x000000cc                . = ALIGN (0x4)
                 0x000000cc                __section_table_start = .
                 0x000000cc                __data_section_table = .
-                0x000000cc        0x4 LONG 0xd9c LOADADDR (.data)
+                0x000000cc        0x4 LONG 0xea8 LOADADDR (.data)
                 0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
-                0x000000d4        0x4 LONG 0x8 SIZEOF (.data)
-                0x000000d8        0x4 LONG 0xd9c LOADADDR (.data_RAM2)
+                0x000000d4        0x4 LONG 0xc SIZEOF (.data)
+                0x000000d8        0x4 LONG 0xea8 LOADADDR (.data_RAM2)
                 0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x000000e4                __data_section_table_end = .
                 0x000000e4                __bss_section_table = .
-                0x000000e4        0x4 LONG 0x10000008 ADDR (.bss)
-                0x000000e8        0x4 LONG 0x14c SIZEOF (.bss)
+                0x000000e4        0x4 LONG 0x1000000c ADDR (.bss)
+                0x000000e8        0x4 LONG 0x148 SIZEOF (.bss)
                 0x000000ec        0x4 LONG 0x2007c000 ADDR (.bss_RAM2)
                 0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
                 0x000000f4                __bss_section_table_end = .
@@ -202,60 +202,60 @@ END GROUP
  .text.NVIC_EnableIRQ
                 0x000004dc       0x38 ./src/UART.o
  .text.UART3_IRQHandler
-                0x00000514      0x1a4 ./src/UART.o
+                0x00000514      0x1ac ./src/UART.o
                 0x00000514                UART3_IRQHandler
  .text.init_uart3
-                0x000006b8      0x13c ./src/UART.o
-                0x000006b8                init_uart3
+                0x000006c0      0x13c ./src/UART.o
+                0x000006c0                init_uart3
  .text.send_uart3
-                0x000007f4       0x60 ./src/UART.o
-                0x000007f4                send_uart3
+                0x000007fc       0x60 ./src/UART.o
+                0x000007fc                send_uart3
  .text.NVIC_EnableIRQ
-                0x00000854       0x38 ./src/main.o
- .text.main     0x0000088c      0x348 ./src/main.o
-                0x0000088c                main
+                0x0000085c       0x38 ./src/main.o
+ .text.main     0x00000894      0x444 ./src/main.o
+                0x00000894                main
  .text.SystemInit
-                0x00000bd4       0xe4 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x00000bd4                SystemInit
+                0x00000cd8       0xe4 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000cd8                SystemInit
  .text.__weak_main
-                0x00000cb8        0x4 c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
-                0x00000cb8                __weak_main
-                0x00000cb8                __main
- .text.strcmp   0x00000cbc       0x46 c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(strcmp.o)
-                0x00000cbc                strcmp
- .text.strcpy   0x00000d02       0x42 c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(strcpy.o)
-                0x00000d02                strcpy
- .text.strlen   0x00000d44       0x4e c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(strlen.o)
-                0x00000d44                strlen
+                0x00000dbc        0x4 c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(__weak__main.o)
+                0x00000dbc                __weak_main
+                0x00000dbc                __main
+ .text.strcmp   0x00000dc0       0x46 c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(strcmp.o)
+                0x00000dc0                strcmp
+ .text.strcpy   0x00000e06       0x42 c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(strcpy.o)
+                0x00000e06                strcpy
+ .text.strlen   0x00000e48       0x4e c:/nxp/lpcxpresso_4.2.3_292/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libcr_c.a(strlen.o)
+                0x00000e48                strlen
  *(.rodata .rodata.*)
- *fill*         0x00000d92        0x2 00
- .rodata        0x00000d94        0x4 ./src/main.o
- .rodata.C.0.3251
-                0x00000d98        0x4 ./src/main.o
-                0x00000d9c                . = ALIGN (0x4)
+ *fill*         0x00000e96        0x2 00
+ .rodata        0x00000e98        0xc ./src/main.o
+ .rodata.C.0.3252
+                0x00000ea4        0x4 ./src/main.o
+                0x00000ea8                . = ALIGN (0x4)
 
-.glue_7         0x00000d9c        0x0
+.glue_7         0x00000ea8        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x00000d9c        0x0
+.glue_7t        0x00000ea8        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x00000d9c        0x0
+.vfp11_veneer   0x00000ea8        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x00000d9c        0x0
+.v4_bx          0x00000ea8        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000d9c                __exidx_start = .
+                0x00000ea8                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00000d9c                __exidx_end = .
-                0x00000d9c                _etext = .
+                0x00000ea8                __exidx_end = .
+                0x00000ea8                _etext = .
 
-.data_RAM2      0x2007c000        0x0 load address 0x00000d9c
+.data_RAM2      0x2007c000        0x0 load address 0x00000ea8
  FILL mask 0xff
  *(.data.$RAM2*)
  *(.data.$RamAHB32*)
@@ -264,7 +264,7 @@ END GROUP
 .uninit_RESERVED
  *(.bss.$RESERVED*)
 
-.data           0x10000000        0x8 load address 0x00000d9c
+.data           0x10000000        0xc load address 0x00000ea8
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -273,24 +273,26 @@ END GROUP
                 0x10000000        0x1 ./src/UART.o
                 0x10000000                UART3TxEmpty
  *fill*         0x10000001        0x3 00
+ .data.validation
+                0x10000004        0x4 ./src/main.o
+                0x10000004                validation
  .data.SystemCoreClock
-                0x10000004        0x4 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x10000004                SystemCoreClock
-                0x10000008                . = ALIGN (0x4)
-                0x10000008                _edata = .
+                0x10000008        0x4 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x10000008                SystemCoreClock
+                0x1000000c                . = ALIGN (0x4)
+                0x1000000c                _edata = .
 
 .bss_RAM2       0x2007c000        0x0
  *(.bss.$RAM2*)
  *(.bss.$RamAHB32*)
                 0x2007c000                . = ALIGN (0x4)
 
-.bss            0x10000008      0x14c
-                0x10000008                _bss = .
+.bss            0x1000000c      0x148
+                0x1000000c                _bss = .
  *(.bss*)
  .bss.UART3Count
-                0x10000008        0x4 ./src/UART.o
-                0x10000008                UART3Count
- .bss.i.2382    0x1000000c        0x4 ./src/main.o
+                0x1000000c        0x4 ./src/UART.o
+                0x1000000c                UART3Count
  *(COMMON)
  COMMON         0x10000010       0x44 ./src/UART.o
                 0x10000010                UART3Status
@@ -315,25 +317,25 @@ OUTPUT(test_project.axf elf32-littlearm)
  .debug_abbrev  0x000005c4       0x16 ./src/watchdog.o
  .debug_abbrev  0x000005da       0xe3 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_info     0x00000000     0x21d6
+.debug_info     0x00000000     0x2200
  .debug_info    0x00000000      0x6db ./src/ADC.o
  .debug_info    0x000006db       0x29 ./src/EEPROM.o
  .debug_info    0x00000704       0x29 ./src/PWM.o
- .debug_info    0x0000072d      0xb22 ./src/UART.o
- .debug_info    0x0000124f      0x2e3 ./src/cr_startup_lpc176x.o
- .debug_info    0x00001532      0x8ec ./src/main.o
- .debug_info    0x00001e1e       0x29 ./src/watchdog.o
- .debug_info    0x00001e47      0x38f C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_info    0x0000072d      0xb3c ./src/UART.o
+ .debug_info    0x00001269      0x2e3 ./src/cr_startup_lpc176x.o
+ .debug_info    0x0000154c      0x8fc ./src/main.o
+ .debug_info    0x00001e48       0x29 ./src/watchdog.o
+ .debug_info    0x00001e71      0x38f C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_line     0x00000000     0x1562
+.debug_line     0x00000000     0x1583
  .debug_line    0x00000000      0x407 ./src/ADC.o
  .debug_line    0x00000407       0x30 ./src/EEPROM.o
  .debug_line    0x00000437       0x2d ./src/PWM.o
  .debug_line    0x00000464      0x461 ./src/UART.o
  .debug_line    0x000008c5      0x3d7 ./src/cr_startup_lpc176x.o
- .debug_line    0x00000c9c      0x4c1 ./src/main.o
- .debug_line    0x0000115d       0x32 ./src/watchdog.o
- .debug_line    0x0000118f      0x3d3 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x00000c9c      0x4e2 ./src/main.o
+ .debug_line    0x0000117e       0x32 ./src/watchdog.o
+ .debug_line    0x000011b0      0x3d3 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
 .debug_macinfo  0x00000000    0x25c87
  .debug_macinfo
@@ -361,7 +363,7 @@ OUTPUT(test_project.axf elf32-littlearm)
  .debug_loc     0x000003a6       0x20 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
 .debug_pubnames
-                0x00000000      0x278
+                0x00000000      0x287
  .debug_pubnames
                 0x00000000       0x5a ./src/ADC.o
  .debug_pubnames
@@ -369,9 +371,9 @@ OUTPUT(test_project.axf elf32-littlearm)
  .debug_pubnames
                 0x000000df      0x115 ./src/cr_startup_lpc176x.o
  .debug_pubnames
-                0x000001f4       0x35 ./src/main.o
+                0x000001f4       0x44 ./src/main.o
  .debug_pubnames
-                0x00000229       0x4f C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000238       0x4f C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
 .debug_pubtypes
                 0x00000000      0x1f5
@@ -405,22 +407,22 @@ OUTPUT(test_project.axf elf32-littlearm)
  .debug_ranges  0x000000b8       0x18 ./src/main.o
  .debug_ranges  0x000000d0       0x18 C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_str      0x00000000      0xa9f
+.debug_str      0x00000000      0xaaa
  .debug_str     0x00000000      0x403 ./src/ADC.o
                                 0x42d (size before relaxing)
  .debug_str     0x00000403       0x10 ./src/EEPROM.o
                                  0x67 (size before relaxing)
  .debug_str     0x00000413        0xd ./src/PWM.o
                                  0x64 (size before relaxing)
- .debug_str     0x00000420      0x2f9 ./src/UART.o
-                                0x66c (size before relaxing)
- .debug_str     0x00000719      0x177 ./src/cr_startup_lpc176x.o
+ .debug_str     0x00000420      0x304 ./src/UART.o
+                                0x677 (size before relaxing)
+ .debug_str     0x00000724      0x177 ./src/cr_startup_lpc176x.o
                                 0x24d (size before relaxing)
- .debug_str     0x00000890      0x173 ./src/main.o
-                                0x607 (size before relaxing)
- .debug_str     0x00000a03       0x12 ./src/watchdog.o
+ .debug_str     0x0000089b      0x173 ./src/main.o
+                                0x612 (size before relaxing)
+ .debug_str     0x00000a0e       0x12 ./src/watchdog.o
                                  0x69 (size before relaxing)
- .debug_str     0x00000a15       0x8a C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_str     0x00000a20       0x8a C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
                                 0x287 (size before relaxing)
 
 .comment        0x00000000       0x2a

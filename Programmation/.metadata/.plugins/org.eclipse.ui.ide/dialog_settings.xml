@@ -15,10 +15,10 @@
 		<item value="335" key="DIALOG_Y_ORIGIN"/>
 		<item value="619" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="ExternalProjectImportWizard">
+	</section>
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">
 		</list>
-	</section>
-	<section name="ExternalProjectImportWizard">
 	</section>
 </section>

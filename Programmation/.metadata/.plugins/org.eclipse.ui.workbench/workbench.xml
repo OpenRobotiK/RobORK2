@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="21" version="2.0">
+<workbench progressCount="24" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="160" y="160">
-<fastViewData fastViewLocation="1024"/>
+<window height="768" maximized="true" width="1024" x="-8" y="0">
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.ui.console.ConsoleView"/>
+</fastViewData>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
@@ -37,39 +39,26 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.c" partName="main.c" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/main.c" title="main.c" tooltip="test_project/src/main.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2152" selectionTopPixel="1088"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ADC.c" partName="ADC.c" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/ADC.c" title="ADC.c" tooltip="test_project/src/ADC.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/ADC.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2687" selectionTopPixel="1309"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="ADC.h" partName="ADC.h" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/ADC.h" title="ADC.h" tooltip="test_project/src/ADC.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/ADC.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="31" selectionOffset="1134" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="UART.h" partName="UART.h" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/UART.h" title="UART.h" tooltip="test_project/src/UART.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/UART.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="236" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2517" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="UART.c" partName="UART.c" path="C:/Users/Florent/Documents/GitHub/RobORK2/Programmation/test_project/src/UART.c" title="UART.c" tooltip="test_project/src/UART.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test_project/src/UART.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1311" selectionTopPixel="340"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3666" selectionTopPixel="1360"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
 <viewState CommonNavigator.LINKING_ENABLED="1" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.cview.groupmacros="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
 </view>
-<view id="com.crt.redtracepreview.views.Preview" partName="Red Trace Preview"/>
+<view id="com.crt.redtracepreview.views.Preview" partName="Red Trace Preview">
+<viewState/>
+</view>
 <view id="com.crt.quickstart.views.QuickstartView" partName="Quickstart Panel">
 <viewState/>
 </view>
@@ -81,8 +70,9 @@
 <expanded>
 <category IMemento.internal.id="Errors"/>
 <category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Infos"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="84" org.eclipse.ui.ide.markerType="124" org.eclipse.ui.ide.pathField="164" org.eclipse.ui.ide.resourceField="124" org.eclipse.ui.ide.severityAndDescriptionField="400"/>
+<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="527"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -95,8 +85,12 @@
 </view>
 <view id="com.crt.trueview.views.PeripheralsViewer" partName="Peripherals"/>
 <view id="com.crt.trueview.views.CRTRegisterViewer" partName="Core Registers"/>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints"/>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables"/>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
 </views>
 <perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="com.crt.lite.perspective.CRTPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
@@ -118,16 +112,16 @@
 <show_view_action id="org.eclipse.cdt.ui.includeBrowser"/>
 <perspective_action id="org.eclipse.team.ui.TeamSynchronizingPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.debug.ui.MemoryView"/>
+<view id="com.crt.redtracepreview.views.Preview"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="com.crt.trueview.views.CRTRegisterViewer"/>
 <view id="com.crt.trueview.views.PeripheralsViewer"/>
 <view id="com.crt.quickstart.views.QuickstartView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="org.eclipse.ui.views.ProblemView"/>
-<view id="org.eclipse.debug.ui.MemoryView"/>
-<view id="com.crt.redtracepreview.views.Preview"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
@@ -159,13 +153,15 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.27626458" ratioLeft="284" ratioRight="744" relationship="4" relative="top"/>
-<info folder="true" part="consoleEtc" ratio="0.67412454" ratioLeft="693" ratioRight="335" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="consoleEtc" ratio="0.64437366" ratioLeft="607" ratioRight="335" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="Memory"/>
 <page content="com.crt.redtracepreview.views.Preview" label="Red Trace Preview"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.MemoryView:org.eclipse.debug.ui.MemoryView.0" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -178,7 +174,7 @@
 <folder appearance="2" expanded="2"/>
 </info>
 <info folder="true" part="bottomLeft" ratio="0.49914822" ratioLeft="293" ratioRight="294" relationship="4" relative="topLeft">
-<folder activePageID="com.crt.quickstart.views.QuickstartView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
 <page content="com.crt.quickstart.views.QuickstartView" label="Quickstart Panel"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
@@ -199,159 +195,160 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/ADC.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/UART.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/UART.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/ADC.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/UART.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/main.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/test_project/src/ADC.h"/>
 </editors>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1622" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position/>
-</item>
-<item historyLabel="UART.h" index="3">
-<position info="not_deleted" x="713" y="54"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1622" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1466" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="384" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1622" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1641" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1466" y="0"/>
-</item>
-<item historyLabel="ADC.c" index="1">
-<position info="not_deleted" x="5990" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1466" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1598" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1203" y="0"/>
-</item>
-<item historyLabel="ADC.c" index="1">
-<position info="not_deleted" x="2687" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1601" y="19"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1306" y="0"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1538" y="0"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="431" y="0"/>
-</item>
-<item historyLabel="main.c" index="0">
-<position info="not_deleted" x="1306" y="0"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="431" y="0"/>
-</item>
-<item historyLabel="ADC.c" index="4">
-<position info="not_deleted" x="2687" y="0"/>
-</item>
-<item historyLabel="UART.c" index="2"/>
-<item historyLabel="UART.h" index="5">
-<position info="not_deleted" x="717" y="54"/>
-</item>
-<item historyLabel="UART.c" index="2"/>
-<item historyLabel="UART.h" index="5">
-<position info="not_deleted" x="717" y="54"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="1306" y="0"/>
-</item>
-<item historyLabel="ADC.h" index="7">
-<position info="not_deleted" x="1134" y="31"/>
-</item>
-<item historyLabel="UART.h" index="5">
-<position info="not_deleted" x="717" y="54"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="UART.h" index="5">
-<position/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1527" y="0"/>
-</item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1010" y="0"/>
-</item>
-<item historyLabel="UART.h" index="5">
+<item historyLabel="UART.h" index="2">
 <position info="not_deleted" x="236" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1010" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3691" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1476" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="875" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1448" y="1"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1913" y="22"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1440" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1676" y="1"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1448" y="1"/>
+<item historyLabel="main.c" index="0">
+<position/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1438" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1600" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1475" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1425" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1575" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1364" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2236" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1523" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1436" y="0"/>
 </item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="1306" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
 </item>
-<item historyLabel="main.c" index="6">
-<position info="not_deleted" x="2152" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1399" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1523" y="0"/>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
 </item>
-<item historyLabel="UART.c" index="2">
-<position info="not_deleted" x="1311" y="0"/>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1399" y="0"/>
 </item>
-<item active="true" historyLabel="main.c" index="6">
-<position info="not_deleted" x="2152" y="0"/>
+<item historyLabel="ADC.c" index="3">
+<position info="not_deleted" x="2687" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="236" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
+</item>
+<item historyLabel="ADC.h" index="4">
+<position info="not_deleted" x="1134" y="31"/>
+</item>
+<item historyLabel="ADC.c" index="3">
+<position info="not_deleted" x="2687" y="0"/>
+</item>
+<item historyLabel="ADC.h" index="4">
+<position info="not_deleted" x="1134" y="31"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
+</item>
+<item historyLabel="UART.h" index="2">
+<position info="not_deleted" x="236" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="1432" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1863" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1911" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1871" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="875" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1871" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1890" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1913" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1937" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1960" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1980" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2003" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2022" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2043" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2061" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2095" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2130" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2164" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2195" y="0"/>
+</item>
+<item historyLabel="UART.c" index="1">
+<position info="not_deleted" x="3666" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2218" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="2609" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1816" y="0"/>
+</item>
+<item historyLabel="main.c" index="0">
+<position info="not_deleted" x="1871" y="17"/>
+</item>
+<item active="true" historyLabel="main.c" index="0">
+<position info="not_deleted" x="2558" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -359,6 +356,14 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="topLeft"/>
+<trimItem IMemento.internal.id="bottomLeft"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="top"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>

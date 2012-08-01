@@ -25,6 +25,7 @@ volatile uint8_t UART3Buffer[BUFSIZE];
 volatile uint32_t UART3Count = 0;
 
 extern char commande[255];
+extern int validation;
 
 /**
  * \fn void UART3_IRQHandler (void)
@@ -52,23 +53,31 @@ void UART3_IRQHandler (void)
 	/***	echo uart ***********************************/
 		uint8_t buf[1]={UART3Buffer[UART3Count-1]};
 		send_uart3(buf, 1 );
-		/***	fin echo uart********************************/
+	/***	fin echo uart********************************/
+
+
 	if( UART3Buffer[UART3Count-1] == (uint8_t)'\n' || UART3Buffer[UART3Count-1] == (uint8_t)'\r' )
 	{
 		UART3Buffer[UART3Count-1] = '\0';	// ajoute le caratere de fin de chaine
+		//uint8_t buf[1]={'\n'};
+		//send_uart3(buf, 1 );
+		validation=1;
 		strcpy(commande,(char*)UART3Buffer);
-		int i = 0;
+		int i;
 		for(i = 0; i == strlen((char*)UART3Buffer); i++)
 		{
 			UART3Buffer[i] = 0x00;
 		}
 		UART3Count = 0;		/* buffer overflow */
 	}
+
 	if ( UART3Count == BUFSIZE )
 	{
 	  UART3Count = 0;		/* buffer overflow */
 	}
+
   }
+
 
   else if ( IIRValue == IIR_THRE )	/* THRE, transmit holding register empty */
   {

@@ -2,10 +2,10 @@
 **** Build of configuration Debug for project test_project ****
 
 make all 
-Building file: ../src/UART.c
+Building file: ../src/main.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__USE_CMSIS_DSPLIB=CMSISv2p00_DSPLIB_CM3 -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\inc" -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_DSPLIB_CM3\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/UART.d" -MT"src/UART.d" -o"src/UART.o" "../src/UART.c"
-Finished building: ../src/UART.c
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -D__USE_CMSIS_DSPLIB=CMSISv2p00_DSPLIB_CM3 -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_LPC17xx\inc" -I"C:\Users\Florent\Documents\GitHub\RobORK2\Programmation\CMSISv2p00_DSPLIB_CM3\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o"src/main.o" "../src/main.c"
+Finished building: ../src/main.c
  
 Building target: test_project.axf
 Invoking: MCU Linker
@@ -16,5 +16,5 @@ make --no-print-directory post-build
 Performing post-build steps
 arm-none-eabi-size "test_project.axf"; # arm-none-eabi-objcopy -O binary "test_project.axf" "test_project.bin" ; checksum -p LPC1769 -d "test_project.bin";
    text	   data	    bss	    dec	    hex	filename
-   3484	      8	    332	   3824	    ef0	test_project.axf
+   3752	     12	    328	   4092	    ffc	test_project.axf
  

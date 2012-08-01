@@ -662,3 +662,41 @@ HandlerActivation(commandId=org.eclipse.ui.file.refresh,
 HandlerActivation(commandId=org.eclipse.ui.file.refresh,
 	handler=ActionHandler(org.eclipse.ui.internal.editors.text.RefreshEditorAction@15b4432),
 	expression=AndExpression(LegacyEditorActionBarExpression(org.eclipse.cdt.ui.editor.CEditor),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@15151aa)),sourcePriority=4210689)
+!SESSION 2012-08-01 11:04:54.087 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.crt.log 1 0 2012-08-01 11:06:55.463
+!MESSAGE Drivers loaded in 9629 milliseconds
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2012-08-01 11:16:13.974
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:188)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:136)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:326)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:100)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:791)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:46)
+
+!ENTRY org.eclipse.cdt.debug.mi.core 4 42 2012-08-01 12:00:31.716
+!MESSAGE Internal Error
+!STACK 0
+org.eclipse.cdt.debug.mi.core.cdi.MI2CDIException: Inferior terminated[]
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.getMIShareds(SharedLibraryManager.java:123)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.updateState(SharedLibraryManager.java:188)
+	at org.eclipse.cdt.debug.mi.core.cdi.SharedLibraryManager.update(SharedLibraryManager.java:136)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.processSuspendedEvent(EventManager.java:326)
+	at org.eclipse.cdt.debug.mi.core.cdi.EventManager.update(EventManager.java:100)
+	at java.util.Observable.notifyObservers(Unknown Source)
+	at org.eclipse.cdt.debug.mi.core.MISession.notifyObservers(MISession.java:791)
+	at org.eclipse.cdt.debug.mi.core.EventThread.run(EventThread.java:46)
+
+!ENTRY org.eclipse.debug.core 4 125 2012-08-01 12:00:31.747
+!MESSAGE Inferior terminated
