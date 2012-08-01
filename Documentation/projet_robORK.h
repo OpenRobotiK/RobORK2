@@ -13,14 +13,12 @@
  *
  * 
  * \section deviceinfo Information sur le matériel
- * * <a href=" http://ics.nxp.com/support/documents/microcontrollers/pdf/lpcxpresso.getting.started.pdf ">\link Encodeur </a> \n
+ * * <a href="encoder-specification-ig32e-35k.pdf ">\link Encodeur </a> \n
  * * <a href="pont_en_h.pdf">\link Pont en H </a> \n
- * * <a href="datasheet\technical-drawing-data-ig32e-35k.pdf">\link Moteur </a> \n
- * * <a href="..\datasheet\DS_MM232R.pdf">\link Convertiseur UART </a> \n
- * * <a href="..\datasheet\lpcxpresso.lpc1769.schematic.pdf">\link Schema carte LPCXpresso </a> \n
- * * <a href="..\datasheet\UM10360.pdf">\link Datasheet Microcontroleur </a> \n
- * * <a href="http://ics.nxp.com/support/documents/microcontrollers/pdf/lpcxpresso.getting.started.pdf">\link test </a> \n
- * <a href="http://ics.nxp.com/support/documents/microcontrollers/pdf/lpcxpresso.getting.started.pdf">link text </a> 
+ * * <a href="technical-drawing-data-ig32e-35k.pdf">\link Moteur </a> \n
+ * * <a href="DS_MM232R.pdf">\link Convertiseur UART </a> \n
+ * * <a href="lpcxpresso.lpc1769.schematic.pdf">\link Schema carte LPCXpresso </a> \n
+ * * <a href="UM10360.pdf">\link Datasheet Microcontroleur </a> \n 
  *
  * \section codeinfo Information sur le code
  * Git : <a href=" https://github.com/OpenRobotiK/RobORK2 ">\link Code source </a>  \n
