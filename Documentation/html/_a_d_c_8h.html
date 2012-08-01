@@ -67,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Groupes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Groupes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,6 +82,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier ADC.h<div class="ingroups"><a class="el" href="group___a_d_c.html">ADC</a></div></div>  </div>
 </div><!--header-->
@@ -91,6 +94,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a href="#details">Plus de détails...</a></p>
 
 <p><a href="_a_d_c_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gad33c3e548a937f2ae48550fe37f0b0cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gad33c3e548a937f2ae48550fe37f0b0cd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_INTERRUPT_FLAG</b>&#160;&#160;&#160;0	/* 1 is interrupt driven, 0 is polling */</td></tr>
+<tr class="memitem:gaec50d58513f596be4b3a0aec3cc13985"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaec50d58513f596be4b3a0aec3cc13985"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BURST_MODE</b>&#160;&#160;&#160;0   /* Burst mode works in interrupt driven mode only. */</td></tr>
+<tr class="memitem:ga827907ee6183e98bb8a50727540d4bb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga827907ee6183e98bb8a50727540d4bb1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_OFFSET</b>&#160;&#160;&#160;0x10</td></tr>
+<tr class="memitem:ga1078be574c87c85ded20c65c0162be06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga1078be574c87c85ded20c65c0162be06"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_INDEX</b>&#160;&#160;&#160;4</td></tr>
+<tr class="memitem:gaf8f52b2b28d6053c0ee7bfa8bcb975b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaf8f52b2b28d6053c0ee7bfa8bcb975b0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_DONE</b>&#160;&#160;&#160;0x80000000</td></tr>
+<tr class="memitem:ga07e54d7e6531c9f31e46666f3e4a414a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga07e54d7e6531c9f31e46666f3e4a414a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_OVERRUN</b>&#160;&#160;&#160;0x40000000</td></tr>
+<tr class="memitem:ga15119259ccaa9ca245dadc074e5562ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga15119259ccaa9ca245dadc074e5562ab"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_ADINT</b>&#160;&#160;&#160;0x00010000</td></tr>
+<tr class="memitem:ga449255704cece03b7bbbf247359b6bbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga449255704cece03b7bbbf247359b6bbd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_NUM</b>&#160;&#160;&#160;8		/* for LPCxxxx */</td></tr>
+<tr class="memitem:ga44d38ab4d4e88e679184bbbffdac00dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga44d38ab4d4e88e679184bbbffdac00dd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ADC_CLK</b>&#160;&#160;&#160;1000000		/* set to 1Mhz */</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:gaaa00a1516978c018f1e0e4f1032fa7ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaaa00a1516978c018f1e0e4f1032fa7ba"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ADCInit</b> (uint32_t ADC_Clk)</td></tr>
+<tr class="memitem:ga742dd8a239d321bdedbf77f49face100"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga742dd8a239d321bdedbf77f49face100"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ADC0Read</b> (uint8_t channelNum)</td></tr>
+<tr class="memitem:ga4f548d0366105b4e7570c69cc72aa5b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga4f548d0366105b4e7570c69cc72aa5b1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ADCBurstRead</b> (void)</td></tr>
+</table>
 <a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p>ADC. </p>
 <dl class="section date"><dt>Date</dt><dd>Created: 13/07/2012 </dd></dl>
@@ -100,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Juillet 28 2012 16:35:28 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi Juillet 30 2012 23:45:48 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

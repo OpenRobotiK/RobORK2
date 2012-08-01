@@ -13,12 +13,13 @@
  *
  * 
  * \section deviceinfo Information sur le matériel
- * * <a href="..\datasheet\encoder-specification-ig32e-35k.pdf">\link Encodeur </a> \n
- * * <a href="..\datasheet\pont en h.pdf">\link Pont en H </a> \n
- * * <a href="..\datasheet\technical-drawing-data-ig32e-35k.pdf">\link Moteur </a> \n
- * * <a href="..\datasheet\DS_MM232R.pdf">\link Convertiseur UART </a> \n
- * * <a href="..\datasheet\lpcxpresso.lpc1769.schematic.pdf">\link Schema carte LPCXpresso </a> \n
- * * <a href="..\datasheet\UM10360.pdf">\link Datasheet Microcontroleur </a> \n
+ * * <a href=\encoder-specification-ig32e-35k.pdf>\link Encodeur </a> \n
+ * * <a href=\pont_en_h.pdf>\link Pont en H </a> \n
+ * * <a href=pont_en_h.pdf\> \link Text that appears to the user</a> \n
+ * * <a href=\technical-drawing-data-ig32e-35k.pdf>\link Moteur </a> \n
+ * * <a href=\DS_MM232R.pdf>\link Convertiseur UART </a> \n
+ * * <a href=\lpcxpresso.lpc1769.schematic.pdf>\link Schema carte LPCXpresso </a> \n
+ * * <a href=\UM10360.pdf>\link Datasheet Microcontroleur </a> \n
  *
  *
  * \section codeinfo Information sur le code
