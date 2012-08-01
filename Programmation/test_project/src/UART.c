@@ -101,7 +101,7 @@ void UART3_IRQHandler (void)
  * \fn uint32_t init_uart3(uint32_t baudrate )
  * \brief initialisation of UART 3
  *
- * \param void baudrate of UART 3
+ * \param baudrate of UART 3
  * \return return 1 if everything it's ok
  */
 uint32_t init_uart3(uint32_t baudrate )
