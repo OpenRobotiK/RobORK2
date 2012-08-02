@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 23/06/2012 17:31:21
+EESchema Schematic File Version 2  date jeu. 02 août 2012 18:06:57 CEST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -33,11 +33,11 @@ LIBS:test
 LIBS:robot 2013-cache
 EELAYER 25  0
 EELAYER END
-$Descr A4 11700 8267
+$Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "23 jun 2012"
+Date "2 aug 2012"
 Rev ""
 Comp ""
 Comment1 ""
@@ -102,10 +102,19 @@ $EndComp
 $Comp
 L VNH2SP30-E H?
 U 1 1 4FE5C95F
-P 4150 3400
-F 0 "H?" H 4500 2850 60  0000 C CNN
-F 1 "VNH2SP30-E" H 4450 3900 60  0000 C CNN
-	1    4150 3400
+P 5000 3100
+F 0 "H?" H 5350 2550 60  0000 C CNN
+F 1 "VNH2SP30-E" H 5300 3600 60  0000 C CNN
+	1    5000 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L LPCXPRESSO1769 U?
+U 1 1 501AD567
+P 3250 5300
+F 0 "U?" H 3250 5250 60  0000 C CNN
+F 1 "LPCXPRESSO1769" H 3250 5350 60  0000 C CNN
+	1    3250 5300
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
