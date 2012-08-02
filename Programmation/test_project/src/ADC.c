@@ -15,7 +15,7 @@
  */
 #include "LPC17xx.h"
 #include "type.h"
-#include "adc.h"
+#include "ADC.h"
 
 volatile uint32_t ADC0Value[ADC_NUM];
 volatile uint32_t ADC0IntDone = 0;
