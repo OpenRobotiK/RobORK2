@@ -1,0 +1,24 @@
+Cmp-Mod V01 Created by CvPcb (2011-nov-30)-testing date = sam. 06 oct. 2012 19:29:48 CEST
+
+BeginCmp
+TimeStamp = /50706378;
+Reference = D1;
+ValeurCmp = DIODESCH;
+IdModule  = D4;
+EndCmp
+
+BeginCmp
+TimeStamp = /507069AB;
+Reference = H1;
+ValeurCmp = VNH2SP30-E;
+IdModule  = MultiPowerSO-30;
+EndCmp
+
+BeginCmp
+TimeStamp = /5070620F;
+Reference = P1;
+ValeurCmp = CONN_10;
+IdModule  = SIL-10;
+EndCmp
+
+EndListe

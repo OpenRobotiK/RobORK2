@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date jeu. 02 août 2012 18:06:57 CEST
+EESchema Schematic File Version 2  date lun. 24 sept. 2012 19:35:56 CEST
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,6 +29,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
+LIBS:robot 2013-cache
 LIBS:test
 LIBS:robot 2013-cache
 EELAYER 25  0
@@ -37,7 +38,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "2 aug 2012"
+Date "20 sep 2012"
 Rev ""
 Comp ""
 Comment1 ""
@@ -66,10 +67,10 @@ $EndComp
 $Comp
 L CONNECTEUR_2_PIN U?
 U 1 1 4FE5E11B
-P 4600 1950
-F 0 "U?" H 4650 1900 60  0000 C CNN
-F 1 "CONNECTEUR_2_PIN" H 4500 1800 60  0000 C CNN
-	1    4600 1950
+P 4500 1700
+F 0 "U?" H 4550 1650 60  0000 C CNN
+F 1 "CONNECTEUR_2_PIN" H 4400 1550 60  0000 C CNN
+	1    4500 1700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -93,19 +94,19 @@ $EndComp
 $Comp
 L VNH2SP30-E H?
 U 1 1 4FE5C967
-P 6850 3400
-F 0 "H?" H 7200 2850 60  0000 C CNN
-F 1 "VNH2SP30-E" H 7150 3900 60  0000 C CNN
-	1    6850 3400
+P 7750 3050
+F 0 "H?" H 7750 3000 60  0000 C CNN
+F 1 "VNH2SP30-E" H 7750 3150 60  0000 C CNN
+	1    7750 3050
 	1    0    0    -1  
 $EndComp
 $Comp
 L VNH2SP30-E H?
 U 1 1 4FE5C95F
-P 5000 3100
-F 0 "H?" H 5350 2550 60  0000 C CNN
-F 1 "VNH2SP30-E" H 5300 3600 60  0000 C CNN
-	1    5000 3100
+P 5750 3050
+F 0 "H?" H 5700 3000 60  0000 C CNN
+F 1 "VNH2SP30-E" H 5750 3150 60  0000 C CNN
+	1    5750 3050
 	1    0    0    -1  
 $EndComp
 $Comp
