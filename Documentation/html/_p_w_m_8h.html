@@ -78,10 +78,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_5f087520e5b9959044409bc3e16208db.html">Programmation</a></li><li class="navelem"><a class="el" href="dir_0c161fb1eb22d3ab9a967a9f45929f3c.html">test_project</a></li><li class="navelem"><a class="el" href="dir_2bd777570f0907129ee4457d86091ca9.html">src</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_c8e28b16e3f893d332a4b5758137fe53.html">Programmation</a></li><li class="navelem"><a class="el" href="dir_0fab1c0c1bccc62457c3d0d6e2ab6b86.html">test_project</a></li><li class="navelem"><a class="el" href="dir_93fb68707b44607a41c34093452ebd2c.html">inc</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier PWM.h<div class="ingroups"><a class="el" href="group___p_w_m.html">PWM</a></div></div>  </div>
 </div><!--header-->
@@ -91,6 +94,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <a href="#details">Plus de détails...</a></p>
 
 <p><a href="_p_w_m_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga0c1ed12fbebf009f0c007a057685033d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0c1ed12fbebf009f0c007a057685033d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER_MATCH</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:ga3a6567e8be1ec5b7d053857152871926"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3a6567e8be1ec5b7d053857152871926"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TIME_INTERVALmS</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="memitem:ga847b99b287f7c6555ab0f1cb4ed52119"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga847b99b287f7c6555ab0f1cb4ed52119"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TIME_INTERVAL</b>&#160;&#160;&#160;(9000000/100 - 1)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:gadde208bf0ea8bb35d8606d3859219a40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadde208bf0ea8bb35d8606d3859219a40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delayMs</b> (uint8_t timer_num, uint32_t delayInMs)</td></tr>
+<tr class="memitem:ga69ab97ed024059c6fde662bb0553c549"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga69ab97ed024059c6fde662bb0553c549"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>init_timer</b> (uint8_t timer_num, uint32_t timerInterval)</td></tr>
+<tr class="memitem:ga420b2a113e42015fd52cda80bed4eb55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga420b2a113e42015fd52cda80bed4eb55"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>enable_timer</b> (uint8_t timer_num)</td></tr>
+<tr class="memitem:ga044c979827049d05e5c62f5384c9b0f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga044c979827049d05e5c62f5384c9b0f6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>disable_timer</b> (uint8_t timer_num)</td></tr>
+<tr class="memitem:gab853a6b2834192ebd3b26a4ea2dfae5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab853a6b2834192ebd3b26a4ea2dfae5e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_timer</b> (uint8_t timer_num)</td></tr>
+<tr class="memitem:ga5f89e5f7418d3a10f49b2faeab3711dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5f89e5f7418d3a10f49b2faeab3711dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER0_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:ga92d71bbc9344a6aaf8858148035f3f9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga92d71bbc9344a6aaf8858148035f3f9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER1_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:ga12c8b827e5eab9d3f93d56f858e735a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga12c8b827e5eab9d3f93d56f858e735a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER2_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:gaafa0645ef8198bcee197a6966c48efd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaafa0645ef8198bcee197a6966c48efd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER3_IRQHandler</b> (void)</td></tr>
+</table>
 <a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p>PWM. </p>
 <dl class="section date"><dt>Date</dt><dd>Created: 13/07/2012 </dd></dl>
@@ -100,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Août 1 2012 19:59:30 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Octobre 14 2012 23:15:14 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -73,7 +73,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <div class="header">
   <div class="summary">
-<a href="#files">Fichiers</a>  </div>
+<a href="#files">Fichiers</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">PWM</div>  </div>
 <div class="ingroups"><a class="el" href="group__rob_o_r_k.html">RobORK</a></div></div><!--header-->
@@ -81,16 +84,81 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="files"></a>
 Fichiers</h2></td></tr>
-<tr class="memitem:_p_w_m_8c"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html">PWM.c</a></td></tr>
-<tr class="memdesc:_p_w_m_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM. <br/></td></tr>
 <tr class="memitem:_p_w_m_8h"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8h.html">PWM.h</a></td></tr>
 <tr class="memdesc:_p_w_m_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM. <br/></td></tr>
+<tr class="memitem:_p_w_m_8c"><td class="memItemLeft" align="right" valign="top">fichier &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_p_w_m_8c.html">PWM.c</a></td></tr>
+<tr class="memdesc:_p_w_m_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga0c1ed12fbebf009f0c007a057685033d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0c1ed12fbebf009f0c007a057685033d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER_MATCH</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:ga3a6567e8be1ec5b7d053857152871926"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3a6567e8be1ec5b7d053857152871926"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TIME_INTERVALmS</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="memitem:ga847b99b287f7c6555ab0f1cb4ed52119"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga847b99b287f7c6555ab0f1cb4ed52119"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>TIME_INTERVAL</b>&#160;&#160;&#160;(9000000/100 - 1)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:gadde208bf0ea8bb35d8606d3859219a40"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gadde208bf0ea8bb35d8606d3859219a40"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>delayMs</b> (uint8_t timer_num, uint32_t delayInMs)</td></tr>
+<tr class="memitem:ga69ab97ed024059c6fde662bb0553c549"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga69ab97ed024059c6fde662bb0553c549"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>init_timer</b> (uint8_t timer_num, uint32_t timerInterval)</td></tr>
+<tr class="memitem:ga420b2a113e42015fd52cda80bed4eb55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga420b2a113e42015fd52cda80bed4eb55"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>enable_timer</b> (uint8_t timer_num)</td></tr>
+<tr class="memitem:ga044c979827049d05e5c62f5384c9b0f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga044c979827049d05e5c62f5384c9b0f6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>disable_timer</b> (uint8_t timer_num)</td></tr>
+<tr class="memitem:gab853a6b2834192ebd3b26a4ea2dfae5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gab853a6b2834192ebd3b26a4ea2dfae5e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset_timer</b> (uint8_t timer_num)</td></tr>
+<tr class="memitem:ga5f89e5f7418d3a10f49b2faeab3711dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5f89e5f7418d3a10f49b2faeab3711dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER0_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:ga92d71bbc9344a6aaf8858148035f3f9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga92d71bbc9344a6aaf8858148035f3f9d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER1_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:ga12c8b827e5eab9d3f93d56f858e735a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga12c8b827e5eab9d3f93d56f858e735a3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER2_IRQHandler</b> (void)</td></tr>
+<tr class="memitem:gaafa0645ef8198bcee197a6966c48efd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaafa0645ef8198bcee197a6966c48efd8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>TIMER3_IRQHandler</b> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga8715cfd4a4dc3dec5d1af43e6567176e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8715cfd4a4dc3dec5d1af43e6567176e"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer0_m0_counter</b> = 0</td></tr>
+<tr class="memitem:gae665284b4afb519bef2b2ebc034c6a18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae665284b4afb519bef2b2ebc034c6a18"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer1_m0_counter</b> = 0</td></tr>
+<tr class="memitem:ga28c88ca013b82e11d5e5ee5c43b66893"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga28c88ca013b82e11d5e5ee5c43b66893"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer2_m0_counter</b> = 0</td></tr>
+<tr class="memitem:ga8e306943bd944d7b31544e7fedfbc5f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8e306943bd944d7b31544e7fedfbc5f5"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer3_m0_counter</b> = 0</td></tr>
+<tr class="memitem:ga38272f5e530910cd04a91b341ed8d87a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga38272f5e530910cd04a91b341ed8d87a"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer0_m1_counter</b> = 0</td></tr>
+<tr class="memitem:ga70c22df0f7c10bf855cd0d940ea0daa2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga70c22df0f7c10bf855cd0d940ea0daa2"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer1_m1_counter</b> = 0</td></tr>
+<tr class="memitem:gacecda56f17dcf36e87817bcac9ac7145"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacecda56f17dcf36e87817bcac9ac7145"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer2_m1_counter</b> = 0</td></tr>
+<tr class="memitem:ga92accf9fb8a4ede39665360dc721b5c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga92accf9fb8a4ede39665360dc721b5c5"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer3_m1_counter</b> = 0</td></tr>
+<tr class="memitem:ga3296144fcf9edaf494868a0bcb8cae7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3296144fcf9edaf494868a0bcb8cae7d"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer0_capture0</b> = 0</td></tr>
+<tr class="memitem:ga77393c5d24e06ad93b66b594c68c9c6c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga77393c5d24e06ad93b66b594c68c9c6c"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer1_capture0</b> = 0</td></tr>
+<tr class="memitem:gacb478ed92f0a6589517fbe8ea75011c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gacb478ed92f0a6589517fbe8ea75011c0"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer2_capture0</b> = 0</td></tr>
+<tr class="memitem:gaa1a9f96e6ac10a0480857e664d70ff8a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gaa1a9f96e6ac10a0480857e664d70ff8a"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer3_capture0</b> = 0</td></tr>
+<tr class="memitem:ga8c066dd0e3c2e587d0f237797d72c398"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga8c066dd0e3c2e587d0f237797d72c398"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer0_capture1</b> = 0</td></tr>
+<tr class="memitem:ga26f7dd74b02a00b0ed631c5e9696a15e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga26f7dd74b02a00b0ed631c5e9696a15e"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer1_capture1</b> = 0</td></tr>
+<tr class="memitem:gade2f5a50ed1cd7e9f75e2da69719ea4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gade2f5a50ed1cd7e9f75e2da69719ea4c"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer2_capture1</b> = 0</td></tr>
+<tr class="memitem:ga16451fb857e988a3c600689f22823a10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga16451fb857e988a3c600689f22823a10"></a>
+volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer3_capture1</b> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2>Description détaillée</h2>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mercredi Août 1 2012 19:59:30 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Dimanche Octobre 14 2012 23:15:14 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
