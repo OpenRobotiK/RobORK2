@@ -1,0 +1,45 @@
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 12/10/2012 19:32:58
+
+BeginCmp
+TimeStamp = /50706378;
+Reference = D1;
+ValeurCmp = DIODESCH;
+IdModule  = D4;
+EndCmp
+
+BeginCmp
+TimeStamp = /507069AB;
+Reference = H1;
+ValeurCmp = VNH2SP30-E;
+IdModule  = MultiPowerSO-30;
+EndCmp
+
+BeginCmp
+TimeStamp = /507845E2;
+Reference = P1;
+ValeurCmp = CONN_2;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /507845CF;
+Reference = P2;
+ValeurCmp = CONN_2;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /50784F9C;
+Reference = P3;
+ValeurCmp = CONN_5;
+IdModule  = SIL-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /50784EF5;
+Reference = R1;
+ValeurCmp = 3k3;
+IdModule  = R3;
+EndCmp
+
+EndListe

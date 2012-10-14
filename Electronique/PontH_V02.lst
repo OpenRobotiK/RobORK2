@@ -1,0 +1,21 @@
+eeschema (2012-01-19 BZR 3256)-stable  >> Creation date: 12/10/2012 19:31:03
+
+#Cmp ( ordre = Référence )
+| D1         DIODESCH    
+| H1         VNH2SP30-E  
+| P1         CONN_2      
+| P2         CONN_2      
+| P3         CONN_5      
+| R1         3k3         
+#End Cmp
+
+#Cmp ( ordre = Valeur )
+| 3k3          R1        
+| CONN_2       P1        
+| CONN_2       P2        
+| CONN_5       P3        
+| DIODESCH     D1        
+| VNH2SP30-E   H1        
+#End Cmp
+
+#End List

@@ -1,0 +1,125 @@
+# EESchema Netlist Version 1.1 created  12/10/2012 19:38:53
+(
+ ( /50784F9C $noname  P3 CONN_5 {Lib=CONN_5}
+  (    1 /INb )
+  (    2 /DIAGab )
+  (    3 /cs )
+  (    4 /PWM )
+  (    5 /INa )
+ )
+ ( /50784EF5 $noname  R1 3k3 {Lib=R}
+  (    1 /Vcc )
+  (    2 /DIAGab )
+ )
+ ( /507845E2 $noname  P1 CONN_2 {Lib=CONN_2}
+  (    1 /Vcc )
+  (    2 GND )
+ )
+ ( /507845CF $noname  P2 CONN_2 {Lib=CONN_2}
+  (    1 /outa )
+  (    2 /outb )
+ )
+ ( /50706378 $noname  D1 DIODESCH {Lib=DIODESCH}
+  (    1 GND )
+  (    2 /Vcc )
+ )
+ ( /507069AB $noname  H1 VNH2SP30-E {Lib=VNH2SP30-E}
+  (    1 /outa )
+  (    2 ? )
+  (    3 /Vcc )
+  (    4 ? )
+  (    5 /INa )
+  (    6 /DIAGab )
+  (    7 ? )
+  (    8 /PWM )
+  (    9 /cs )
+  (   10 /DIAGab )
+  (   11 /INb )
+  (   12 ? )
+  (   13 /Vcc )
+  (   14 ? )
+  (   15 /outb )
+  (   16 /outb )
+  (   17 ? )
+  (   18 GND )
+  (   19 GND )
+  (   20 GND )
+  (   21 /outb )
+  (   22 ? )
+  (   23 /Vcc )
+  (   24 ? )
+  (   25 /outa )
+  (   26 GND )
+  (   27 GND )
+  (   28 GND )
+  (   29 ? )
+  (   30 /outa )
+  (   31 /Vcc )
+  (   32 /outa )
+  (   33 /outb )
+ )
+)
+*
+{ Allowed footprints by component:
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component D1
+ D?
+ S*
+$endlist
+$endfootprintlist
+}
+{ Pin List by Nets
+Net 3 "/outa" "outa"
+ H1 30
+ H1 32
+ H1 25
+ P2 1
+ H1 1
+Net 4 "GND" "GND"
+ H1 18
+ H1 20
+ H1 26
+ H1 27
+ H1 19
+ H1 28
+ D1 1
+ P1 2
+Net 6 "/Vcc" "Vcc"
+ H1 31
+ P1 1
+ R1 1
+ H1 23
+ H1 13
+ D1 2
+ H1 3
+Net 7 "/DIAGab" "DIAGab"
+ H1 6
+ P3 2
+ H1 10
+ R1 2
+Net 8 "/INa" "INa"
+ H1 5
+ P3 5
+Net 15 "/INb" "INb"
+ H1 11
+ P3 1
+Net 16 "/cs" "cs"
+ H1 9
+ P3 3
+Net 17 "/PWM" "PWM"
+ P3 4
+ H1 8
+Net 19 "/outb" "outb"
+ H1 16
+ H1 15
+ P2 2
+ H1 33
+ H1 21
+}
+#End
