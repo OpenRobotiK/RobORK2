@@ -1,4 +1,11 @@
-Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 12/10/2012 19:32:58
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 14/10/2012 16:12:47
+
+BeginCmp
+TimeStamp = /507AC439;
+Reference = C1;
+ValeurCmp = CAPAPOL;
+IdModule  = Capa_polar;
+EndCmp
 
 BeginCmp
 TimeStamp = /50706378;
@@ -39,7 +46,7 @@ BeginCmp
 TimeStamp = /50784EF5;
 Reference = R1;
 ValeurCmp = 3k3;
-IdModule  = R3;
+IdModule  = R3-LARGE_PADS;
 EndCmp
 
 EndListe

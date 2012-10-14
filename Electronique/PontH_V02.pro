@@ -1,4 +1,4 @@
-update=12/10/2012 19:31:51
+update=14/10/2012 16:12:25
 version=1
 last_client=cvpcb
 [pcbnew]
@@ -70,6 +70,7 @@ LibName11=connecteur_2pin
 LibName12=connecteur_moteur
 LibName13=LPCXpresso1769
 LibName14=MulriPowerSO-30
+LibName15=Capa_polar
 LibDir=
 [general]
 version=1
@@ -140,6 +141,7 @@ LibName32=PontH_V01-cache
 LibName33=robot 2013-cache
 LibName34=test
 LibName35=vnh2sp30-e
+LibName36=PontH_V02-cache
 [cvpcb]
 version=1
 NetIExt=net

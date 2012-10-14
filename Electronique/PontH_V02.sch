@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date 12/10/2012 19:38:49
+EESchema Schematic File Version 2  date 14/10/2012 16:12:05
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -34,13 +34,14 @@ LIBS:PontH_V01-cache
 LIBS:robot 2013-cache
 LIBS:test
 LIBS:vnh2sp30-e
+LIBS:PontH_V02-cache
 EELAYER 25  0
 EELAYER END
 $Descr A4 11700 8267
 encoding utf-8
 Sheet 1 1
 Title ""
-Date "12 oct 2012"
+Date "14 oct 2012"
 Rev ""
 Comp ""
 Comment1 ""
@@ -48,6 +49,13 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
+Wire Wire Line
+	6100 2800 5800 2800
+Connection ~ 7350 2650
+Wire Wire Line
+	7350 2650 6900 2650
+Wire Wire Line
+	6900 2650 6900 2600
 Wire Wire Line
 	8350 2800 8750 2800
 Wire Wire Line
@@ -85,8 +93,6 @@ Wire Wire Line
 Connection ~ 6000 2800
 Connection ~ 5950 2800
 Connection ~ 5900 2800
-Wire Wire Line
-	5800 2800 6100 2800
 Connection ~ 6750 4000
 Connection ~ 6750 3900
 Wire Wire Line
@@ -120,7 +126,7 @@ Wire Wire Line
 Wire Wire Line
 	7350 2300 7350 2750
 Wire Wire Line
-	5950 2100 5950 2800
+	5950 2800 5950 2100
 Wire Wire Line
 	5150 3850 4200 3850
 Wire Wire Line
@@ -130,6 +136,18 @@ Wire Wire Line
 	8750 3000 8350 3000
 Wire Wire Line
 	8750 3200 8350 3200
+Wire Wire Line
+	6900 2200 6900 2100
+Connection ~ 6900 2100
+$Comp
+L CAPAPOL C1
+U 1 1 507AC439
+P 6900 2400
+F 0 "C1" H 6950 2500 50  0000 L CNN
+F 1 "CAPAPOL" H 6950 2300 50  0000 L CNN
+	1    6900 2400
+	1    0    0    -1  
+$EndComp
 Text Label 8350 2900 0    60   ~ 0
 DIAGab
 Text Label 4200 3300 0    60   ~ 0
