@@ -13,12 +13,12 @@
  *
  * 
  * \section deviceinfo Information sur le matériel
- * * <a href="encoder-specification-ig32e-35k.pdf ">\link Encodeur </a> \n
- * * <a href="pont_en_h.pdf">\link Pont en H </a> \n
- * * <a href="technical-drawing-data-ig32e-35k.pdf">\link Moteur </a> \n
- * * <a href="DS_MM232R.pdf">\link Convertiseur UART </a> \n
- * * <a href="lpcxpresso.lpc1769.schematic.pdf">\link Schema carte LPCXpresso </a> \n
- * * <a href="UM10360.pdf">\link Datasheet Microcontroleur </a> \n 
+ * * <a href="../datasheet/encoder-specification-ig32e-35k.pdf" TARGET="_blank">\link Encodeur </a> \n
+ * * <a href="../datasheet/pont_en_h.pdf" TARGET="_blank">\link Pont en H </a> \n
+ * * <a href="../datasheet/technical-drawing-data-ig32e-35k.pdf" TARGET="_blank">\link Moteur </a> \n
+ * * <a href="../datasheet/DS_MM232R.pdf" TARGET="_blank">\link Convertiseur UART </a> \n
+ * * <a href="../datasheet/lpcxpresso.lpc1769.schematic.pdf" TARGET="_blank">\link Schema carte LPCXpresso </a> \n
+ * * <a href="../datasheet/UM10360.pdf" TARGET="_blank">\link Datasheet Microcontroleur </a> \n 
  *
  * \section codeinfo Information sur le code
  * Git : <a href=" https://github.com/OpenRobotiK/RobORK2 ">\link Code source </a>  \n
@@ -117,7 +117,7 @@
  * Pour graver il faut mettre 3 volumes d'eau, puis 2 volumes d'acide et enfin 1 volume d'acide 
  * dans le récipient en plastique, puis plongé la plaque dans le mélange. Jusqu'a se qu'il n'y 
  * plus de cuivre visible. \n
- * <a href="../Image/plaque_gravé.JPG" TARGET="_blank" >\link image pcb gravé </a> \n 
+ * <a href="../Image/plaque_grave.JPG" TARGET="_blank" >\link image pcb gravé </a> \n 
  * <a href="../Image/plaque_vernis.JPG" TARGET="_blank" >\link image vernis </a> \n 
  * 
  * \section percage Le perçage
