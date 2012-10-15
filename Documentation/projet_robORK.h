@@ -28,6 +28,17 @@
  * * \ref PWM \n
  * * \ref UART \n
  * * \ref watchdog \n
+ *  
+ * \section electronique Electronique
+ * 
+ * <a href="../electronique/pont en H v2.1 miroir.pdf" TARGET="_blank">\link Carte pont en H </a> \n 
+ * \n
+ * \section mecanique Mecanique 
+ * Pour la partie mecanique nous avons utilisé une RepRap. \n
+ * \n
+ * <a href="../mecanique/Fixation_Moteur.STL" TARGET="_blank">\link Fixation moteur </a> \n
+ * \n
+ * 
  * 
  * \section comment_faire Comment faire ? 
  * \ref Grave_une_carte \n
@@ -69,8 +80,12 @@
  *\defgroup Florent Florent Lyphout
  * @{
  *\page Florent Florent Lyphout
- *
- *
+ * J'ai 24 ans, je viens d'un petit vilage à côté de Clermont-ferand. \n
+ * Je suis titulaire d'un diplôme d'ingénieur d'optronique de l'ENSSAT à Lannion.\n
+ * Actuellement je travail dans une PME de Lannion, IDIL Fibres Optiques, où je développe 
+ * des cartes électroniques et du soft pour contrôler des lasers ou des photodiodes.\n\n 
+ * Si vous avez des questions ou si vous voulez plus de renseignement vous pouvez me contacter à cette adresse :<a href="mailto:Lyphout.florent@gmail.com?subject=renseignement">\link Lyphout.florent@gmail.com </a>  \n
+ * 
  * 
  * \n\n
  *\section infodoc Information sur cette documentation
@@ -121,7 +136,7 @@
  * <a href="../Image/plaque_vernis.JPG" TARGET="_blank" >\link image vernis </a> \n 
  * 
  * \section percage Le perçage
- * 
+ * \n
  * \section soudure La soudure
  * \n\n
  *\section infodoc Information sur cette documentation
