@@ -18,7 +18,4 @@
 #define TRUE		1
 #define FALSE		0
 
-
-extern uint32_t pwmConfigured;
-
 #endif /* MAIN_H_ */

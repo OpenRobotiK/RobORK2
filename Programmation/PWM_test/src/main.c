@@ -24,12 +24,9 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 #include "pwm.h"
 
 
-uint32_t pwmConfigured = FALSE;
-
-
 int main(void) {
 
-	PWM_Init(PWM1);
+	PWM_Init(PWM1, 50);
 	PWM_Start(PWM1);
 
 	// Enter an infinite loop, just incrementing a counter
