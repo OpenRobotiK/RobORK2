@@ -42,7 +42,7 @@
 #define BUFSIZE		0x40
 
 uint32_t init_uart3(uint32_t baudrate );
-void send_uart3(uint8_t *BufferPtr, uint32_t Length );
+void send_uart3(char *BufferPtr, uint32_t Length );
 void UART3_IRQHandler (void);
 
 

@@ -51,7 +51,7 @@ void UART3_IRQHandler (void)
 	UART3Count++;
 
 	/***	echo uart ***********************************/
-		uint8_t buf[1]={UART3Buffer[UART3Count-1]};
+		char buf[1]={UART3Buffer[UART3Count-1]};
 		send_uart3(buf, 1 );
 	/***	fin echo uart********************************/
 
@@ -154,7 +154,7 @@ uint32_t init_uart3(uint32_t baudrate )
  * \param Length is the length of BufferPtr
  * \return None
  */
-void send_uart3(uint8_t *BufferPtr, uint32_t Length )
+void send_uart3(char *BufferPtr, uint32_t Length )
 {
     while ( Length != 0 )
     {

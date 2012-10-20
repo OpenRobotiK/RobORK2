@@ -41,11 +41,11 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 
 /// \brief à ajouter
 char commande[255];
-volatile int validation = 1;
+volatile int validation = 0;
 
 int main(void) {
 	
-
+	int i=0;
 
 	/********** mettre des leds a un **************/
 	LPC_PINCON->PINSEL0 = 0x00000000;
@@ -56,7 +56,7 @@ int main(void) {
 
 	/* test uart*/
 
-	uint8_t buff[3]={'a','b','\0'};
+	char buff[3]={'a','b','\0'};
 	init_uart3(9600);		//fonctionne
 	send_uart3(buff, 3 );	// fonctionne
 	//uart3 U3IER=1;
@@ -68,7 +68,7 @@ int main(void) {
 	/* test adc*/
 	int test = 0;
 	int millier,centaine,dixaine;
-	uint8_t buf[255];
+	char buf[255];
 	ADCInit(ADC_CLK);
 	test = ADC0Read(0);
 	millier=test/1000;
@@ -89,50 +89,67 @@ int main(void) {
 
 	// Enter an infinite loop, just incrementing a counter
 	//volatile static int i = 0 ;
-	while(1) {
+	while(1)
+	{
 
 
 		/*reprise de test ADC*/
-		if(strcmp(commande,"ADC")==0 && validation==1)
+		if (validation==1)
 		{
-			buf[0] = '\n';
-			send_uart3(buf,1);
-			test = ADC0Read(0);
-			millier=test/1000;
-			test=test%1000;
-			centaine=test/100;
-			test=test%100;
-			dixaine=test/10;
-			test=test%10;
-			buf[0]=(uint8_t)millier+0x30;
-			buf[1]=(uint8_t)centaine+0x30;
-			buf[2]=(uint8_t)dixaine+0x30;
-			buf[3]=(uint8_t)test+0x30;
-			send_uart3(buf,4);
-			validation = 0;
-		}
-		if(strcmp(commande,"test")==0 && validation==1)
-		{
-			buf[0] = '\n';
-			send_uart3(buf,1);
-			buf[0]='O';
-			buf[1]='k';
-			buf[2]=' ';
-			buf[3]='c';
-			buf[4]='\'';
-			buf[5]='e';
-			buf[6]='s';
-			buf[7]='t';
-			buf[8]=' ';
-			buf[9]='b';
-			buf[10]='o';
-			buf[11]='n';
-			send_uart3(buf,12);
-			validation = 0;
-		}
+			if(strcmp(commande,"ADC")==0 )
+			{
+				buf[0] = '\n';
+				send_uart3(buf,1);
+				test = ADC0Read(0);
+				millier=test/1000;
+				test=test%1000;
+				centaine=test/100;
+				test=test%100;
+				dixaine=test/10;
+				test=test%10;
+				buf[0]=(uint8_t)millier+0x30;
+				buf[1]=(uint8_t)centaine+0x30;
+				buf[2]=(uint8_t)dixaine+0x30;
+				buf[3]=(uint8_t)test+0x30;
+				send_uart3(buf,4);
+				validation = 0;
+			}
+			else if(strcmp(commande,"test")==0 )
+			{
+				send_uart3("OK c est bon\n\r",strlen("OK c est bon\n\r"));
 
-		/*fin test adc*/
+				validation = 0;
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+				while (validation==0){}
+				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
+				send_uart3(commande,strlen(commande));
+				send_uart3("\n\r\n\r",strlen("\n\r\n\r"));
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+			}
+			else if(strcmp(commande,"aa")==0 )
+			{
 
+				send_uart3("ca marche bien",strlen("ca marche bien"));
+				validation = 0;
+			}
+			else
+			{
+				send_uart3("Rien du tout\n\r",strlen("Rien du tout\n\r"));
+				validation = 0;
+			}
+
+			/*fin test adc*/
+			for (i=0;i==strlen(commande);i++)
+			{
+				commande[i]='\0';
+			}
+		}
 	}
 	return 0 ;
 }
