@@ -3,7 +3,10 @@
  *
  *\mainpage Projet Open RobotiK
  *\section intro Introduction
- * Dire pourquoi on fait ça \n
+ * Nous sommes une assosiation de loi 1901 qui a pour but de : \n
+ * La mutualisation et la diffusion de savoirs, autour de la robotique, grâce à des procédés open-sources 
+ * et open-hardware. La diffusion se fera via un site internet, et par la participation à des événements 
+ * publiques tel que la Coupe de France de Robotique ou Eurobot. \n
  *
  * \section membreinfo Information sur les membres
  * \subpage Mael \n
@@ -46,8 +49,8 @@
  *
  *
  *
- * \n\n\n\n\n\n\n\n\n
- * Date: 14/10/2012 \n 
+ * \n\n\n\n\n\n\n
+ * Date: 20/10/2012 \n 
  *\section infodoc Information sur cette documentation
  * Cette documentation a été générée avec \ref Doxywizard \n
  * @}
@@ -84,7 +87,7 @@
  * Je suis titulaire d'un diplôme d'ingénieur d'optronique de l'ENSSAT à Lannion.\n
  * Actuellement je travaille dans une PME de Lannion, IDIL Fibres Optiques, où je développe 
  * des cartes électroniques et du soft pour contrôler des lasers ou des photodiodes.\n\n 
- * Si vous avez des questions ou si vous voulez plus de renseignements vous pouvez me contacter à cette adresse : <a href="mailto:Lyphout.florent@gmail.com?subject=renseignement Open Robotik">\link Lyphout.florent@gmail.com </a>  \n
+ * Si vous avez des questions ou si vous voulez plus de renseignements vous pouvez me contacter à cette adresse : <a href="mailto:Lyphout.florent@gmail.com?subject=Renseignement Open Robotik">\link Lyphout.florent@gmail.com </a>  \n
  * 
  * 
  * \n\n
