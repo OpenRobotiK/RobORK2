@@ -26,6 +26,9 @@
 #include <string.h>
 #include "ADC.h"
 #include <stdio.h>
+#include "pwm.h"
+#include "main.h"
+#include <stdlib.h>
 
 #define Board_led_port LPC_GPIO0->FIOPIN
 #define Board_led_DIR LPC_GPIO0->FIODIR
@@ -43,21 +46,31 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char commande[255];
 volatile int validation = 0;
 
+uint32_t pwmConfigured=FALSE;
+uint32_t pwm1DutyCycle=0;
+
+
 int main(void) {
 	
 	int i=0;
 
+
 	/********** mettre des leds a un **************/
-	LPC_PINCON->PINSEL0 = 0x00000000;
+	/*LPC_PINCON->PINSEL0 = 0x00000000;
 	LPC_GPIO0->FIODIR = 0xFFFFFFFF;
 	LPC_GPIO0->FIOMASK = 0x00000000; // The mask^^
-	LPC_GPIO0->FIOSET |= (1<<8);//|(1<<8);
+	LPC_GPIO0->FIOSET |= (1<<8);//|(1<<8);*/
 
 
 	/* test uart*/
 
 	char buff[3]={'a','b','\0'};
+
+
 	init_uart3(9600);		//fonctionne
+	PWM_Init(PWM1,90);
+	PWM_Start(PWM1);
+
 	send_uart3(buff, 3 );	// fonctionne
 	//uart3 U3IER=1;
 	NVIC_EnableIRQ(UART3_IRQn);
@@ -125,6 +138,7 @@ int main(void) {
 				}
 				while (validation==0){}
 				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
+				PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_uart3(commande,strlen(commande));
 				send_uart3("\n\r\n\r",strlen("\n\r\n\r"));
 				for (i=0;i==strlen(commande);i++)
