@@ -44,6 +44,7 @@
 uint32_t init_uart3(uint32_t baudrate );
 void send_uart3(char *BufferPtr, uint32_t Length );
 void UART3_IRQHandler (void);
+void send_message(char *message);
 
 
 #endif /* end __UART_H */

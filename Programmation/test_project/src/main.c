@@ -46,8 +46,8 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char commande[255];
 volatile int validation = 0;
 
-uint32_t pwmConfigured=FALSE;
-uint32_t pwm1DutyCycle=0;
+uint32_t pwmConfigured = FALSE;
+uint32_t pwm1DutyCycle = 0;
 
 
 int main(void) {
@@ -64,14 +64,15 @@ int main(void) {
 
 	/* test uart*/
 
-	char buff[3]={'a','b','\0'};
+	//char buff[3]={'a','b','\0'};
 
 
+
+
+	//PWM_Init(PWM1,70);
+	//PWM_Start(PWM1);
 	init_uart3(9600);		//fonctionne
-	PWM_Init(PWM1,90);
-	PWM_Start(PWM1);
-
-	send_uart3(buff, 3 );	// fonctionne
+	//send_uart3(buff, 3 );	// fonctionne
 	//uart3 U3IER=1;
 	NVIC_EnableIRQ(UART3_IRQn);
 	UART3_IRQHandler();
@@ -79,10 +80,12 @@ int main(void) {
 	/*fin test uart*/
 
 	/* test adc*/
-	int test = 0;
-	int millier,centaine,dixaine;
 	char buf[255];
-	ADCInit(ADC_CLK);
+	int millier,centaine,dixaine;
+	int test = 0;
+
+
+	/*ADCInit(ADC_CLK);
 	test = ADC0Read(0);
 	millier=test/1000;
 	test=test%1000;
@@ -95,7 +98,7 @@ int main(void) {
 	buf[1]=(uint8_t)centaine+0x30;
 	buf[2]=(uint8_t)dixaine+0x30;
 	buf[3]=(uint8_t)test+0x30;
-	send_uart3(buf,4);
+	send_uart3(buf,4);*/
 
 	/* pause de ADC*/
 
@@ -129,7 +132,7 @@ int main(void) {
 			}
 			else if(strcmp(commande,"test")==0 )
 			{
-				send_uart3("OK c est bon\n\r",strlen("OK c est bon\n\r"));
+				send_message("\n\rOK c'est bon\n\r");
 
 				validation = 0;
 				for (i=0;i==strlen(commande);i++)
@@ -137,10 +140,10 @@ int main(void) {
 					commande[i]='\0';
 				}
 				while (validation==0){}
-				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
+				send_message("\n\r\n\r\t\t");
 				PWM_SetDutyCycle(PWM1,atoi(commande));
-				send_uart3(commande,strlen(commande));
-				send_uart3("\n\r\n\r",strlen("\n\r\n\r"));
+				send_message(commande);
+				send_message("\n\r\n\r");
 				for (i=0;i==strlen(commande);i++)
 				{
 					commande[i]='\0';
@@ -149,12 +152,12 @@ int main(void) {
 			else if(strcmp(commande,"aa")==0 )
 			{
 
-				send_uart3("ca marche bien",strlen("ca marche bien"));
+				send_message("\n\rca marche bien\n\r");
 				validation = 0;
 			}
 			else
 			{
-				send_uart3("Rien du tout\n\r",strlen("Rien du tout\n\r"));
+				send_message("\n\rRien du tout\n\r");
 				validation = 0;
 			}
 

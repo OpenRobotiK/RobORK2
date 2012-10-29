@@ -147,8 +147,8 @@ uint32_t init_uart3(uint32_t baudrate )
 
 
 /**
- * \fn void send_uart3(uint8_t *BufferPtr, uint32_t Length )
- * \brief initialisation of UART 3
+ * \fn void send_uart3(char *BufferPtr, uint32_t Length )
+ * \brief Send BufferPtr of UART 3
  *
  * \param BufferPtr is the word to send
  * \param Length is the length of BufferPtr
@@ -165,10 +165,20 @@ void send_uart3(char *BufferPtr, uint32_t Length )
 	  BufferPtr++;
 	  Length--;
 	}
-return;
+    return;
 }
 
-
+/**
+ * \fn void send_uart3(char *message)
+ * \brief Send message on UART 3
+ *
+ * \param message is the word to send
+ * \return None
+ */
+void send_message(char *message)
+{
+	send_uart3(message,strlen(message));
+}
 
 /**
  * @}
