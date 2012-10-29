@@ -28,7 +28,7 @@ void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle) {
 
 		LPC_PWM1->TCR |= TCR_RESET;	// Reset the counter.
 		LPC_PWM1->PR = 24; // The TC is incremented every PR+1 (25) cycles of PCLK_PWM.
-		LPC_PWM1->MCR |= 3 << 0; // Interrupt and reset when PWMTC matches PWMMR0.
+		LPC_PWM1->MCR |= 2 << 0; // Interrupt and reset when PWMTC matches PWMMR0.
 
 		LPC_PWM1->MR0 = 100; // We can control the pwm threw 100 steps
 
@@ -55,7 +55,7 @@ void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle) {
 
 	}
 
-	NVIC_EnableIRQ(PWM1_IRQn);
+	//NVIC_EnableIRQ(PWM1_IRQn);
 }
 
 
@@ -122,3 +122,10 @@ uint32_t PWM_GetDutyCycle(uint32_t pwmNum){
 
 	return FALSE;
 }
+
+
+void PWM1_IRQHandler (void)
+{
+	return;
+}
+

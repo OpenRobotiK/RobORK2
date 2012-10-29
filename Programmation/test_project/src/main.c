@@ -69,7 +69,11 @@ int main(void) {
 
 
 
-	//PWM_Init(PWM1,70);
+	PWM_Init(PWM1,90);
+
+	//PWM_SetDutyCycle(PWM1,30);
+	PWM_Start(PWM1);
+	//PWM_SetDutyCycle(PWM1,30);
 	//PWM_Start(PWM1);
 	init_uart3(9600);		//fonctionne
 	//send_uart3(buff, 3 );	// fonctionne
