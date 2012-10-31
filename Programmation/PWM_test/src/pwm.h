@@ -24,5 +24,6 @@ void PWM_Start(uint32_t pwmNum );
 void PWM_Stop(uint32_t pwmNum );
 void PWM_SetDutyCycle(uint32_t pwmNum, uint32_t newDutyCycle);
 uint32_t PWM_GetDutyCycle(uint32_t pwmNum);
+void PWM1_IRQHandler (void);
 
 #endif /* PWM_H_ */
