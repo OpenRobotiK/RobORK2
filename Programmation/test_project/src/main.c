@@ -26,7 +26,7 @@
 #include <string.h>
 #include "ADC.h"
 #include <stdio.h>
-#include "pwm.h"
+//#include "pwm.h"
 #include "main.h"
 #include <stdlib.h>
 
@@ -46,8 +46,13 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char commande[255];
 volatile int validation = 0;
 
+<<<<<<< HEAD
 uint32_t pwmConfigured = FALSE;
 uint32_t pwm1DutyCycle = 0;
+=======
+//uint32_t pwmConfigured=FALSE;
+//uint32_t pwm1DutyCycle=0;
+>>>>>>> Programmation
 
 
 int main(void) {
@@ -69,7 +74,13 @@ int main(void) {
 
 
 
+<<<<<<< HEAD
 	PWM_Init(PWM1,90);
+=======
+	init_uart3(9600);		//fonctionne
+	//PWM_Init(PWM1,90);
+	//PWM_Start(PWM1);
+>>>>>>> Programmation
 
 	//PWM_SetDutyCycle(PWM1,30);
 	PWM_Start(PWM1);
@@ -78,12 +89,13 @@ int main(void) {
 	init_uart3(9600);		//fonctionne
 	//send_uart3(buff, 3 );	// fonctionne
 	//uart3 U3IER=1;
-	NVIC_EnableIRQ(UART3_IRQn);
+	//NVIC_EnableIRQ(UART3_IRQn); Already present in init_uart3
 	UART3_IRQHandler();
 	//int i=0;
 	/*fin test uart*/
 
 	/* test adc*/
+<<<<<<< HEAD
 	char buf[255];
 	int millier,centaine,dixaine;
 	int test = 0;
@@ -92,17 +104,34 @@ int main(void) {
 	/*ADCInit(ADC_CLK);
 	test = ADC0Read(0);
 	millier=test/1000;
+=======
+	int test = 0;
+	//int millier,centaine,dixaine;
+	char buf[255];
+	/*ADCInit(ADC_CLK);
+	test = ADC0Read(0);*/
+	/*millier=test/1000;
+>>>>>>> Programmation
 	test=test%1000;
 	centaine=test/100;
 	test=test%100;
 	dixaine=test/10;
-	test=test%10;
+	test=test%10;*/
 
-	buf[0]=(uint8_t)millier+0x30;
+	/*buf[0]=(uint8_t)millier+0x30;
 	buf[1]=(uint8_t)centaine+0x30;
 	buf[2]=(uint8_t)dixaine+0x30;
+<<<<<<< HEAD
 	buf[3]=(uint8_t)test+0x30;
 	send_uart3(buf,4);*/
+=======
+	buf[3]=(uint8_t)test+0x30;*/
+	buf[0]= 'S';
+	buf[1]= 'a';
+	buf[2]= 'l';
+	buf[3]= 'u';
+	send_uart3(buf,4);
+>>>>>>> Programmation
 
 	/* pause de ADC*/
 
@@ -116,7 +145,7 @@ int main(void) {
 		/*reprise de test ADC*/
 		if (validation==1)
 		{
-			if(strcmp(commande,"ADC")==0 )
+			/*if(strcmp(commande,"ADC")==0 )
 			{
 				buf[0] = '\n';
 				send_uart3(buf,1);
@@ -134,7 +163,7 @@ int main(void) {
 				send_uart3(buf,4);
 				validation = 0;
 			}
-			else if(strcmp(commande,"test")==0 )
+			else*/ if(strcmp(commande,"test")==0 )
 			{
 				send_message("\n\rOK c'est bon\n\r");
 
@@ -144,10 +173,17 @@ int main(void) {
 					commande[i]='\0';
 				}
 				while (validation==0){}
+<<<<<<< HEAD
 				send_message("\n\r\n\r\t\t");
 				PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_message(commande);
 				send_message("\n\r\n\r");
+=======
+				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
+				//PWM_SetDutyCycle(PWM1,atoi(commande));
+				send_uart3(commande,strlen(commande));
+				send_uart3("\n\r\n\r",strlen("\n\r\n\r"));
+>>>>>>> Programmation
 				for (i=0;i==strlen(commande);i++)
 				{
 					commande[i]='\0';
