@@ -21,17 +21,17 @@
 __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 
 #include "main.h"
-#include "pwm.h"
+#include "motors.h"
 #include "uart.h"
 
 
 int main(void) {
 
-	PWM_Init(PWM1, 50);
-	init_uart3(9600);
+	MOTOR_Init(MOTOR_RIGHT);
+	MOTOR_Init(MOTOR_LEFT);
 
-	PWM_Start(PWM1);
-	send_uart3("Coucou\n", 8);
+	//init_uart3(9600);
+	//send_uart3("Coucou\n", 8);
 
 	// Enter an infinite loop, just incrementing a counter
 	volatile static int i = 0 ;
