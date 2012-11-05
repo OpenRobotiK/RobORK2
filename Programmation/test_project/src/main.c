@@ -46,13 +46,11 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char commande[255];
 volatile int validation = 0;
 
-<<<<<<< HEAD
 uint32_t pwmConfigured = FALSE;
 uint32_t pwm1DutyCycle = 0;
-=======
+
 //uint32_t pwmConfigured=FALSE;
 //uint32_t pwm1DutyCycle=0;
->>>>>>> Programmation
 
 
 int main(void) {
@@ -73,14 +71,10 @@ int main(void) {
 
 
 
-
-<<<<<<< HEAD
 	PWM_Init(PWM1,90);
-=======
 	init_uart3(9600);		//fonctionne
 	//PWM_Init(PWM1,90);
 	//PWM_Start(PWM1);
->>>>>>> Programmation
 
 	//PWM_SetDutyCycle(PWM1,30);
 	PWM_Start(PWM1);
@@ -95,7 +89,7 @@ int main(void) {
 	/*fin test uart*/
 
 	/* test adc*/
-<<<<<<< HEAD
+
 	char buf[255];
 	int millier,centaine,dixaine;
 	int test = 0;
@@ -124,14 +118,12 @@ int main(void) {
 <<<<<<< HEAD
 	buf[3]=(uint8_t)test+0x30;
 	send_uart3(buf,4);*/
-=======
-	buf[3]=(uint8_t)test+0x30;*/
+	buf[3]=(uint8_t)test+0x30;
 	buf[0]= 'S';
 	buf[1]= 'a';
 	buf[2]= 'l';
 	buf[3]= 'u';
 	send_uart3(buf,4);
->>>>>>> Programmation
 
 	/* pause de ADC*/
 
@@ -173,17 +165,14 @@ int main(void) {
 					commande[i]='\0';
 				}
 				while (validation==0){}
-<<<<<<< HEAD
 				send_message("\n\r\n\r\t\t");
 				PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_message(commande);
 				send_message("\n\r\n\r");
-=======
 				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
 				//PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_uart3(commande,strlen(commande));
 				send_uart3("\n\r\n\r",strlen("\n\r\n\r"));
->>>>>>> Programmation
 				for (i=0;i==strlen(commande);i++)
 				{
 					commande[i]='\0';
