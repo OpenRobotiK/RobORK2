@@ -114,17 +114,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="group___u_a_r_t.html#gaeca034f67218340ecb2261a22c2f3dcd">   42</a></span>&#160;<span class="preprocessor">#define BUFSIZE         0x40</span></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;uint32_t <a class="code" href="group___u_a_r_t.html#gab4e574a521e685aec220b34f53b89708" title="initialisation of UART 3">init_uart3</a>(uint32_t baudrate );</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___u_a_r_t.html#gaac442c01f409e1c3754361c220f5a790" title="initialisation of UART 3">send_uart3</a>(uint8_t *BufferPtr, uint32_t Length );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___u_a_r_t.html#gaf07b6c7bd27647d604af698a1de73d84" title="Send BufferPtr of UART 3.">send_uart3</a>(<span class="keywordtype">char</span> *BufferPtr, uint32_t Length );</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group___u_a_r_t.html#ga121b51364ca932bf6b88e2110fcf88da" title="UART3 interrupt handler.">UART3_IRQHandler</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> send_message(<span class="keywordtype">char</span> *message);</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* end __UART_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* end __UART_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Samedi Octobre 20 2012 15:00:02 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Novembre 6 2012 20:55:42 pour Documentation RobORK par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
