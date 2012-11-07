@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>Open RobotiK: Variables globale</title>
+<title>Open RobotiK: Référence du fichier pwm.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,18 +61,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
-      <li class="current"><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
     </ul>
   </div>
-  <div id="navrow3" class="tabs2">
-    <ul class="tablist">
-      <li><a href="globals.html"><span>Tout</span></a></li>
-      <li><a href="globals_func.html"><span>Fonctions</span></a></li>
-      <li class="current"><a href="globals_vars.html"><span>Variables</span></a></li>
-      <li><a href="globals_defs.html"><span>Macros</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -87,14 +78,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c8e28b16e3f893d332a4b5758137fe53.html">Programmation</a></li><li class="navelem"><a class="el" href="dir_0fab1c0c1bccc62457c3d0d6e2ab6b86.html">test_project</a></li><li class="navelem"><a class="el" href="dir_29e3a42f5aa3d8a109d6618e8642a83a.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier pwm.c<div class="ingroups"><a class="el" href="group___p_w_m.html">PWM</a></div></div>  </div>
+</div><!--header-->
 <div class="contents">
-&#160;<ul>
-<li>commande
-: <a class="el" href="group__main.html#gabc5073b65e2a145bdbd6d2451bfd372d">main.c</a>
-, <a class="el" href="group___u_a_r_t.html#gabc5073b65e2a145bdbd6d2451bfd372d">UART.c</a>
-</li>
-</ul>
-</div><!-- contents -->
+
+<p>pwm  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="pwm_8h_source.html">pwm.h</a>&quot;</code><br/>
+</div>
+<p><a href="pwm_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ga3a182ef0da4095d2f6f2b8fcfe9c951d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga3a182ef0da4095d2f6f2b8fcfe9c951d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PWM_Init</b> (uint32_t pwmNum, uint32_t dutyCycle)</td></tr>
+<tr class="memitem:ga18c175cce13e30bbfada44d13588280b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga18c175cce13e30bbfada44d13588280b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PWM_Start</b> (uint32_t pwmNum)</td></tr>
+<tr class="memitem:ga2289c3d8e59d72ba0ff6220e93c697a4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga2289c3d8e59d72ba0ff6220e93c697a4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PWM_Stop</b> (uint32_t pwmNum)</td></tr>
+<tr class="memitem:ga0094cfa63e97efe3fac347b16e0b7dcf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga0094cfa63e97efe3fac347b16e0b7dcf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>PWM_SetDutyCycle</b> (uint32_t pwmNum, uint32_t newDutyCycle)</td></tr>
+<tr class="memitem:ga15550e0a16cfd2a5f0ca60d4bdca6429"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga15550e0a16cfd2a5f0ca60d4bdca6429"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>PWM_GetDutyCycle</b> (uint32_t pwmNum)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga16502a8fc3eff4a8e5ddfb38ade4b110"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga16502a8fc3eff4a8e5ddfb38ade4b110"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>pwmConfigured</b> = FALSE</td></tr>
+<tr class="memitem:ga00ef04884160eb93bed1292f491f34ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga00ef04884160eb93bed1292f491f34ae"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>pwm1DutyCycle</b> = 0</td></tr>
+<tr class="memitem:ga44dc849b6062195c07632bbe7e8939b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga44dc849b6062195c07632bbe7e8939b0"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>pwm2DutyCycle</b> = 0</td></tr>
+</table>
+<a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock"><p>pwm </p>
+<dl class="section date"><dt>Date</dt><dd>Created: 18/10/2012 </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>Lyphout Florent et Maël Gaudy </dd></dl>
+
+<p>Définition dans le fichier <a class="el" href="pwm_8c_source.html">pwm.c</a>.</p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré le Mercredi Novembre 7 2012 23:53:43 pour Open RobotiK par &#160;<a href="http://www.doxygen.org/index.html">
