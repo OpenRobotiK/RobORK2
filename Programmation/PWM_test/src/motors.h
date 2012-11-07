@@ -18,7 +18,8 @@
 
 
 void MOTOR_Init(uint32_t motor);
-void MOTOR_SetSpeed(uint32_t motor);
+void MOTOR_Start(uint32_t motor, uint32_t speed);
+void MOTOR_SetSpeed(uint32_t motor, uint32_t speed);
 
 
 

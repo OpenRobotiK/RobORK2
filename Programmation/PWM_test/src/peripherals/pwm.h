@@ -1,8 +1,17 @@
-/*
- 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 * pwm.h
+/** \addtogroup robORK
  *
- *  Created on: 18 oct. 2012
- *      Author: mael
+ * @{
+ *
+ *
+ *
+ * \defgroup PWM PWM
+ * @{
+ *
+ * \file pwm.h
+ * \brief pwm
+ * \date Created: 18/10/2012
+ * \author Lyphout Florent et Maël Gaudy
+ *
  */
 
 #ifndef PWM_H_
@@ -33,3 +42,8 @@ void PWM_SetDutyCycle(uint32_t pwmNum, uint32_t newDutyCycle);
 uint32_t PWM_GetDutyCycle(uint32_t pwmNum);
 
 #endif /* PWM_H_ */
+
+/**
+ * @}
+ * @}
+ */

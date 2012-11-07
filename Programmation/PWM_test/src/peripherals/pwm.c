@@ -1,8 +1,17 @@
-/*
- * pwm.c
+/** \addtogroup robORK
  *
- *  Created on: 18 oct. 2012
- *      Author: mael
+ * @{
+ *
+ *
+ *
+ * \defgroup PWM PWM
+ * @{
+ *
+ * \file pwm.c
+ * \brief pwm
+ * \date Created: 18/10/2012
+ * \author Lyphout Florent et Maël Gaudy
+ *
  */
 
 #include "pwm.h"
@@ -30,7 +39,7 @@ void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle) {
 		//LPC_PWM1->TCR |= TCR_RESET;	// Reset the counter.
 		LPC_PWM1->TCR |= 0x00000002; // Reset the counter.
 		LPC_PWM1->PR = 24; // The TC is incremented every PR+1 (25) cycles of PCLK_PWM.
-		LPC_PWM1->MCR |= 2 << 0; // No interrupt and reset when PWMTC matches PWMMR0.
+		LPC_PWM1->MCR = 0x00000002; // No interrupt and reset when PWMTC matches PWMMR0.
 
 		LPC_PWM1->MR0 = 100; // We can control the pwm threw 100 steps
 
@@ -48,7 +57,6 @@ void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle) {
 		pwm1DutyCycle = dutyCycle;
 
 		LPC_PWM1->LER = (1 << 0) | (1 << 1); // Enable new values for MR0 and MR1.
-		LPC_PWM1->TCR = (1 << 3) | (1 << 0); // PWM mode is enabled, clear reset.
 
 	} else if(pwmNum == PWM2) {
 
@@ -56,7 +64,6 @@ void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle) {
 		pwm2DutyCycle = dutyCycle;
 
 		LPC_PWM1->LER = (1 << 0) | (1 << 2); // Enable new values for MR0 and MR2.
-		LPC_PWM1->TCR = (1 << 3) | (1 << 0); // PWM mode is enabled, clear reset.
 
 	} else {
 
@@ -71,10 +78,12 @@ void PWM_Start(uint32_t pwmNum) {
 	if(pwmNum == PWM1) {
 
 		LPC_PWM1->PCR |= 1 << 9; // The pwm1 output is enabled.
+		LPC_PWM1->TCR = (1<<3) | (1<<0); // PWM mode is enabled, clear reset.
 
 	} else if(pwmNum == PWM2) {
 
 		LPC_PWM1->PCR |= 1 << 10; // The pwm2 output is enabled.
+		LPC_PWM1->TCR = (1<<3) | (1<<0);// PWM mode is enabled, clear reset.
 
 	} else {
 
@@ -111,6 +120,7 @@ void PWM_SetDutyCycle(uint32_t pwmNum, uint32_t newDutyCycle) {
 		pwm1DutyCycle = newDutyCycle;
 
 		LPC_PWM1->LER |= 1 << 1; // Enable new values for MR1.
+		//LPC_PWM1->TCR = (1<<3) | (1<<0); // PWM mode is enabled, clear reset.
 
 	} else if(pwmNum == PWM2) {
 
@@ -118,6 +128,7 @@ void PWM_SetDutyCycle(uint32_t pwmNum, uint32_t newDutyCycle) {
 		pwm2DutyCycle = newDutyCycle;
 
 		LPC_PWM1->LER |= 1 << 2; // Enable new values for MR2.
+		//LPC_PWM1->TCR = (1<<3) | (1<<0); // PWM mode is enabled, clear reset.
 
 	} else {
 
@@ -138,3 +149,9 @@ uint32_t PWM_GetDutyCycle(uint32_t pwmNum){
 
 	return FALSE;
 }
+
+
+/**
+ * @}
+ * @}
+ */
