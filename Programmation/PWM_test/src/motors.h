@@ -15,11 +15,17 @@
 
 #define MOTOR_RIGHT		1
 #define MOTOR_LEFT		2
+#define FORWARD				1
+#define BACKWARD			2
+
+
+extern uint32_t rmcd; // Right Motor Current Direction
+extern uint32_t lmcd; // Left Motor Current Direction
 
 
 void MOTOR_Init(uint32_t motor);
 void MOTOR_Start(uint32_t motor, uint32_t speed);
-void MOTOR_SetSpeed(uint32_t motor, uint32_t speed);
+void MOTOR_SetSpeed(uint32_t motor, uint32_t direction, uint32_t speed);
 
 
 

@@ -17,9 +17,9 @@ void MOTOR_Init(uint32_t motor) {
 		LPC_PINCON->PINSEL4 &= 0xFFFC0FFF; //  P2.6/7/8 are configured as GPIO.
 		LPC_GPIO2->FIODIR0 |= (1<<6) | (1<<7) ; // P2.6/7 are configured as output.
 		LPC_GPIO2->FIODIR1 |= (1<<0); // P2.8 is configured as output.
-		LPC_GPIO2->FIOSET0 |= (1<<6) ; // P2.6 is set to 1.
-		LPC_GPIO2->FIOSET0 &= (0<<7 ); //P2.7 is set to 0.
-		LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.
+		LPC_GPIO2->FIOSET0 &= (0<<6) ; // P2.6 is set to 1.		InA
+		LPC_GPIO2->FIOSET0 &= (0<<7 ); //P2.7 is set to 0.		InB
+		LPC_GPIO2->FIOSET1 &= (0<< 0); //P2.8 is set to 1.		Diag
 
 
 	} else if(motor == MOTOR_LEFT) {
@@ -30,7 +30,7 @@ void MOTOR_Init(uint32_t motor) {
 
 		LPC_GPIO2->FIODIR1 |= (1<<2) | (1<<3) | (1<<4); // P2.10/11/12 are configured as output.
 		LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.
-		LPC_GPIO2->FIOSET1 &= (0<<3 ); //P2.11 is set to 0.
+		LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0.
 		LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.
 	}
 }
@@ -51,5 +51,34 @@ void MOTOR_Start(uint32_t motor, uint32_t speed) {
 		PWM_Start(PWM2);
 		for(j = 0 ; j < 1000 ; j++) {	}
 		PWM_SetDutyCycle(PWM2, speed);
+	}
+}
+
+
+void MOTOR_SetSpeed(uint32_t motor, uint32_t direction, uint32_t speed) {
+
+	if(motor == MOTOR_RIGHT) {
+
+		if(direction == rmcd) {
+
+
+
+		} else {
+
+			// Break, stop, then accelerate to the desire speed
+			rmcd = direction;
+		}
+
+	} else if(motor == MOTOR_LEFT) {
+
+		if(direction ==lrmcd) {
+
+
+
+		} else {
+
+			// Break, stop, then accelerate to the desire speed
+			lmcd = direction;
+		}
 	}
 }

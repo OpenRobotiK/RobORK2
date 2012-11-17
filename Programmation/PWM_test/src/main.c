@@ -31,7 +31,7 @@ int main(void) {
 	MOTOR_Init(MOTOR_LEFT);
 
 	MOTOR_Start(MOTOR_RIGHT, 30);
-	MOTOR_Start(MOTOR_LEFT, 90);
+	MOTOR_Start(MOTOR_LEFT, 100 - 20);
 
 	//init_uart3(9600);
 	//send_uart3("Coucou\n", 8);
