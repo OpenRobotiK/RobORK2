@@ -29,6 +29,7 @@
 //#include "pwm.h"
 #include "main.h"
 #include <stdlib.h>
+#include "motors.h"
 
 #define Board_led_port LPC_GPIO0->FIOPIN
 #define Board_led_DIR LPC_GPIO0->FIODIR
@@ -46,8 +47,7 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
 char commande[255];
 volatile int validation = 0;
 
-uint32_t pwmConfigured = FALSE;
-uint32_t pwm1DutyCycle = 0;
+
 
 //uint32_t pwmConfigured=FALSE;
 //uint32_t pwm1DutyCycle=0;
@@ -58,66 +58,23 @@ int main(void) {
 	int i=0;
 
 
-	/********** mettre des leds a un **************/
-	/*LPC_PINCON->PINSEL0 = 0x00000000;
-	LPC_GPIO0->FIODIR = 0xFFFFFFFF;
-	LPC_GPIO0->FIOMASK = 0x00000000; // The mask^^
-	LPC_GPIO0->FIOSET |= (1<<8);//|(1<<8);*/
 
-
-	/* test uart*/
-
-	//char buff[3]={'a','b','\0'};
-
-
-
-	PWM_Init(PWM1,90);
-	init_uart3(9600);		//fonctionne
 	//PWM_Init(PWM1,90);
-	//PWM_Start(PWM1);
-
-	//PWM_SetDutyCycle(PWM1,30);
-	PWM_Start(PWM1);
-	//PWM_SetDutyCycle(PWM1,30);
-	//PWM_Start(PWM1);
 	init_uart3(9600);		//fonctionne
-	//send_uart3(buff, 3 );	// fonctionne
-	//uart3 U3IER=1;
-	//NVIC_EnableIRQ(UART3_IRQn); Already present in init_uart3
+
+	//PWM_Start(PWM1);
+
+	init_uart3(9600);		//fonctionne
+
 	UART3_IRQHandler();
-	//int i=0;
-	/*fin test uart*/
 
-	/* test adc*/
 
 	char buf[255];
-	int millier,centaine,dixaine;
-	int test = 0;
-
-
-	/*ADCInit(ADC_CLK);
-	test = ADC0Read(0);
-	millier=test/1000;
-=======
-	int test = 0;
 	//int millier,centaine,dixaine;
-	char buf[255];
-	/*ADCInit(ADC_CLK);
-	test = ADC0Read(0);*/
-	/*millier=test/1000;
->>>>>>> Programmation
-	test=test%1000;
-	centaine=test/100;
-	test=test%100;
-	dixaine=test/10;
-	test=test%10;*/
+	int test = 0;
 
-	/*buf[0]=(uint8_t)millier+0x30;
-	buf[1]=(uint8_t)centaine+0x30;
-	buf[2]=(uint8_t)dixaine+0x30;
-<<<<<<< HEAD
-	buf[3]=(uint8_t)test+0x30;
-	send_uart3(buf,4);*/
+
+
 	buf[3]=(uint8_t)test+0x30;
 	buf[0]= 'S';
 	buf[1]= 'a';
@@ -125,11 +82,12 @@ int main(void) {
 	buf[3]= 'u';
 	send_uart3(buf,4);
 
-	/* pause de ADC*/
+	MOTOR_Init(MOTOR_RIGHT);
+	MOTOR_Init(MOTOR_LEFT);
+	MOTOR_Start(MOTOR_RIGHT, 10);
+	MOTOR_Start(MOTOR_LEFT, 100 - 20);
 
 
-	// Enter an infinite loop, just incrementing a counter
-	//volatile static int i = 0 ;
 	while(1)
 	{
 
@@ -178,10 +136,32 @@ int main(void) {
 					commande[i]='\0';
 				}
 			}
-			else if(strcmp(commande,"aa")==0 )
+			else if(strcmp(commande,"sens2")==0 )
 			{
-
-				send_message("\n\rca marche bien\n\r");
+				//PWM_Init(PWM2, 80);
+				LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.
+				LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0. DIAG
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.INb
+				send_message("\n\rOK c'est bon\n\r");
+				validation = 0;
+			}
+			else if(strcmp(commande,"sens1")==0 )
+			{
+				//PWM_Init(PWM2, 80);
+				LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0.
+				LPC_GPIO2->FIOSET1 &= (0<<2); // P2.10 is set to 1.
+				LPC_GPIO2->FIOSET1 &= (0<< 4); //P2.12 is set to 1. INb
+				send_message("\n\rOK c'est bon\n\r");
+				validation = 0;
+			}
+			else if(strcmp(commande,"stop")==0 )
+			{
+				//LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.
+				//LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0. DIAG
+				//LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.INb
+				//PWM_Init(PWM2, 80);
+				LPC_GPIO2->FIOSET1 |= (0<< 0); //P2.8 is set to 1.		Diag
+				send_message("\n\rOK c'est bon\n\r");
 				validation = 0;
 			}
 			else

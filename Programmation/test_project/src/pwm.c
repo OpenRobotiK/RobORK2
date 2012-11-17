@@ -16,10 +16,10 @@
 
 #include "pwm.h"
 
-
 uint32_t pwmConfigured = FALSE;
 uint32_t pwm1DutyCycle = 0;
 uint32_t pwm2DutyCycle = 0;
+
 
 
 void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle) {

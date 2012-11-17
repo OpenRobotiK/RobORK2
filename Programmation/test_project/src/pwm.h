@@ -30,9 +30,9 @@
 //#define TCR_RESET	0x00000002
 
 
-extern uint32_t pwmConfigured;
-extern uint32_t pwm1DutyCycle;
-extern uint32_t pwm2DutyCycle;
+extern uint32_t pwmConfigured ;
+extern uint32_t pwm1DutyCycle ;
+extern uint32_t pwm2DutyCycle ;
 
 
 void PWM_Init(uint32_t pwmNum, uint32_t dutyCycle);
