@@ -85,7 +85,7 @@ int main(void) {
 	MOTOR_Init(MOTOR_RIGHT);
 	MOTOR_Init(MOTOR_LEFT);
 	MOTOR_Start(MOTOR_RIGHT, 10);
-	MOTOR_Start(MOTOR_LEFT, 100 - 20);
+	MOTOR_Start(MOTOR_LEFT, 100 - 10);
 
 
 	while(1)
@@ -124,7 +124,7 @@ int main(void) {
 				}
 				while (validation==0){}
 				send_message("\n\r\n\r\t\t");
-				PWM_SetDutyCycle(PWM1,atoi(commande));
+				PWM_SetDutyCycle(PWM2,atoi(commande));
 				send_message(commande);
 				send_message("\n\r\n\r");
 				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
@@ -149,8 +149,8 @@ int main(void) {
 			{
 				//PWM_Init(PWM2, 80);
 				LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0.
-				LPC_GPIO2->FIOSET1 &= (0<<2); // P2.10 is set to 1.
-				LPC_GPIO2->FIOSET1 &= (0<< 4); //P2.12 is set to 1. INb
+				LPC_GPIO2->FIOCLR1 |= (1<<2); // P2.10 is set to 1.
+				LPC_GPIO2->FIOCLR1 |= (1<< 4); //P2.12 is set to 1. INb
 				send_message("\n\rOK c'est bon\n\r");
 				validation = 0;
 			}
@@ -160,7 +160,7 @@ int main(void) {
 				//LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0. DIAG
 				//LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.INb
 				//PWM_Init(PWM2, 80);
-				LPC_GPIO2->FIOSET1 |= (0<< 0); //P2.8 is set to 1.		Diag
+				LPC_GPIO2->FIOCLR1 |= (1<<3 ); //P2.11 is set to 0.DIAG
 				send_message("\n\rOK c'est bon\n\r");
 				validation = 0;
 			}

@@ -32,11 +32,13 @@ void MOTOR_Init(uint32_t motor) {
 		LPC_GPIO2->FIODIR1 |= (1<<2) | (1<<3) | (1<<4); // P2.10/11/12 are configured as output.
 
 		LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.
-		//LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0. DIAG
+		LPC_GPIO2->FIOSET1 |= (1<<3 ); //P2.11 is set to 0. DIAG
 		LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.INb
-
+		int i=0;
+		for ( i = 0 ;i==10000;i++)
+		{asm("nop");}
 		//LPC_GPIO2->FIOSET1 &= (0<<2); // P2.10 is set to 1.
-		LPC_GPIO2->FIOSET1 &= (0<<3 ); //P2.11 is set to 0.DIAG
+		LPC_GPIO2->FIOCLR1 |= (1<<3 ); //P2.11 is set to 0.DIAG
 		//LPC_GPIO2->FIOSET1 &= (0<< 4); //P2.12 is set to 1. INb
 	}
 }
