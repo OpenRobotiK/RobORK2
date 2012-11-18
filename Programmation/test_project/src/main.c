@@ -168,6 +168,35 @@ int main(void) {
 				send_message("\n\rOK c'est bon\n\r");
 				validation = 0;
 			}
+			else if(strcmp(commande,"tourne2")==0 )
+			{
+				//PWM_Init(PWM2, 80);
+				LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
+				LPC_GPIO2->FIOCLR1 |= (1 << 3 ); //P2.11 is set to 0. INb
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+
+				LPC_GPIO2->FIOSET0 |= (1<<6) ; // P2.6 is set to 1.		InA
+				LPC_GPIO2->FIOCLR0 |= (1<<7 ); //P2.7 is set to 0.		InB
+				LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+				send_message("\n\rOK c'est bon\n\r");
+				validation = 0;
+			}
+			else if(strcmp(commande,"tourne1")==0 )
+			{
+				//PWM_Init(PWM2, 80);
+				LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
+				LPC_GPIO2->FIOSET1 |= (1<<3); // P2.10 is set to 1.INb
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+
+				LPC_GPIO2->FIOCLR0 |= (1<<6) ; // P2.6 is set to 1.		InA
+				LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0.		InB
+				LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+
+				send_message("\n\rOK c'est bon\n\r");
+				validation = 0;
+			}
 			else if(strcmp(commande,"stop")==0 )
 			{
 
