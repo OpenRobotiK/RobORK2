@@ -35,8 +35,10 @@
 #define Board_led_DIR LPC_GPIO0->FIODIR
 #define Board_led_bit 11
 
+extern int avance,recule,gauche,droite,stop;
 
 
+#define VITESSE 20
 
 // Variable to store CRP value in. Will be placed automatically
 // by the linker when "Enable Code Read Protect" selected.
@@ -57,45 +59,85 @@ int main(void) {
 	
 	int i=0;
 
-
-
-	//PWM_Init(PWM1,90);
 	init_uart3(9600);		//fonctionne
-
-	//PWM_Start(PWM1);
-
 	init_uart3(9600);		//fonctionne
-
 	UART3_IRQHandler();
-
-
-	char buf[255];
-	//int millier,centaine,dixaine;
-	int test = 0;
-
-
-
-	buf[3]=(uint8_t)test+0x30;
-	buf[0]= 'S';
-	buf[1]= 'a';
-	buf[2]= 'l';
-	buf[3]= 'u';
-	send_uart3(buf,4);
+	/*char buf[255];
+	int test = 0;*/
+	send_message("\n\rStart\n\r");
 
 	MOTOR_Init(MOTOR_RIGHT);
 	MOTOR_Init(MOTOR_LEFT);
 	MOTOR_Start(MOTOR_RIGHT, 10);
 	MOTOR_Start(MOTOR_LEFT,  10);
 
+	/* stop les moteur au demarage*/
 	LPC_GPIO2->FIOCLR1 |= (1<<4 ); //P2.11 is set to 0.DIAG
-
-
 	LPC_GPIO2->FIOCLR1 |= (1<< 0); //P2.8 is set to 1.		Diag
 
+	PWM_SetDutyCycle(PWM2,VITESSE);
+	PWM_SetDutyCycle(PWM1,VITESSE);
 
 	while(1)
 	{
+		if (recule==1)
+		{
+			LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
+			LPC_GPIO2->FIOCLR1 |= (1 << 3 ); //P2.11 is set to 0. INb
+			LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
 
+			LPC_GPIO2->FIOCLR0 |= (1<<6) ; // P2.6 is set to 1.		InA
+			LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0.		InB
+			LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+			recule=0;
+		}
+		else if (avance==1)
+		{
+
+			LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
+			LPC_GPIO2->FIOSET1 |= (1<<3); // P2.10 is set to 1.INb
+			LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+
+			LPC_GPIO2->FIOSET0 |= (1<<6) ; // P2.6 is set to 1.		InA
+			LPC_GPIO2->FIOCLR0 |= (1<<7 ); //P2.7 is set to 0.		InB
+			LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+			avance=0;
+		}
+		else if (gauche==1)
+		{
+
+			LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
+			LPC_GPIO2->FIOCLR1 |= (1 << 3 ); //P2.11 is set to 0. INb
+			LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+
+			LPC_GPIO2->FIOSET0 |= (1<<6) ; // P2.6 is set to 1.		InA
+			LPC_GPIO2->FIOCLR0 |= (1<<7 ); //P2.7 is set to 0.		InB
+			LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+			gauche=0;
+		}
+		else if (droite==1)
+		{
+
+			LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
+			LPC_GPIO2->FIOSET1 |= (1<<3); // P2.10 is set to 1.INb
+			LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+
+			LPC_GPIO2->FIOCLR0 |= (1<<6) ; // P2.6 is set to 1.		InA
+			LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0.		InB
+			LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+			droite=0;
+		}
+		else if (stop==1)
+		{
+			/* stop les moteur au demarage*/
+			LPC_GPIO2->FIOCLR1 |= (1<<4 ); //P2.11 is set to 0.DIAG
+			LPC_GPIO2->FIOCLR1 |= (1<< 0); //P2.8 is set to 1.		Diag
+			stop=0;
+		}
 
 		/*reprise de test ADC*/
 		if (validation==1)
@@ -118,25 +160,29 @@ int main(void) {
 				send_uart3(buf,4);
 				validation = 0;
 			}
-			else*/ if(strcmp(commande,"test")==0 )
+			else*/
+			if(strcmp(commande,"test")==0 )
 			{
 				send_message("\n\rOK c'est bon\n\r");
 
 				validation = 0;
+
+			}
+			if(strcmp(commande,"v")==0 )
+			{
+				validation = 0;
+				send_message("\n\r\n\r");
+				send_message("tape la vistesse en %\n\r");
 				for (i=0;i==strlen(commande);i++)
 				{
 					commande[i]='\0';
 				}
 				while (validation==0){}
-				send_message("\n\r\n\r\t\t");
+
 				PWM_SetDutyCycle(PWM2,atoi(commande));
 				PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_message(commande);
 				send_message("\n\r\n\r");
-				send_uart3("\n\r\n\r\t\t",strlen("\n\r\n\r\t\t"));
-				//PWM_SetDutyCycle(PWM1,atoi(commande));
-				send_uart3(commande,strlen(commande));
-				send_uart3("\n\r\n\r",strlen("\n\r\n\r"));
 				for (i=0;i==strlen(commande);i++)
 				{
 					commande[i]='\0';

@@ -27,6 +27,10 @@ volatile uint32_t UART3Count = 0;
 extern char commande[255];
 extern int validation;
 
+int avance=0,recule=0,gauche=0,droite=0,stop=0;
+
+
+
 /**
  * \fn void UART3_IRQHandler (void)
  * \brief UART3 interrupt handler
@@ -49,6 +53,26 @@ void UART3_IRQHandler (void)
 	/* Receive Data Available */
 	UART3Buffer[UART3Count] = LPC_UART3->RBR;
 	UART3Count++;
+	if (UART3Buffer[UART3Count-1] == (uint8_t)'z')
+	{
+		avance=1;
+	}
+	else if (UART3Buffer[UART3Count-1] == (uint8_t)'s')
+	{
+		recule=1;
+	}
+	else if (UART3Buffer[UART3Count-1] == (uint8_t)'q')
+	{
+		gauche=1;
+	}
+	else if (UART3Buffer[UART3Count-1] == (uint8_t)'d')
+	{
+		droite=1;
+	}
+	else if (UART3Buffer[UART3Count-1] == (uint8_t)'a')
+	{
+		stop=1;
+	}
 
 	/***	echo uart ***********************************/
 		char buf[1]={UART3Buffer[UART3Count-1]};
