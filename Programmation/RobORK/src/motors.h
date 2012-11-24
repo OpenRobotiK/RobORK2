@@ -8,15 +8,9 @@
 #ifndef MOTORS_H_
 #define MOTORS_H_
 
-#include "LPC17xx.h"
-#include "main.h"
+
+#include "defines.h"
 #include "pwm.h"
-
-
-//#define MOTOR_RIGHT		1
-//#define MOTOR_LEFT		2
-//#define FORWARD				1
-//#define BACKWARD			2
 
 
 typedef enum Motor Motor;
@@ -37,8 +31,8 @@ extern Direction lmcd; // Left Motor Current Direction
 
 
 void MOTOR_Init(Motor motor);
-void MOTOR_Start(Motor motor, uint32_t speed);
-void MOTOR_SetSpeed(Motor motor, Direction direction, uint32_t speed);
+void MOTOR_Start(Motor motor, int speed);
+void MOTOR_SetSpeed(Motor motor, Direction direction, int speed);
 
 
 
