@@ -15,40 +15,13 @@
  */
 
 
-
-#ifdef __USE_CMSIS
-#include "LPC17xx.h"
-#endif
-
-#include <cr_section_macros.h>
-#include <NXP/crp.h>
-#include "UART.h"
-#include <string.h>
-#include "ADC.h"
-#include <stdio.h>
-//#include "pwm.h"
 #include "main.h"
-#include <stdlib.h>
-#include "motors.h"
 
-#define Board_led_port LPC_GPIO0->FIOPIN
-#define Board_led_DIR LPC_GPIO0->FIODIR
-#define Board_led_bit 11
-
-extern int avance,recule,gauche,droite,stop;
-
-
-#define VITESSE 20
 
 // Variable to store CRP value in. Will be placed automatically
 // by the linker when "Enable Code Read Protect" selected.
 // See crp.h header for more information
 __CRP const unsigned int CRP_WORD = CRP_NO_CRP ;
-
-/// \brief à ajouter
-char commande[255];
-volatile int validation = 0;
-
 
 
 //uint32_t pwmConfigured=FALSE;
@@ -140,7 +113,7 @@ int main(void) {
 		}
 
 		/*reprise de test ADC*/
-		if (validation==1)
+		if (validation==True)
 		{
 			/*if(strcmp(commande,"ADC")==0 )
 			{

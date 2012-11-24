@@ -18,6 +18,7 @@
 #include "type.h"
 #include "UART.h"
 #include <string.h>
+#include "main.h"
 
 volatile uint32_t UART3Status;
 volatile uint8_t UART3TxEmpty = 1;
@@ -25,7 +26,9 @@ volatile uint8_t UART3Buffer[BUFSIZE];
 volatile uint32_t UART3Count = 0;
 
 extern char commande[255];
-extern int validation;
+
+volatile Booleen validation = False;
+
 
 int avance=0,recule=0,gauche=0,droite=0,stop=0;
 
@@ -85,7 +88,7 @@ void UART3_IRQHandler (void)
 		UART3Buffer[UART3Count-1] = '\0';	// ajoute le caratere de fin de chaine
 		//uint8_t buf[1]={'\n'};
 		//send_uart3(buf, 1 );
-		validation=1;
+		validation=True;
 		strcpy(commande,(char*)UART3Buffer);
 		int i;
 		for(i = 0; i == strlen((char*)UART3Buffer); i++)
