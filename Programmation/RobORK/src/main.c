@@ -25,8 +25,12 @@ int main(void) {
 	int i =0;
 
 	init_uart3(9600);
+<<<<<<< HEAD
 	init_uart3(9600);
 	UART3_IRQHandler();
+=======
+
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 	send_message("\n\rStart\n\r");
 
 	MOTOR_Init(RIGHT_MOTOR);
@@ -101,19 +105,31 @@ int main(void) {
 			{
 				send_message("\n\rOK c'est bon\n\r");
 
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 
 			}
 			if(strcmp(commande,"v")==0 )
 			{
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 				send_message("\n\r\n\r");
 				send_message("tape la vistesse en %\n\r");
 				for (i=0;i==strlen(commande);i++)
 				{
 					commande[i]='\0';
 				}
+<<<<<<< HEAD
 				while (validation==0){}
+=======
+				while (validation==false){}
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 
 				PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
 				PWM_SetDutyCycle(PWM1,atoi(commande));
@@ -135,7 +151,11 @@ int main(void) {
 				LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0.		InB
 				LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
 				send_message("\n\rOK c'est bon\n\r");
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 			}
 			else if(strcmp(commande,"sens1")==0 )
 			{
@@ -148,7 +168,11 @@ int main(void) {
 				LPC_GPIO2->FIOCLR0 |= (1<<7 ); //P2.7 is set to 0.		InB
 				LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
 				send_message("\n\rOK c'est bon\n\r");
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 			}
 			else if(strcmp(commande,"tourne2")==0 )
 			{
@@ -162,7 +186,11 @@ int main(void) {
 				LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1.		Diag
 
 				send_message("\n\rOK c'est bon\n\r");
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 			}
 			else if(strcmp(commande,"tourne1")==0 )
 			{
@@ -177,7 +205,11 @@ int main(void) {
 
 
 				send_message("\n\rOK c'est bon\n\r");
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 			}
 			else if(strcmp(commande,"stop")==0 )
 			{
@@ -187,12 +219,20 @@ int main(void) {
 
 				LPC_GPIO2->FIOCLR1 |= (1<< 0); //P2.8 is set to 1.		Diag
 				send_message("\n\rOK c'est bon\n\r");
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 			}
 			else
 			{
 				send_message("\n\rRien du tout\n\r");
+<<<<<<< HEAD
 				validation = 0;
+=======
+				validation = false;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 			}
 
 			/*fin test adc*/

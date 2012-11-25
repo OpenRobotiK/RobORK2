@@ -18,7 +18,11 @@
 
 
 volatile int UART3Status;
+<<<<<<< HEAD
 volatile bool UART3TxEmpty = true;
+=======
+volatile char UART3TxEmpty = 1;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 volatile char UART3Buffer[BUFSIZE]  = {0};
 volatile int UART3Count = 0;
 
@@ -84,11 +88,19 @@ void UART3_IRQHandler (void)
 		UART3Buffer[UART3Count-1] = '\0';	// ajoute le caratere de fin de chaine
 		validation=true;
 		strcpy(commande,(char*)UART3Buffer);
+<<<<<<< HEAD
 		int i;
 		for(i = 0; i == strlen((char*)UART3Buffer); i++)
 		{
 			UART3Buffer[i] = 0x00;
 		}
+=======
+		/*int i;
+		for(i = 0; i == strlen(UART3Buffer); i++)
+		{
+			UART3Buffer[i] = 0x00;
+		}*/
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 		UART3Count = 0;		/* buffer overflow */
 	}
 
@@ -107,11 +119,19 @@ void UART3_IRQHandler (void)
 									valid data in U0THR or not */
 	if ( LSRValue & LSR_THRE )
 	{
+<<<<<<< HEAD
 	  UART3TxEmpty = true;
 	}
 	else
 	{
 	  UART3TxEmpty = false;
+=======
+	  UART3TxEmpty = 1;
+	}
+	else
+	{
+	  UART3TxEmpty = 0;
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 	}
   }
 }
@@ -163,6 +183,10 @@ bool init_uart3(int baudrate)
 	  NVIC_EnableIRQ(UART3_IRQn);
 
 	  LPC_UART3->IER = IER_RBR | IER_THRE | IER_RLS;	/* Enable UART3 interrupt */
+<<<<<<< HEAD
+=======
+	  UART3_IRQHandler();
+>>>>>>> a0f85c9a823230f427bb5b9c5ed647300e6c77ce
 	  return true;
 }
 
