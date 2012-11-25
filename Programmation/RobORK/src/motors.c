@@ -9,7 +9,7 @@
 
 
 Direction rmcd = FORWARD; // Right Motor Current Direction
-Direction lmcd = FORWARD;
+Direction lmcd = FORWARD; // Left Motor Current Direction
 
 
 void MOTOR_Init(Motor motor) {
