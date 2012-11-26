@@ -21,5 +21,6 @@ extern char commande[255];
 extern volatile bool validation;
 extern bool avance, recule, gauche, droite, stop, regle_vitesse;
 extern volatile bool demo_mode;
+extern volatile int timer0;
 
 #endif /* DEFINES_H_ */

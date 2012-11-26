@@ -19,6 +19,7 @@
 #include "defines.h"
 #include "motors.h"
 #include "uart.h"
+#include "timer.h"
 
 int main(void) {
 	
@@ -30,6 +31,8 @@ int main(void) {
 
 	MOTOR_Init(RIGHT_MOTOR);
 	MOTOR_Init(LEFT_MOTOR);
+	TIMER_Init(TIMER0);
+	TIMER_Start(TIMER0);
 
 
 	while(1)
