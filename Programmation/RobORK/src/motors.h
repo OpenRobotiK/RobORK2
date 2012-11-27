@@ -22,16 +22,24 @@ enum Motor {
 typedef enum Direction Direction;
 enum Direction {
 
-	FORWARD, BACKWARD
+	FORWARD, BACKWARD, STOPPED
 };
 
+typedef struct MotorInfos MotorInfos;
+struct MotorInfos{
 
-extern Direction rmcd; // Right Motor Current Direction
-extern Direction lmcd; // Left Motor Current Direction
+	Direction	direction;
+	int				orderedSpeed;
+	int				mesuredSpeed;
+};
+
+extern MotorInfos rightMotor;
+extern MotorInfos leftMotor;
 
 
 void MOTOR_Init(Motor motor);
-void MOTOR_Start(Motor motor, int speed);
+void MOTOR_Start(Motor motor);
+void MOTOR_Stop(Motor motor);
 void MOTOR_SetSpeed(Motor motor, Direction direction, int speed);
 
 
