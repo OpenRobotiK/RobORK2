@@ -20,11 +20,14 @@
 #include "motors.h"
 #include "uart.h"
 #include "timer.h"
+#include "codeur.h"
+
+
 
 int main(void) {
 	
 	int i =0;
-
+	EINT3Init();
 	init_uart3(9600);
 
 	send_message("\n\rStart\n\r");
@@ -34,9 +37,15 @@ int main(void) {
 	TIMER_Init(TIMER0);
 	TIMER_Start(TIMER0);
 
-
+	//init_interrupt_codeur(codeur_droit);
 	while(1)
 	{
+		if (test==true)
+		{
+				send_message("est passe dans l'interruption\r\n");
+
+			test=false;
+		}
 		while(demo_mode==true)
 		{
 			if (recule==true)
