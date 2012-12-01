@@ -21,7 +21,7 @@ bool EINT3Init( void )
 {
 	LPC_PINCON->PINSEL4 |= SELECT_EINT3;		//active la pin
 	//LPC_SC->EXTMODE |= EINT3_EDGE;
-	LPC_SC->EXTMODE = 0;				//choix sur niveau ou sur front
+	LPC_SC->EXTMODE |= EINT3_EDGE;				//choix sur niveau ou sur front
 	LPC_SC->EXTPOLAR |= 0;				//choix sur quel niveau (haut ou bas)
 
 

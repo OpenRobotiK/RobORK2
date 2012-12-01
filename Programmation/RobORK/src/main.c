@@ -24,7 +24,8 @@
 
 
 
-int main(void) {
+int main(void)
+{
 	
 	int i =0;
 	EINT3Init();

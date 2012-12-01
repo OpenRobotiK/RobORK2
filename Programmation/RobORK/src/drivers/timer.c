@@ -19,7 +19,7 @@ void TIMER_Init(timerNum timerNb) {
 		LPC_TIM0->CTCR = 0;
 		LPC_TIM0->MCR |= 3<<0;// Interrupt and reset on match MR0
 		LPC_TIM0->PR = 99; // With MR0 it should gives a 1000Hz interrupt.
-		LPC_TIM0->MR0 = 500;
+		LPC_TIM0->MR0 = 5000;
 
 		NVIC_EnableIRQ(TIMER0_IRQn);
 
@@ -55,8 +55,8 @@ void TIMER0_IRQHandler(void) {
 
 		timer0 ++;
 		LPC_TIM0->IR |= 1<<0; // Reset the Timer.
-	}
 
+	}
 }
 
 
