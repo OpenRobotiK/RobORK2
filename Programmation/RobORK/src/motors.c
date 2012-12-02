@@ -32,12 +32,17 @@ void MOTOR_Init(Motor motor) {
 		PWM_Init(PWM2, 10);
 		PWM_Start(PWM2);
 
-		LPC_PINCON->PINSEL4 &= 0xFC0FFFFF;
-		LPC_GPIO2->FIODIR1 |= (1<<2) | (1<<3) | (1<<4); // P2.10/11/12 are configured as output.
+		//LPC_PINCON->PINSEL4 &= 0xFC0FFFFF;
+		//LPC_GPIO2->FIODIR1 |= (1<<2) | (1<<3) | (1<<4); // P2.10/11/12 are configured as output.
+		LPC_GPIO0->FIODIR |= 0x18400000;
 
-		LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
+		LPC_GPIO0->FIOSET2 |= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOCLR3 |= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOCLR3 |= (1<<5); //p0.28 DIAG
+
+		/*LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
 		LPC_GPIO2->FIOCLR1 |= (1 << 3 ); //P2.11 is set to 0. INb
-		LPC_GPIO2->FIOCLR1 |= (1<< 4); //P2.12 is set to 0.DIAG
+		LPC_GPIO2->FIOCLR1 |= (1<< 4); //P2.12 is set to 0.DIAG*/
 	}
 }
 

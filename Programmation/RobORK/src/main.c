@@ -59,9 +59,13 @@ int main(void)
 		{
 			if (recule==true)
 			{
-				LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
+				/*LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
 				LPC_GPIO2->FIOCLR1 |= (1 << 3 ); //P2.11 is set to 0. INb
-				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG*/
+
+				LPC_GPIO0->FIOSET2 |= (1<<7); //p0.22 INa
+				LPC_GPIO0->FIOCLR3 |= (1<<4); //p0.27 INb
+				LPC_GPIO0->FIOSET3 |= (1<<5); //p0.28 DIAG
 
 				LPC_GPIO2->FIOCLR0 |= (1<<6) ; // P2.6 is set to 1.		InA
 				LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0.		InB
@@ -71,9 +75,14 @@ int main(void)
 			}
 			else if (avance==true)
 			{
-				LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
+				/*LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
 				LPC_GPIO2->FIOSET1 |= (1<<3); // P2.10 is set to 1.INb
-				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG*/
+
+				LPC_GPIO0->FIOCLR2 |= (1<<7); //p0.22 INa
+				LPC_GPIO0->FIOSET3 |= (1<<4); //p0.27 INb
+				LPC_GPIO0->FIOSET3 |= (1<<5); //p0.28 DIAG
+
 
 				LPC_GPIO2->FIOSET0 |= (1<<6) ; // P2.6 is set to 1.		InA
 				LPC_GPIO2->FIOCLR0 |= (1<<7 ); //P2.7 is set to 0.		InB
@@ -83,9 +92,15 @@ int main(void)
 			}
 			else if (gauche==true)
 			{
-				LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
+				/*LPC_GPIO2->FIOSET1 |= (1<<2); // P2.10 is set to 1.INa
 				LPC_GPIO2->FIOCLR1 |= (1 << 3 ); //P2.11 is set to 0. INb
-				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG*/
+
+
+				LPC_GPIO0->FIOSET2 |= (1<<7); //p0.22 INa
+				LPC_GPIO0->FIOCLR3 |= (1<<4); //p0.27 INb
+				LPC_GPIO0->FIOSET3 |= (1<<5); //p0.28 DIAG
+
 
 				LPC_GPIO2->FIOSET0 |= (1<<6) ; // P2.6 is set to 1.		InA
 				LPC_GPIO2->FIOCLR0 |= (1<<7 ); //P2.7 is set to 0.		InB
@@ -96,9 +111,13 @@ int main(void)
 			else if (droite==true)
 			{
 
-				LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
+				/*LPC_GPIO2->FIOCLR1 |= (1<<2 ); //P2.11 is set to 0.INa
 				LPC_GPIO2->FIOSET1 |= (1<<3); // P2.10 is set to 1.INb
-				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG
+				LPC_GPIO2->FIOSET1 |= (1<< 4); //P2.12 is set to 1.DIAG*/
+
+				LPC_GPIO0->FIOCLR2 |= (1<<7); //p0.22 INa
+				LPC_GPIO0->FIOSET3 |= (1<<4); //p0.27 INb
+				LPC_GPIO0->FIOSET3 |= (1<<5); //p0.28 DIAG
 
 				LPC_GPIO2->FIOCLR0 |= (1<<6) ; // P2.6 is set to 1.		InA
 				LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0.		InB
@@ -109,8 +128,10 @@ int main(void)
 			else if (stop==true)
 			{
 				/* stop les moteur au demarage*/
-				LPC_GPIO2->FIOCLR1 |= (1<<4 ); //P2.11 is set to 0.DIAG
 				LPC_GPIO2->FIOCLR1 |= (1<< 0); //P2.8 is set to 1.		Diag
+
+				LPC_GPIO0->FIOCLR3 |= (1<<5); //p0.28 DIAG
+
 				stop=false;
 			}
 			else if (regle_vitesse==true)
