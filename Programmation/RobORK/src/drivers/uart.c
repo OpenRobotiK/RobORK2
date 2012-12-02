@@ -209,6 +209,34 @@ void send_message(char *message)
 	send_uart3(message,strlen(message));
 }
 
+bool int_to_char(int nombre, char* resultat)
+{
+	if (nombre>100000)return false;
+	int dixmille, mille, centaine, dixaine, unite;
+	int buffer = nombre;
+
+	dixmille = buffer / 10000;
+	buffer = buffer % 10000;
+
+	mille = buffer / 1000;
+	buffer = buffer % 1000;
+
+	centaine = buffer / 100;
+	buffer = buffer % 100;
+
+	dixaine = buffer / 10;
+	unite = buffer % 10;
+
+
+	resultat[0] = dixmille + 0x30;
+	resultat[1] = mille + 0x30;
+	resultat[2] = centaine + 0x30;
+	resultat[3] = dixaine + 0x30;
+	resultat[4] = unite + 0x30;
+	resultat[5] = '\0';
+	return true;
+}
+
 /**
  * @}
  * @}

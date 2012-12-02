@@ -4,13 +4,13 @@
 
 volatile uint32_t eint0_counter;
 volatile bool test = false;
-
+volatile int nombre = 0;
 
 
 void EINT3_IRQHandler (void)
 {
 	test=true;
-
+	nombre++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT3;			//clear l'interruption
 	LPC_GPIOINT->IO2IntClr |= CLEAR_EINT3;	//clear l'interruption sur pin
@@ -22,7 +22,7 @@ bool EINT3Init( void )
 	LPC_PINCON->PINSEL4 |= SELECT_EINT3;		//active la pin
 	//LPC_SC->EXTMODE |= EINT3_EDGE;
 	LPC_SC->EXTMODE |= EINT3_EDGE;				//choix sur niveau ou sur front
-	LPC_SC->EXTPOLAR |= 0;				//choix sur quel niveau (haut ou bas)
+	LPC_SC->EXTPOLAR |= EINT3_RISING;				//choix sur quel niveau (haut ou bas)
 
 
 	/* clear interrupt */

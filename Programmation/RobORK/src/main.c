@@ -37,6 +37,12 @@ int main(void)
 	MOTOR_Init(LEFT_MOTOR);
 	TIMER_Init(TIMER0);
 	TIMER_Start(TIMER0);
+	char buf[10];
+	int_to_char(91234,buf);
+	send_message(buf);
+
+
+
 
 	//init_interrupt_codeur(codeur_droit);
 	while(1)
@@ -46,6 +52,8 @@ int main(void)
 				send_message("est passe dans l'interruption\r\n");
 
 			test=false;
+			int_to_char(nombre,buf);
+			send_message(buf);
 		}
 		while(demo_mode==true)
 		{

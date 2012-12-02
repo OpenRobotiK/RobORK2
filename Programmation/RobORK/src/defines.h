@@ -23,6 +23,6 @@ extern bool avance, recule, gauche, droite, stop, regle_vitesse;
 extern volatile bool demo_mode;
 extern volatile int timer0;
 extern volatile bool test ;
-
+extern volatile int nombre;
 
 #endif /* DEFINES_H_ */

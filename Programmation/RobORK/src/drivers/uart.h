@@ -43,11 +43,11 @@
 ///\brief Size of the reception buffer
 #define BUFSIZE		0x40
 
-bool init_uart3(int baudrate );
-void send_uart3(char *BufferPtr, int Length );
-void UART3_IRQHandler (void);
-void send_message(char *message);
-
+extern bool init_uart3(int baudrate );
+extern void send_uart3(char *BufferPtr, int Length );
+extern void UART3_IRQHandler (void);
+extern void send_message(char *message);
+extern bool int_to_char(int nombre, char* resultat);
 
 #endif /* end __UART_H */
 
