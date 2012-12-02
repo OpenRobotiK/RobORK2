@@ -8,6 +8,7 @@
 #include "timer.h"
 
 volatile int timer0 = 0;
+volatile int timer_ms = 0;
 
 void TIMER_Init(timerNum timerNb) {
 
@@ -51,11 +52,23 @@ void TIMER0_IRQHandler(void) {
 
 	int irRegister = LPC_TIM0->IR;
 
-	if((irRegister & 0x01) == 0x01) {
+	if((irRegister & 0x01) == 0x01)
+	{
+		if (timer_ms>=100000)
+		{
+			timer_ms = 0;
+		}
+		else
+		{
+			timer_ms++;
+		}
 
 		timer0 ++;
 		LPC_TIM0->IR |= 1<<0; // Reset the Timer.
-
+	}
+	if (timer_ms % 10)
+	{
+		asservisement_vitesse_gauche();
 	}
 }
 
