@@ -66,9 +66,11 @@ void TIMER0_IRQHandler(void) {
 		timer0 ++;
 		LPC_TIM0->IR |= 1<<0; // Reset the Timer.
 	}
-	if (timer_ms % 10)
+	if (timer_ms == 10)
 	{
+		timer_ms=0;
 		asservisement_vitesse_gauche();
+
 	}
 }
 

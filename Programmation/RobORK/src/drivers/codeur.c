@@ -38,8 +38,9 @@ bool EINT3Init( void )
 
 void EINT2_IRQHandler (void)
 {
-	test=true;
 
+	test=true;
+	tick_codeuse++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT2;			//clear l'interruption
 	LPC_GPIOINT->IO2IntClr |= CLEAR_EINT2;	//clear l'interruption sur pin
@@ -50,7 +51,7 @@ bool EINT2Init( void )
 {
 	LPC_PINCON->PINSEL4 |= SELECT_EINT2;		//active la pin
 	//LPC_SC->EXTMODE |= EINT3_EDGE;
-	LPC_SC->EXTMODE = 0;				//choix sur niveau ou sur front
+	LPC_SC->EXTMODE |= EINT2_EDGE;;				//choix sur niveau ou sur front
 	LPC_SC->EXTPOLAR |= EINT2_RISING;	//choix sur quel niveau (haut ou bas)
 
 
