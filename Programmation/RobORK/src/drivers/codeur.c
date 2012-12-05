@@ -40,7 +40,7 @@ void EINT2_IRQHandler (void)
 {
 
 	test=true;
-	tick_codeuse++;
+	//tick_codeuse++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT2;			//clear l'interruption
 	LPC_GPIOINT->IO2IntClr |= CLEAR_EINT2;	//clear l'interruption sur pin

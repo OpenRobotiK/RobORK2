@@ -1,18 +1,21 @@
 
 #include "aserv.h"
 
-volatile float frequence_echantillonnage = 0.01;  // Fréquence du pid 10ms
+volatile float frequence_echantillonnage = 10;  // Fréquence du pid 10ms
 volatile int rapport_reducteur = 35;          // Rapport entre le nombre de tours de l'arbre moteur et de la roue
 volatile int tick_par_tour_codeuse = 7;      // Nombre de tick codeuse par tour de l'arbre moteur
 
-volatile float consigne_moteur_nombre_tours_par_seconde = .001;  //  Nombre de tours de roue par seconde
+volatile float consigne_moteur_nombre_tours_par_seconde = 5;  //  Nombre de tours de roue par seconde
 
-volatile float erreur_precedente = .001; // doit etre egale au nombre de tours de roue par seconde
+volatile float erreur_precedente = 0; // doit etre egale au nombre de tours de roue par seconde
 volatile float somme_erreur = 0;   // Somme des erreurs pour l'intégrateur
-volatile int cmd_max = 50; //consigne max a mesurer
-volatile float kp = 30000;           // Coefficient proportionnel
-volatile float ki = 10100;           // Coefficient intégrateur
-volatile float kd = 1000;           // Coefficient dérivateur
+volatile int cmd_max = 10; //consigne max a mesurer
+volatile float kp = 40;           // Coefficient proportionnel
+volatile float ki = 75;           // Coefficient intégrateur
+volatile float kd = 50;           // Coefficient dérivateur
+
+volatile bool asserv=false;
+volatile int nombre_a_regarder=0;
 
 void asservisement_vitesse_gauche(void)
 {
@@ -33,7 +36,8 @@ void asservisement_vitesse_gauche(void)
 	cmd = kp*erreur + ki*somme_erreur + kd*delta_erreur;
 	//cmd=-cmd;
 	// Normalisation et contrôle du moteur
-	pwm = cmd / cmd_max * 100;
+	pwm = cmd / cmd_max;
+	nombre_a_regarder=(int)tick;
 	if(pwm < 0)
 		{
 			pwm=0;
@@ -42,7 +46,8 @@ void asservisement_vitesse_gauche(void)
 		{
 			pwm = 100;
 		}
-
-	PWM_SetDutyCycle(PWM2,(int)cmd );
+	//nombre_a_regarder=(int)frequence_codeuse/10;
+	asserv=true;
+	PWM_SetDutyCycle(PWM2,(int)pwm );
 }
 

@@ -58,6 +58,75 @@ int main(void)
 		}
 		while(demo_mode==true)
 		{
+			if (asserv==true)
+			{
+				int_to_char(nombre_a_regarder,buf);
+				send_message(buf);
+				asserv=false;
+			}
+			else if (propo==true)
+			{
+				validation = false;
+				send_message("\n\r\n\r");
+				send_message("tape le coef de prop*100\n\r");
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+				while (validation==false){}
+				kp=(float)atoi(commande)/100;
+				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
+				//PWM_SetDutyCycle(PWM1,atoi(commande));
+				send_message(commande);
+				send_message("\n\r\n\r");
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+					propo=false;
+			}
+			else if (dervi==true)
+			{
+				validation = false;
+				send_message("\n\r\n\r");
+				send_message("tape le coef de deri*100\n\r");
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+				while (validation==false){}
+				kd=(float)atoi(commande)/100;
+				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
+				//PWM_SetDutyCycle(PWM1,atoi(commande));
+				send_message(commande);
+				send_message("\n\r\n\r");
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+					dervi=false;
+			}
+			else if (inte==true)
+			{
+				validation = false;
+				send_message("\n\r\n\r");
+				send_message("tape le coef de inte*100\n\r");
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+				while (validation==false){}
+				ki=(float)atoi(commande)/100;
+				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
+				//PWM_SetDutyCycle(PWM1,atoi(commande));
+				send_message(commande);
+				send_message("\n\r\n\r");
+				for (i=0;i==strlen(commande);i++)
+				{
+					commande[i]='\0';
+				}
+					inte=false;
+			}
 			if (avance==true)
 			{
 				LPC_GPIO0->FIOSET |= (1<<22);//|= (1<<7); //p0.22 INa
@@ -126,9 +195,9 @@ int main(void)
 					commande[i]='\0';
 				}
 				while (validation==false){}
-
-				PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
-				PWM_SetDutyCycle(PWM1,atoi(commande));
+				consigne_moteur_nombre_tours_par_seconde=atoi(commande);
+				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
+				//PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_message(commande);
 				send_message("\n\r\n\r");
 				for (i=0;i==strlen(commande);i++)

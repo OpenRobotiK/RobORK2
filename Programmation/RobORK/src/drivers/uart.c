@@ -24,9 +24,9 @@ volatile int UART3Count = 0;
 
 char commande[255] = {0};
 volatile bool validation = false;
-volatile bool demo_mode = false;
+volatile bool demo_mode = true;
 
-bool avance=false,recule=false,gauche=false,droite=false,stop=false,regle_vitesse=false;
+volatile bool avance=true,recule=false,gauche=false,droite=false,stop=false,regle_vitesse=false,propo=false, inte=false, dervi=false;
 
 
 
@@ -78,6 +78,18 @@ void UART3_IRQHandler (void)
 		{
 			regle_vitesse=true;
 			UART3Count=0;
+		}
+		else if (UART3Buffer[UART3Count-1] == 'p')
+		{
+			propo=true;
+		}
+		else if (UART3Buffer[UART3Count-1] == 'i')
+		{
+			inte=true;
+		}
+		else if (UART3Buffer[UART3Count-1] == 'y')
+		{
+			dervi=true;
 		}
 	}
 	/***	echo uart ***********************************/
@@ -233,7 +245,10 @@ bool int_to_char(int nombre, char* resultat)
 	resultat[2] = centaine + 0x30;
 	resultat[3] = dixaine + 0x30;
 	resultat[4] = unite + 0x30;
-	resultat[5] = '\0';
+	resultat[5] = '\n';
+	//resultat[5] = '\0';
+	resultat[6] = '\r';
+	resultat[7] = '\0';
 	return true;
 }
 
