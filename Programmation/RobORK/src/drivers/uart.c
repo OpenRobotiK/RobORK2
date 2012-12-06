@@ -24,9 +24,9 @@ volatile int UART3Count = 0;
 
 char commande[255] = {0};
 volatile bool validation = false;
-volatile bool demo_mode = true;
+volatile bool demo_mode = false;
 
-volatile bool avance=true,recule=false,gauche=false,droite=false,stop=false,regle_vitesse=false,propo=false, inte=false, dervi=false;
+volatile bool avance=false, recule=false, gauche=false, droite=false, stop=false, regle_vitesse=false;
 
 
 
@@ -79,18 +79,7 @@ void UART3_IRQHandler (void)
 			regle_vitesse=true;
 			UART3Count=0;
 		}
-		else if (UART3Buffer[UART3Count-1] == 'p')
-		{
-			propo=true;
-		}
-		else if (UART3Buffer[UART3Count-1] == 'i')
-		{
-			inte=true;
-		}
-		else if (UART3Buffer[UART3Count-1] == 'y')
-		{
-			dervi=true;
-		}
+
 	}
 	/***	echo uart ***********************************/
 		char buf[1]={UART3Buffer[UART3Count-1]};

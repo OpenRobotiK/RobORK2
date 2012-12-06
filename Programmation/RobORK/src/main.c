@@ -64,69 +64,6 @@ int main(void)
 				send_message(buf);
 				asserv=false;
 			}
-			else if (propo==true)
-			{
-				validation = false;
-				send_message("\n\r\n\r");
-				send_message("tape le coef de prop*100\n\r");
-				for (i=0;i==strlen(commande);i++)
-				{
-					commande[i]='\0';
-				}
-				while (validation==false){}
-				kp=(float)atoi(commande)/100;
-				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
-				//PWM_SetDutyCycle(PWM1,atoi(commande));
-				send_message(commande);
-				send_message("\n\r\n\r");
-				for (i=0;i==strlen(commande);i++)
-				{
-					commande[i]='\0';
-				}
-					propo=false;
-			}
-			else if (dervi==true)
-			{
-				validation = false;
-				send_message("\n\r\n\r");
-				send_message("tape le coef de deri*100\n\r");
-				for (i=0;i==strlen(commande);i++)
-				{
-					commande[i]='\0';
-				}
-				while (validation==false){}
-				kd=(float)atoi(commande)/100;
-				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
-				//PWM_SetDutyCycle(PWM1,atoi(commande));
-				send_message(commande);
-				send_message("\n\r\n\r");
-				for (i=0;i==strlen(commande);i++)
-				{
-					commande[i]='\0';
-				}
-					dervi=false;
-			}
-			else if (inte==true)
-			{
-				validation = false;
-				send_message("\n\r\n\r");
-				send_message("tape le coef de inte*100\n\r");
-				for (i=0;i==strlen(commande);i++)
-				{
-					commande[i]='\0';
-				}
-				while (validation==false){}
-				ki=(float)atoi(commande)/100;
-				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
-				//PWM_SetDutyCycle(PWM1,atoi(commande));
-				send_message(commande);
-				send_message("\n\r\n\r");
-				for (i=0;i==strlen(commande);i++)
-				{
-					commande[i]='\0';
-				}
-					inte=false;
-			}
 			if (avance==true)
 			{
 				LPC_GPIO0->FIOSET |= (1<<22);//|= (1<<7); //p0.22 INa
@@ -183,6 +120,10 @@ int main(void)
 				LPC_GPIO0->FIOCLR |= (1<<3); //p0.28 DIAG
 				//LPC_GPIO0->FIOCLR3 |= (1<<5); //p0.28 DIAG
 
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
 				stop=false;
 			}
 			else if (regle_vitesse==true)
@@ -195,7 +136,7 @@ int main(void)
 					commande[i]='\0';
 				}
 				while (validation==false){}
-				consigne_moteur_nombre_tours_par_seconde=atoi(commande);
+				consigne_moteur_nombre_tours_par_seconde_gauche=atoi(commande);
 				//PWM_SetDutyCycle(PWM2,atoi(commande)); // refaire la fonction atoi pour virer stdlib.h
 				//PWM_SetDutyCycle(PWM1,atoi(commande));
 				send_message(commande);
@@ -204,7 +145,11 @@ int main(void)
 				{
 					commande[i]='\0';
 				}
-					regle_vitesse=false;
+				erreur_precedente_gauche = 0;
+				asomme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
+				regle_vitesse=false;
 		}
 		if (validation==true)
 		{

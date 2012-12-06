@@ -4,13 +4,13 @@
 
 volatile uint32_t eint0_counter;
 volatile bool test = false;
-volatile int tick_codeuse = 0;
-
+volatile int tick_codeuse_gauche = 0;
+volatile int tick_codeuse_droit = 0;
 
 void EINT3_IRQHandler (void)
 {
 	test=true;
-	tick_codeuse++;
+	tick_codeuse_gauche++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT3;			//clear l'interruption
 	LPC_GPIOINT->IO2IntClr |= CLEAR_EINT3;	//clear l'interruption sur pin
@@ -40,7 +40,7 @@ void EINT2_IRQHandler (void)
 {
 
 	test=true;
-	//tick_codeuse++;
+	tick_codeuse_droit++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT2;			//clear l'interruption
 	LPC_GPIOINT->IO2IntClr |= CLEAR_EINT2;	//clear l'interruption sur pin
