@@ -14,11 +14,11 @@ void TIMER_Init(timerNum timerNb) {
 
 	if(timerNb == TIMER0) {
 
-		LPC_SC->PCONP |= 1<<1;
-		LPC_SC->PCLKSEL0 |= 2<<2; // Peripheral clock : CCLK/2
+		LPC_SC->PCONP |= 1 << 1;
+		LPC_SC->PCLKSEL0 |= 2 << 2; // Peripheral clock : CCLK/2
 
 		LPC_TIM0->CTCR = 0;
-		LPC_TIM0->MCR |= 3<<0;// Interrupt and reset on match MR0
+		LPC_TIM0->MCR |= 3 << 0; // Interrupt and reset on match MR0
 		LPC_TIM0->PR = 99; // With MR0 it should gives a 1000Hz interrupt.
 		LPC_TIM0->MR0 = 1000;
 
@@ -26,8 +26,13 @@ void TIMER_Init(timerNum timerNb) {
 
 	} else if(timerNb == TIMER1) {
 
-		LPC_SC->PCONP |= 1<<1;
-		LPC_SC->PCLKSEL0 |= 2<<4; // Peripheral clock : CCLK/2
+		LPC_SC->PCONP |= 1 << 1;
+		LPC_SC->PCLKSEL0 |= 1 << 4; // Peripheral clock : CCLK
+
+		LPC_TIM1->CTCR = 0;
+		LPC_TIM1->MCR |= 3 << 0; // Interrupt and reset on match MR0
+		LPC_TIM1->PR = 19; // With MR0 it should gives a 10000Hz interrupt.
+		LPC_TIM1->MR0 = 1000;
 
 		NVIC_EnableIRQ(TIMER1_IRQn);
 	}
@@ -77,5 +82,10 @@ void TIMER0_IRQHandler(void) {
 
 void TIMER1_IRQHandler(void) {
 
+	int irRegister = LPC_TIM0->IR;
 
+	if((irRegister & 0x01) == 0x01) {
+
+		LPC_TIM0->IR |= 1 << 0; // Reset the interrupt flag.
+	}
 }
