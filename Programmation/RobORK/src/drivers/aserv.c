@@ -43,13 +43,13 @@ void asservisement_vitesse_gauche(void)
 	pwm = cmd;
 
 	if(pwm < 0)
-		{
-			pwm=0;
-		}
+	{
+		pwm=0;
+	}
 	else if(pwm > 100)
-		{
-			pwm = 100;
-		}
+	{
+		pwm = 100;
+	}
 	//nombre_a_regarder=(int)tick;
 	//asserv=true;
 	PWM_SetDutyCycle(PWM2,(int)pwm );
@@ -78,13 +78,13 @@ void asservisement_vitesse_droit(void)
 	pwm = cmd;
 	nombre_a_regarder=(int)tick;
 	if(pwm < 0)
-		{
-			pwm=0;
-		}
+	{
+		pwm=0;
+	}
 	else if(pwm > 100)
-		{
-			pwm = 100;
-		}
+	{
+		pwm = 100;
+	}
 	//nombre_a_regarder=(int)frequence_codeuse/10;
 	asserv=true;
 	PWM_SetDutyCycle(PWM1,(int)pwm );
