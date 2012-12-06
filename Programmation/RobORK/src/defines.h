@@ -26,6 +26,7 @@ extern volatile bool test ;
 
 extern volatile int timer_ms;
 extern volatile float consigne_moteur_nombre_tours_par_seconde_gauche;
+extern volatile float consigne_moteur_nombre_tours_par_seconde_droit;
 extern volatile bool asserv;
 extern volatile int nombre_a_regarder;
 
@@ -33,5 +34,7 @@ extern volatile float erreur_precedente_gauche; // doit etre egale au nombre de 
 extern volatile float somme_erreur_gauche;
 extern volatile float erreur_precedente_droit; // doit etre egale au nombre de tours de roue par seconde
 extern volatile float somme_erreur_droit;
+
+extern volatile bool timer_active;
 
 #endif /* DEFINES_H_ */

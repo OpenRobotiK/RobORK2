@@ -9,6 +9,7 @@
 
 volatile int timer0 = 0;
 volatile int timer_ms = 0;
+volatile bool timer_active = false;
 
 void TIMER_Init(timerNum timerNb) {
 
@@ -20,7 +21,7 @@ void TIMER_Init(timerNum timerNb) {
 		LPC_TIM0->CTCR = 0;
 		LPC_TIM0->MCR |= 3<<0;// Interrupt and reset on match MR0
 		LPC_TIM0->PR = 99; // With MR0 it should gives a 1000Hz interrupt.
-		LPC_TIM0->MR0 = 1000;
+		LPC_TIM0->MR0 = 500;
 
 		NVIC_EnableIRQ(TIMER0_IRQn);
 
@@ -54,23 +55,23 @@ void TIMER0_IRQHandler(void) {
 
 	if((irRegister & 0x01) == 0x01)
 	{
-		if (timer_ms>=100000)
-		{
-			timer_ms = 0;
-		}
-		else
-		{
-			timer_ms++;
-		}
+
+		timer_ms++;
+		timer_active = true;
+
 
 		timer0 ++;
 		LPC_TIM0->IR |= 1<<0; // Reset the Timer.
 	}
-	if (timer_ms == 50)
+	if ((timer_ms % 50) == 0)
 	{
-		timer_ms=0;
+		//timer_ms=0;
 		asservisement_vitesse_gauche();
 		asservisement_vitesse_droit();
+	}
+	if ((timer_ms % 500) == 0)
+	{
+		test = true;
 	}
 }
 
