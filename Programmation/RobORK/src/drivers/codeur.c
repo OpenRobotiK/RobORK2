@@ -9,7 +9,7 @@ volatile int tick_codeuse_droit = 0;
 
 void EINT3_IRQHandler (void)
 {
-	test=true;
+
 	tick_codeuse_gauche++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT3;			//clear l'interruption
@@ -39,7 +39,7 @@ bool EINT3Init( void )
 void EINT2_IRQHandler (void)
 {
 
-	test=true;
+
 	tick_codeuse_droit++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT2;			//clear l'interruption

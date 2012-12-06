@@ -14,8 +14,8 @@ volatile float somme_erreur_gauche = 0;   // Somme des erreurs pour l'intégrate
 volatile float erreur_precedente_droit = 0; // doit etre egale au nombre de tours de roue par seconde
 volatile float somme_erreur_droit = 0;   // Somme des erreurs pour l'intégrateur
 
-const float kp = 13;          // Coefficient proportionnel
-const float ki = 3;           // Coefficient intégrateur
+const float kp = 6.5;          // Coefficient proportionnel
+const float ki = 1.5;           // Coefficient intégrateur
 const float kd = 0;           // Coefficient dérivateur
 
 volatile bool asserv=false;

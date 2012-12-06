@@ -39,23 +39,24 @@ int main(void)
 	TIMER_Init(TIMER0);
 	TIMER_Start(TIMER0);
 	char buf[10];
-	int_to_char(91234,buf);
-	send_message(buf);
 
 
 
 
-	//init_interrupt_codeur(codeur_droit);
+
 	while(1)
 	{
-		if (test==true)
+		/*if (test==true)
 		{
-			send_message("est passe dans l'interruption\r\n");
+			test=false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
+			int_to_char(une constant globale,buf);
+			send_message(buf);
+		}//*/
 
-			test=false;
-			//int_to_char(tick_codeuse,buf);
-			//send_message(buf);
-		}
+		/******************************************************/
+		/************** debut du mode "demo" ******************/
+		/******************************************************/
+
 		while(demo_mode==true)
 		{
 			if (asserv==true)
@@ -146,12 +147,12 @@ int main(void)
 					commande[i]='\0';
 				}
 				erreur_precedente_gauche = 0;
-				asomme_erreur_gauche = 0;
+				somme_erreur_gauche = 0;
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 				regle_vitesse=false;
 		}
-		if (validation==true)
+			if (validation==true)
 		{
 			if(strcmp(commande,"exit")==0 )
 			{
@@ -161,7 +162,20 @@ int main(void)
 		}
 		}
 
-		/*reprise de test ADC*/
+
+		/******************************************************/
+		/**************** fin du mode "demo" ******************/
+		/******************************************************/
+
+
+
+
+		/******************************************************/
+		/************* debut de la gestion uart ***************/
+		/******************************************************/
+
+
+
 		if (validation==true)
 		{
 			if(strcmp(commande,"test")==0 )
@@ -193,6 +207,57 @@ int main(void)
 			commande[i]='\0';
 		}
 		}
+
+
+		/******************************************************/
+		/*************** fin de la gestion uart ***************/
+		/******************************************************/
+
+
+
+		/******************************************************/
+		/**************** debut de la strategie ***************/
+		/******************************************************/
+
+		if (timer_active==true)
+		{
+			timer_active=false;
+			if (timer0==3000)
+			{
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
+				consigne_moteur_nombre_tours_par_seconde_gauche = 3;
+				consigne_moteur_nombre_tours_par_seconde_droit = 3;
+				LPC_GPIO0->FIOSET |= (1<<22);//|= (1<<7); //p0.22 INa
+				LPC_GPIO0->FIOCLR |=(1<<21);//|= (1<<4); //p0.27 INb
+				LPC_GPIO0->FIOSET |= (1<<3); //p0.28 DIAG
+
+				LPC_GPIO2->FIOCLR0 |= (1<<6) ; // P2.6 is set to 1. InA
+				LPC_GPIO2->FIOSET0 |= (1<<7 ); //P2.7 is set to 0. InB
+				LPC_GPIO2->FIOSET1 |= (1<< 0); //P2.8 is set to 1. Diag
+
+			}
+			else if (timer0==90*1000)
+			{
+				LPC_GPIO2->FIOCLR1 |= (1<< 0); //P2.8 is set to 1. Diag
+
+				LPC_GPIO0->FIOCLR |= (1<<3); //p0.28 DIAG
+				//LPC_GPIO0->FIOCLR3 |= (1<<5); //p0.28 DIAG
+
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
+			}
+		}
+
+		/******************************************************/
+		/**************** fin de la strategie ***************/
+		/******************************************************/
+
+
 	}
 	return 0 ;
 }
