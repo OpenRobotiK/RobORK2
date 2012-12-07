@@ -26,7 +26,7 @@ Description : main definition
 
 int main(void)
 {
-
+	init_jack();
 	int i =0;
 	EINT2Init();
 	EINT3Init();
@@ -42,11 +42,11 @@ int main(void)
 
 
 
-	init_jack();
 
 
-	while(1)
-	{
+
+	//while(1)
+	//{
 		/*if (test==true)
 		{
 			test=false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
@@ -214,19 +214,20 @@ int main(void)
 			/*************** fin de la gestion uart ***************/
 			/******************************************************/
 
-
+		}
 
 			/******************************************************/
 			/**************** debut de la strategie ***************/
 		/******************************************************/
-		}
+
 		while (1)
 		{
-			//send_message("ok c'est bon\n\r");
+			send_message("ok c'est bon\n\r");
 			if (timer_active==true)
 			{
+
 				timer_active=false;
-				if (timer0==30)
+				if (timer0==3)
 				{
 					erreur_precedente_gauche = 0;
 					somme_erreur_gauche = 0;
@@ -264,6 +265,6 @@ int main(void)
 		/******************************************************/
 
 
-	}
+	//}
 	return 0 ;
 }
