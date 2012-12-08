@@ -22,7 +22,9 @@ extern volatile bool validation;
 extern volatile bool avance, recule, gauche, droite, stop, regle_vitesse;
 extern volatile bool demo_mode;
 extern volatile int timer0;
-extern volatile bool test ;
+extern volatile bool test;
+extern volatile bool sens_droit;
+extern volatile bool sens_gauche;
 
 extern volatile int timer_ms;
 extern volatile float consigne_moteur_nombre_tours_par_seconde_gauche;
