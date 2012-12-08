@@ -44,5 +44,6 @@ extern bool EINT1Init( void );
 extern void EINT0_IRQHandler(void);
 extern bool EINT0Init( void );
 extern bool init_interrupt_codeur(void);
+extern bool init_codeur(void);
 
 #endif /* CODEUR_H_ */
