@@ -10,9 +10,11 @@
 
 
 #include "motors.h"
+#include "defines.h"
+#include "aserv.h"
 
-
-void MOOVE_Init(void);
-void MOOVE_Direction(Direction direction, int speed);
+extern void MOOVE_Init(void);
+extern void MOOVE_Direction(Direction direction, int speed);
+extern void changement_de_vitesse (Motor moteur,int vitesse);
 
 #endif /* MOOVE_H_ */

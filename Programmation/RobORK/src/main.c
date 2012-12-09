@@ -22,13 +22,14 @@ Description : main definition
 #include "timer.h"
 #include "codeur.h"
 #include "autre.h"
+#include "moove.h"
 
 
 int main(void)
 {
 	int i =0;
 
-	init_uart3(9600);
+	init_uart3(115200);
 
 	//EINT2Init();
 	//EINT3Init();
@@ -36,8 +37,7 @@ int main(void)
 	init_codeur();
 	send_message("\n\rStart\n\r");
 
-	MOTOR_Init(RIGHT_MOTOR);
-	MOTOR_Init(LEFT_MOTOR);
+	MOOVE_Init();
 	TIMER_Init(TIMER0);
 	TIMER_Start(TIMER0);
 	char buf[10];
@@ -222,18 +222,28 @@ int main(void)
 	timer0 = 0; //remise a zero du timer pour que le match puisse commencer
 	while (1)
 	{
+	    if (asserv == true)  // fonction de test
+            {
+                asserv = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
+
+                int_to_char(nombre_a_regarder,buf);
+                send_message(buf);
+            }//*/
 		if (timer_active == true)
 		{
+
 			timer_active = false;
-			if (timer0 == 30)
+			if (timer0 == 300)
 			{
 				erreur_precedente_gauche = 0;
 				somme_erreur_gauche = 0;
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 
-				consigne_moteur_nombre_tours_par_seconde_gauche = 3;
-				consigne_moteur_nombre_tours_par_seconde_droit = 3;
+
+
+				consigne_moteur_nombre_tours_par_seconde_gauche = 2;
+				consigne_moteur_nombre_tours_par_seconde_droit = 2;
 
 				LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
 				LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
@@ -242,8 +252,29 @@ int main(void)
 				LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
 				LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
 				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+				send_message("ok");
+
 			}
-			else if (timer0 == 10*1000)
+			else if (timer0 == 5*1000)
+                        {
+                                erreur_precedente_gauche = 0;
+                                somme_erreur_gauche = 0;
+                                erreur_precedente_droit = 0;
+                                somme_erreur_droit = 0;
+
+                                consigne_moteur_nombre_tours_par_seconde_gauche = 0;
+                                consigne_moteur_nombre_tours_par_seconde_droit = 0;
+
+                                LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
+                                LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
+                                LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+
+                                LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
+                                LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
+                                LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+
+                        }
+			else if (timer0 == 15*1000)
 			{
 				LPC_GPIO2->FIOCLR1 |= (1 << 0); //P2.8 is set to 1. Diag
 				LPC_GPIO0->FIOCLR |= (1 << 3); //p0.28 DIAG
