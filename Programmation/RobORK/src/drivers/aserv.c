@@ -1,7 +1,7 @@
 
 #include "aserv.h"
 
-const float frequence_echantillonnage = 20;  // Fréquence du pid 10ms
+const float frequence_echantillonnage = 50;  // Fréquence du pid 10ms
 const int rapport_reducteur = 35;          // Rapport entre le nombre de tours de l'arbre moteur et de la roue
 const int tick_par_tour_codeuse = 7;      // Nombre de tick codeuse par tour de l'arbre moteur
 
@@ -14,9 +14,9 @@ volatile float somme_erreur_gauche = 0;   // Somme des erreurs pour l'intégrate
 volatile float erreur_precedente_droit = 0; // doit etre egale au nombre de tours de roue par seconde
 volatile float somme_erreur_droit = 0;   // Somme des erreurs pour l'intégrateur
 
-const float kp = 6.5;          // Coefficient proportionnel
-const float ki = 1.5;           // Coefficient intégrateur
-const float kd = 0;           // Coefficient dérivateur
+const float kp = 100;          // Coefficient proportionnel
+const float ki = 10;           // Coefficient intégrateur
+const float kd = 10;           // Coefficient dérivateur
 
 volatile bool asserv=false;
 volatile int nombre_a_regarder=0;
@@ -50,8 +50,8 @@ void asservisement_vitesse_gauche(void)
 	{
 		pwm = 100;
 	}
-	//nombre_a_regarder=(int)tick;
-	//asserv=true;
+	nombre_a_regarder=(int)tick;
+	asserv=true;
 	PWM_SetDutyCycle(PWM2,(int)pwm );
 }
 
