@@ -19,8 +19,18 @@ void EINT3_IRQHandler (void)
 	else
 	{
 		sens_droit = false;
-	}//*/
+	}
 
+	if ((LPC_SC->EXTPOLAR & EINT3_RISING) == EINT3_RISING)
+	{
+		LPC_SC->EXTPOLAR &= ~EINT3_RISING;
+	}
+	else
+	{
+		LPC_SC->EXTPOLAR |= EINT3_RISING;
+	}
+
+	//test=true;
 	tick_codeuse_gauche++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT3;	//clear l'interruption
@@ -56,7 +66,16 @@ void EINT2_IRQHandler (void)
 		else
 		{
 			sens_gauche = false;
-		}//*/
+		}
+
+	if ((LPC_SC->EXTPOLAR & EINT2_RISING) == EINT2_RISING)
+		{
+			LPC_SC->EXTPOLAR &= ~EINT2_RISING;
+		}
+		else
+		{
+			LPC_SC->EXTPOLAR |= EINT2_RISING;
+		}
 
 	tick_codeuse_droit++;
 	/* clear interrupt */
@@ -98,7 +117,7 @@ bool EINT1Init( void )
 {
 	LPC_PINCON->PINSEL4 |= SELECT_EINT1;	//active la pin
 	//LPC_SC->EXTMODE |= EINT3_EDGE;
-	LPC_SC->EXTMODE = 0;	//choix sur niveau ou sur front
+	LPC_SC->EXTMODE |= EINT1_EDGE;	//choix sur niveau ou sur front
 	LPC_SC->EXTPOLAR |= EINT1_RISING;	//choix sur quel niveau (haut ou bas)
 
 
@@ -127,7 +146,7 @@ bool EINT0Init( void )
 {
 	LPC_PINCON->PINSEL4 |= SELECT_EINT0;	//active la pin
 	//LPC_SC->EXTMODE |= EINT3_EDGE;
-	LPC_SC->EXTMODE = 0;	//choix sur niveau ou sur front
+	LPC_SC->EXTMODE |= EINT0_EDGE;	//choix sur niveau ou sur front
 	LPC_SC->EXTPOLAR |= EINT0_RISING;	//choix sur quel niveau (haut ou bas)
 
 
@@ -149,6 +168,8 @@ bool init_interrupt_codeur(void)
 
 	interrupt2 = EINT2Init();
 	interrupt3 = EINT3Init();
+	//EINT0Init();
+
 
 	if (interrupt2 == true && interrupt3 == true)
 	{

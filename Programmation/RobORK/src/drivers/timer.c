@@ -71,9 +71,17 @@ void TIMER0_IRQHandler(void) {
 	if ((timer_ms % 20) == 0)
 	{
 		//timer_ms=0;
+		//asservisement_vitesse_droit();
 		asservisement_vitesse_gauche();
-		asservisement_vitesse_droit();
+
 	}
+	if (((timer_ms + 1) % 20) == 0)
+		{
+			//timer_ms=0;
+			asservisement_vitesse_droit();
+			//asservisement_vitesse_gauche();
+
+		}
 	if ((timer_ms % 500) == 0)
 	{
 		test = true;

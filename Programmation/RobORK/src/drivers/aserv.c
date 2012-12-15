@@ -3,10 +3,10 @@
 
 const float frequence_echantillonnage = 50;  // Fréquence du pid 10ms
 const int rapport_reducteur = 35;          // Rapport entre le nombre de tours de l'arbre moteur et de la roue
-const int tick_par_tour_codeuse = 7;      // Nombre de tick codeuse par tour de l'arbre moteur
+const int tick_par_tour_codeuse = 14;      // Nombre de tick codeuse par tour de l'arbre moteur
 
-volatile float consigne_moteur_nombre_tours_par_seconde_gauche = 1.5;  //  Nombre de tours de roue par seconde
-volatile float consigne_moteur_nombre_tours_par_seconde_droit = 1.5;  //  Nombre de tours de roue par seconde
+volatile float consigne_moteur_nombre_tours_par_seconde_gauche = 0;  //  Nombre de tours de roue par seconde
+volatile float consigne_moteur_nombre_tours_par_seconde_droit = 0;  //  Nombre de tours de roue par seconde
 
 volatile float erreur_precedente_gauche = 0; // doit etre egale au nombre de tours de roue par seconde
 volatile float somme_erreur_gauche = 0;   // Somme des erreurs pour l'intégrateur
@@ -14,9 +14,9 @@ volatile float somme_erreur_gauche = 0;   // Somme des erreurs pour l'intégrate
 volatile float erreur_precedente_droit = 0; // doit etre egale au nombre de tours de roue par seconde
 volatile float somme_erreur_droit = 0;   // Somme des erreurs pour l'intégrateur
 
-const float kp = 100;          // Coefficient proportionnel
-const float ki = 10;           // Coefficient intégrateur
-const float kd = 10;           // Coefficient dérivateur
+const float kp = 75;          // Coefficient proportionnel
+const float ki = 0;           // Coefficient intégrateur
+const float kd = 25;           // Coefficient dérivateur
 
 volatile bool asserv=false;
 volatile int nombre_a_regarder=0;
@@ -26,7 +26,7 @@ void asservisement_vitesse_gauche(void)
 	int cmd = 0, pwm = 0; //commande
 	// Réinitialisation du nombre de tick de la codeuse
 	int tick = tick_codeuse_gauche;
-	tick_codeuse_gauche=0;
+	tick_codeuse_gauche = 0;
 
 	// Calcul des erreurs
 	float frequence_codeuse = frequence_echantillonnage*tick; //pas par tour
@@ -50,8 +50,8 @@ void asservisement_vitesse_gauche(void)
 	{
 		pwm = 100;
 	}
-	nombre_a_regarder=(int)tick;
-	asserv=true;
+	//nombre_a_regarder=(int)tick;
+	//asserv=true;
 	PWM_SetDutyCycle(PWM2,(int)pwm );
 }
 
@@ -76,7 +76,7 @@ void asservisement_vitesse_droit(void)
 	//cmd=-cmd;
 	// Normalisation et contrôle du moteur
 	pwm = cmd;
-	nombre_a_regarder=(int)tick;
+
 	if(pwm < 0)
 	{
 		pwm=0;
@@ -85,7 +85,6 @@ void asservisement_vitesse_droit(void)
 	{
 		pwm = 100;
 	}
-	//nombre_a_regarder=(int)frequence_codeuse/10;
-	asserv=true;
+
 	PWM_SetDutyCycle(PWM1,(int)pwm );
 }

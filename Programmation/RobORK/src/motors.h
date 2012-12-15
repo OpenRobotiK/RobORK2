@@ -40,7 +40,7 @@ extern MotorInfos leftMotor;
 void MOTOR_Init(Motor motor);
 void MOTOR_Start(Motor motor);
 void MOTOR_Stop(Motor motor);
-void MOTOR_SetSpeed(Motor motor, Direction direction, int speed);
+void MOTOR_SetSpeed(Motor motor, Direction direction, int consigne);
 
 
 
