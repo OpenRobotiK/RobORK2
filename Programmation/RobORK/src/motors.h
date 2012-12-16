@@ -16,7 +16,7 @@
 typedef enum Motor Motor;
 enum Motor {
 
-    RIGHT_MOTOR, LEFT_MOTOR
+    RIGHT_MOTOR, LEFT_MOTOR, BOTH_MOTOR
 };
 
 typedef enum Direction Direction;

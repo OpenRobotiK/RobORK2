@@ -28,6 +28,7 @@ Description : main definition
 int main(void)
 {
 	int i =0;
+	int temps=0;
 
 	init_uart3(115200);
 
@@ -47,8 +48,8 @@ int main(void)
 
 
 
-		while (attendre_jack() == false) //a inverser quand on aura le support jack
-		{
+	while (attendre_jack() == false) //a inverser quand on aura le support jack
+	{
 		/******************************************************/
 		/************** debut du mode "demo" ******************/
 		/******************************************************/
@@ -173,7 +174,7 @@ int main(void)
 				if(strcmp(commande,"exit") == 0 )
 				{
 					demo_mode = false;
-					send_message("\n\rtu es sortie du mode demo\n\r");
+					send_message("\n\r\n\r\t\tTu es sortie du mode demo\n\r\n\r");
 				}
 			}
 		}
@@ -234,119 +235,68 @@ int main(void)
 		if (timer_active == true)
 		{
 			timer_active = false;
-			if (timer0 == 300)
+			if (timer0 == 0)
 			{
 				erreur_precedente_gauche = 0;
 				somme_erreur_gauche = 0;
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
-
-				//consigne_moteur_nombre_tours_par_seconde_gauche = 2;
-				//consigne_moteur_nombre_tours_par_seconde_droit = 2;
-
-				//changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
-
-				LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
-				LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
-				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
-				LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
-				LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
-				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
+				//tourne_droite(1);//pendant 1200
+				//tourne gauche(1);//pendant 1150
+				marche_avant(3); //pendant 2.4s
+				//temps += 1200;
 			}
-			else if (timer0 == 3*1000)
+			else if (timer0 == 2400)
 			{
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 0.0);
-
+				arret_moteur();
+				//temps += 2000;
 			}
-			else if (timer0 == 6*1000)
+			else if (timer0 == 2400+3000)
 			{
-				LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
-				LPC_GPIO0->FIOSET |=(1 << 21);//|= (1<<4); //p0.27 INb
-				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
-				LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
-				LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
-				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
+				//marche_arriere(3);
+				tourne_droite(1);
+				//temps += 1200;
 			}
-			else if (timer0 == 9*1000)
+			else if (timer0 == 2400+3000+1150)
 			{
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 0.0);
+				arret_moteur();
+				//temps += 2000;
 			}
-			else if (timer0 == 12*1000)
+			else if (timer0 == 2400+3000+1150+3000)
 			{
-
-				LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
-				LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
-				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
-				LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
-				LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
-				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
+				marche_avant(3);
+				//temps += 3000;
 			}
-			else if (timer0 == 15*1000)
+			else if (timer0 == 2400+3000+1150+3000+4000)
 			{
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 0.0);
+				arret_moteur();
+				//temps += 2000;
 			}
-			else if (timer0 == 18*1000)
+			else if (timer0 == 2400+3000+1150+3000+4000+3000)
 			{
-				LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
-				LPC_GPIO0->FIOSET |=(1 << 21);//|= (1<<4); //p0.27 INb
-				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
-				LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
-				LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
-				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
+				tourne_droite(1);
+				//temps += 1200;
 			}
-			else if (timer0 == 21*1000)
+			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150)
 			{
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 0.0);
+				arret_moteur();
 			}
-			else if (timer0 == 24*1000)
+			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150+3000)
 			{
-
-				LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
-				LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
-				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
-				LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
-				LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
-				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
+				marche_avant(2);
 			}
-			else if (timer0 == 27*1000)
+			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150+3000+2500)
 			{
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 0.0);
+				arret_moteur();
 			}
-			else if (timer0 == 33*1000)
+			/*else if (timer0 == 33*1000)
 			{
-				LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
-				LPC_GPIO0->FIOSET |=(1 << 21);//|= (1<<4); //p0.27 INb
-				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
-				LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
-				LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
-				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 3);
+				marche_arriere(3);
 			}
 			else if (timer0 == 36*1000)
 			{
-				changement_de_vitesse(RIGHT_MOTOR, FORWARD, 0.0);
-			}
-			else if (timer0 == 39*1000)
-			{
-				LPC_GPIO2->FIOCLR1 |= (1 << 0); //P2.8 is set to 1. Diag
-				LPC_GPIO0->FIOCLR |= (1 << 3); //p0.28 DIAG
-
-				erreur_precedente_gauche = 0;
-				somme_erreur_gauche = 0;
-				erreur_precedente_droit = 0;
-				somme_erreur_droit = 0;
-			}
+				arret_moteur();
+			}*/
 		}
 	}
 	/******************************************************/
