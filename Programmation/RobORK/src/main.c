@@ -28,7 +28,6 @@ Description : main definition
 int main(void)
 {
 	int i =0;
-	int temps=0;
 
 	init_uart3(115200);
 
@@ -241,41 +240,32 @@ int main(void)
 				somme_erreur_gauche = 0;
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
-				//tourne_droite(1);//pendant 1200
-				//tourne gauche(1);//pendant 1150
 				marche_avant(3); //pendant 2.4s
-				//temps += 1200;
 			}
 			else if (timer0 == 2400)
 			{
 				arret_moteur();
-				//temps += 2000;
 			}
 			else if (timer0 == 2400+3000)
 			{
 				//marche_arriere(3);
 				tourne_droite(1);
-				//temps += 1200;
 			}
 			else if (timer0 == 2400+3000+1150)
 			{
 				arret_moteur();
-				//temps += 2000;
 			}
 			else if (timer0 == 2400+3000+1150+3000)
 			{
 				marche_avant(3);
-				//temps += 3000;
 			}
 			else if (timer0 == 2400+3000+1150+3000+4000)
 			{
 				arret_moteur();
-				//temps += 2000;
 			}
 			else if (timer0 == 2400+3000+1150+3000+4000+3000)
 			{
 				tourne_droite(1);
-				//temps += 1200;
 			}
 			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150)
 			{
@@ -288,6 +278,7 @@ int main(void)
 			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150+3000+2500)
 			{
 				arret_moteur();
+
 			}
 			/*else if (timer0 == 33*1000)
 			{

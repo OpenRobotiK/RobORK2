@@ -63,8 +63,6 @@ void TIMER0_IRQHandler(void) {
 
 		timer_ms++;
 		timer_active = true;
-
-
 		timer0 ++;
 		LPC_TIM0->IR |= 1<<0; // Reset the Timer.
 	}
@@ -73,14 +71,12 @@ void TIMER0_IRQHandler(void) {
 		//timer_ms=0;
 		//asservisement_vitesse_droit();
 		asservisement_vitesse_gauche();
-
 	}
 	if (((timer_ms + 1) % 20) == 0)
 	{
 		//timer_ms=0;
 		asservisement_vitesse_droit();
 		//asservisement_vitesse_gauche();
-
 	}
 	if ((timer_ms % 500) == 0)
 	{
