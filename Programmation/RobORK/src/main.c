@@ -28,7 +28,7 @@ Description : main definition
 int main(void)
 {
 	int i =0;
-
+	int tache1 = -1, tache2 = -1, tache3 = -1, tache4 = -1, tache5 = -1, tache6 = -1, tache7 = -1, tache8 = -1, tache9 = -1;
 	init_uart3(115200);
 
 	//EINT2Init();
@@ -230,7 +230,7 @@ int main(void)
 
                     int_to_char(nombre_a_regarder,buf);
                     send_message(buf);
-            }*/
+            }//*/
 		if (timer_active == true)
 		{
 			timer_active = false;
@@ -241,41 +241,50 @@ int main(void)
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 				marche_avant(3); //pendant 2.4s
+				tache1 = 2400;
 			}
-			else if (timer0 == 2400)
+			else if (timer0 == tache1)
 			{
 				arret_moteur();
+				tache2 = tache1 + 3000;
 			}
-			else if (timer0 == 2400+3000)
+			else if (timer0 == tache2)
 			{
 				//marche_arriere(3);
 				tourne_droite(1);
+				tache3 = tache2 + 1150;
 			}
-			else if (timer0 == 2400+3000+1150)
+			else if (timer0 == tache3)
 			{
 				arret_moteur();
+				tache4 = tache3 + 3000;
 			}
-			else if (timer0 == 2400+3000+1150+3000)
+			else if (timer0 == tache4)
 			{
 				marche_avant(3);
+				tache5 = tache4 + 4000;
 			}
-			else if (timer0 == 2400+3000+1150+3000+4000)
+			else if (timer0 == tache5)
 			{
 				arret_moteur();
+				tache6 = tache5 + 3000;
 			}
-			else if (timer0 == 2400+3000+1150+3000+4000+3000)
+			else if (timer0 == tache6)
 			{
 				tourne_droite(1);
+				tache7 = tache6 + 1150;
 			}
-			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150)
+			else if (timer0 == tache7)
 			{
 				arret_moteur();
+				tache8 = tache7 + 3000;
 			}
-			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150+3000)
+			else if (timer0 == tache8)
 			{
 				marche_avant(2);
+				tache9 = tache8 +2500;
 			}
-			else if (timer0 == 2400+3000+1150+3000+4000+3000+1150+3000+2500)
+			else if (timer0 == tache9)
 			{
 				arret_moteur();
 

@@ -14,9 +14,9 @@ volatile float somme_erreur_gauche = 0;   // Somme des erreurs pour l'intégrate
 volatile float erreur_precedente_droit = 0; // doit etre egale au nombre de tours de roue par seconde
 volatile float somme_erreur_droit = 0;   // Somme des erreurs pour l'intégrateur
 
-const float kp = 75;          // Coefficient proportionnel
-const float ki = 0;           // Coefficient intégrateur
-const float kd = 25;           // Coefficient dérivateur
+const float kp = 50;          // Coefficient proportionnel
+const float ki = 15;           // Coefficient intégrateur
+const float kd = 30;           // Coefficient dérivateur
 
 volatile bool asserv=false;
 volatile int nombre_a_regarder=0;
@@ -50,8 +50,8 @@ void asservisement_vitesse_gauche(void)
 	{
 		pwm = 100;
 	}
-	//nombre_a_regarder=(int)tick;
-	//asserv=true;
+	nombre_a_regarder=(int)tick;
+	asserv=true;
 	PWM_SetDutyCycle(PWM2,(int)pwm );
 }
 

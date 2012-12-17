@@ -11,6 +11,7 @@
 
 #include "motors.h"
 
+#define pente 0.15
 
 extern void MOOVE_Init(void);
 extern void MOOVE_Direction(Direction direction, int speed);
