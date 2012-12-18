@@ -240,8 +240,12 @@ int main(void)
 				somme_erreur_gauche = 0;
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
-				marche_avant(3); //pendant 2.4s
-				tache1 = 2400;
+				/*tourne_droite(1);
+				tache1 = 730;*/
+				/*tourne_gauche(1);
+				//tache1 = 710;*/
+				marche_avant(3); //pendant 2.1s
+				tache1 = 2100;
 			}
 			else if (timer0 == tache1)
 			{
@@ -251,8 +255,12 @@ int main(void)
 			else if (timer0 == tache2)
 			{
 				//marche_arriere(3);
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
 				tourne_droite(1);
-				tache3 = tache2 + 1150;
+				tache3 = tache2 + 730;
 			}
 			else if (timer0 == tache3)
 			{
@@ -261,8 +269,12 @@ int main(void)
 			}
 			else if (timer0 == tache4)
 			{
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
 				marche_avant(3);
-				tache5 = tache4 + 4000;
+				tache5 = tache4 + 3000;
 			}
 			else if (timer0 == tache5)
 			{
@@ -271,8 +283,12 @@ int main(void)
 			}
 			else if (timer0 == tache6)
 			{
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
 				tourne_droite(1);
-				tache7 = tache6 + 1150;
+				tache7 = tache6 + 730;
 			}
 			else if (timer0 == tache7)
 			{
@@ -281,8 +297,12 @@ int main(void)
 			}
 			else if (timer0 == tache8)
 			{
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
+				somme_erreur_droit = 0;
 				marche_avant(2);
-				tache9 = tache8 +2500;
+				tache9 = tache8 + 1900;
 			}
 			else if (timer0 == tache9)
 			{
