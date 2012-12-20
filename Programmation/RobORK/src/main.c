@@ -245,12 +245,12 @@ int main(void)
 				/*tourne_gauche(1);
 				//tache1 = 710;*/
 				marche_avant(3); //pendant 2.1s
-				tache1 = 2100;
+				tache1 = 1700;
 			}
 			else if (timer0 == tache1)
 			{
 				arret_moteur();
-				tache2 = tache1 + 3000;
+				tache2 = tache1 + 1000;
 			}
 			else if (timer0 == tache2)
 			{
@@ -260,12 +260,12 @@ int main(void)
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 				tourne_droite(1);
-				tache3 = tache2 + 730;
+				tache3 = tache2 + 810;
 			}
 			else if (timer0 == tache3)
 			{
 				arret_moteur();
-				tache4 = tache3 + 3000;
+				tache4 = tache3 + 1000;
 			}
 			else if (timer0 == tache4)
 			{
@@ -274,12 +274,12 @@ int main(void)
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 				marche_avant(3);
-				tache5 = tache4 + 3000;
+				tache5 = tache4 + 2800;
 			}
 			else if (timer0 == tache5)
 			{
 				arret_moteur();
-				tache6 = tache5 + 3000;
+				tache6 = tache5 + 1000;
 			}
 			else if (timer0 == tache6)
 			{
@@ -288,12 +288,12 @@ int main(void)
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 				tourne_droite(1);
-				tache7 = tache6 + 730;
+				tache7 = tache6 + 790;
 			}
 			else if (timer0 == tache7)
 			{
 				arret_moteur();
-				tache8 = tache7 + 3000;
+				tache8 = tache7 + 1000;
 			}
 			else if (timer0 == tache8)
 			{
@@ -302,7 +302,7 @@ int main(void)
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
 				marche_avant(2);
-				tache9 = tache8 + 1900;
+				tache9 = tache8 + 2000;
 			}
 			else if (timer0 == tache9)
 			{
