@@ -240,10 +240,36 @@ int main(void)
 				somme_erreur_gauche = 0;
 				erreur_precedente_droit = 0;
 				somme_erreur_droit = 0;
-				/*tourne_droite(1);
-				tache1 = 730;*/
-				/*tourne_gauche(1);
-				//tache1 = 710;*/
+				LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
+				LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
+				LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+
+				LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
+				LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
+				LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+				virage(1.1,2.2);
+				tache1 = 2000;
+			}
+			else if (timer0 == tache1)
+			{
+				virage(3,2.2);
+				tache2 = tache1 + 2000;
+			}
+			else if (timer0 == tache2)
+			{
+				marche_avant(3);
+				tache3 = tache2 + 2000;
+			}
+			else if (timer0 == tache3)
+			{
+				arret_moteur();
+				tache4 = tache3 + 1000;
+			}
+			/*if (timer0 == 0)
+			{
+				erreur_precedente_gauche = 0;
+				somme_erreur_gauche = 0;
+				erreur_precedente_droit = 0;
 				marche_avant(3); //pendant 2.1s
 				tache1 = 1700;
 			}

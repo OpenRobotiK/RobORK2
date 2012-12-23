@@ -84,46 +84,41 @@ void changement_de_vitesse(Motor moteur, float consigne)
 	}
 	else if(moteur == BOTH_MOTOR)
 	{
-		if (consigne_moteur_nombre_tours_par_seconde_droit < consigne && consigne_moteur_nombre_tours_par_seconde_gauche < consigne)
+		if (consigne_moteur_nombre_tours_par_seconde_droit <= consigne && consigne_moteur_nombre_tours_par_seconde_gauche <= consigne)
 		{
-			char buf[10];
 			temps = timer0;
-			int_to_char(nombre_a_regarder,buf);
-			send_message(buf);
-			while (consigne_moteur_nombre_tours_par_seconde_droit <= consigne && consigne_moteur_nombre_tours_par_seconde_gauche <= consigne)
+			while (((consigne_moteur_nombre_tours_par_seconde_droit < consigne) || (consigne_moteur_nombre_tours_par_seconde_gauche < consigne)) &&
+					(!((consigne_moteur_nombre_tours_par_seconde_droit == consigne) && (consigne_moteur_nombre_tours_par_seconde_gauche == consigne))))
 			{
 				compteur+=20;
 
 				while (timer0 != (temps + compteur)){}
 				consigne_moteur_nombre_tours_par_seconde_droit += pente;
 				consigne_moteur_nombre_tours_par_seconde_gauche += pente;
-				int_to_char(nombre_a_regarder,buf);
-				send_message(buf);
-				/*if (consigne_moteur_nombre_tours_par_seconde_gauche > consigne)
+				if (consigne_moteur_nombre_tours_par_seconde_gauche > consigne)
 				{
-					consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
+					consigne_moteur_nombre_tours_par_seconde_gauche = consigne ;
 				}
 				if (consigne_moteur_nombre_tours_par_seconde_droit > consigne)
 				{
-					consigne_moteur_nombre_tours_par_seconde_droit = consigne;
-				}*/
+					consigne_moteur_nombre_tours_par_seconde_droit = consigne ;
+				}//*/
 			}
+			consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
+			consigne_moteur_nombre_tours_par_seconde_droit = consigne;
 		}
-		else if (consigne_moteur_nombre_tours_par_seconde_droit > consigne && consigne_moteur_nombre_tours_par_seconde_gauche > consigne)
+		else if (consigne_moteur_nombre_tours_par_seconde_droit >= consigne && consigne_moteur_nombre_tours_par_seconde_gauche >= consigne)
 		{
-			char buf[10];
+
 			temps = timer0;
-			int_to_char(nombre_a_regarder,buf);
-			send_message(buf);
-			while (consigne_moteur_nombre_tours_par_seconde_droit >= consigne && consigne_moteur_nombre_tours_par_seconde_gauche >= consigne)
+			while (((consigne_moteur_nombre_tours_par_seconde_droit > consigne || consigne_moteur_nombre_tours_par_seconde_gauche > consigne)) &&
+					(!((consigne_moteur_nombre_tours_par_seconde_droit == consigne) && (consigne_moteur_nombre_tours_par_seconde_gauche == consigne))))
 			{
 				compteur+=20;
 				while (timer0 != (temps + compteur)){}
 				consigne_moteur_nombre_tours_par_seconde_droit -= pente;
 				consigne_moteur_nombre_tours_par_seconde_gauche -= pente;
-				int_to_char(nombre_a_regarder,buf);
-				send_message(buf);
-				/*if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
+				if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
 				{
 					consigne_moteur_nombre_tours_par_seconde_droit = 0;
 				}
@@ -133,47 +128,53 @@ void changement_de_vitesse(Motor moteur, float consigne)
 				}
 				if (consigne_moteur_nombre_tours_par_seconde_droit < consigne)
 				{
-					consigne_moteur_nombre_tours_par_seconde_droit = consigne;
+					consigne_moteur_nombre_tours_par_seconde_droit = consigne ;
 				}
 				if (consigne_moteur_nombre_tours_par_seconde_gauche < consigne)
 				{
-					consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
-				}*/
+					consigne_moteur_nombre_tours_par_seconde_gauche = consigne ;
+				}//*/
 			}
+			consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
+			consigne_moteur_nombre_tours_par_seconde_droit = consigne;
 		}
-		else if (consigne_moteur_nombre_tours_par_seconde_droit > consigne && consigne_moteur_nombre_tours_par_seconde_gauche < consigne)
+		else if (consigne_moteur_nombre_tours_par_seconde_droit >= consigne && consigne_moteur_nombre_tours_par_seconde_gauche <= consigne)
 		{
 			temps = timer0;
-			while (consigne_moteur_nombre_tours_par_seconde_droit >= consigne && consigne_moteur_nombre_tours_par_seconde_gauche <= consigne)
+			while (((consigne_moteur_nombre_tours_par_seconde_droit > consigne || consigne_moteur_nombre_tours_par_seconde_gauche < consigne)) &&
+					(!((consigne_moteur_nombre_tours_par_seconde_droit == consigne) && (consigne_moteur_nombre_tours_par_seconde_gauche == consigne))))
 			{
 				compteur+=20;
 				while (timer0 != (temps + compteur)){}
 				consigne_moteur_nombre_tours_par_seconde_droit -= pente;
 				consigne_moteur_nombre_tours_par_seconde_gauche += pente;
-				/*if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
+				if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
 				{
 					consigne_moteur_nombre_tours_par_seconde_droit = 0;
 				}
 				if (consigne_moteur_nombre_tours_par_seconde_droit < consigne)
 				{
-					consigne_moteur_nombre_tours_par_seconde_droit = consigne;
+					consigne_moteur_nombre_tours_par_seconde_droit = consigne ;
 				}
 				if (consigne_moteur_nombre_tours_par_seconde_gauche > consigne)
 				{
-					consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
-				}*/
+					consigne_moteur_nombre_tours_par_seconde_gauche = consigne ;
+				}//*/
 			}
+			consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
+			consigne_moteur_nombre_tours_par_seconde_droit = consigne;
 		}
-		else if (consigne_moteur_nombre_tours_par_seconde_gauche > consigne && consigne_moteur_nombre_tours_par_seconde_droit < consigne)
+		else if (consigne_moteur_nombre_tours_par_seconde_gauche >= consigne && consigne_moteur_nombre_tours_par_seconde_droit <= consigne)
 		{
 			temps = timer0;
-			while (consigne_moteur_nombre_tours_par_seconde_gauche >= consigne && consigne_moteur_nombre_tours_par_seconde_droit <= consigne)
+			while (((consigne_moteur_nombre_tours_par_seconde_gauche > consigne || consigne_moteur_nombre_tours_par_seconde_droit < consigne)) &&
+					(!((consigne_moteur_nombre_tours_par_seconde_droit == consigne) && (consigne_moteur_nombre_tours_par_seconde_gauche == consigne))))
 			{
 				compteur+=20;
 				while (timer0 != (temps + compteur)){}
 				consigne_moteur_nombre_tours_par_seconde_gauche -= pente;
 				consigne_moteur_nombre_tours_par_seconde_droit += pente;
-				/*if (consigne_moteur_nombre_tours_par_seconde_gauche < 0)
+				if (consigne_moteur_nombre_tours_par_seconde_gauche < 0)
 				{
 					consigne_moteur_nombre_tours_par_seconde_gauche = 0;
 				}
@@ -184,8 +185,10 @@ void changement_de_vitesse(Motor moteur, float consigne)
 				if (consigne_moteur_nombre_tours_par_seconde_droit > consigne)
 				{
 					consigne_moteur_nombre_tours_par_seconde_droit = consigne;
-				}*/
+				}//*/
 			}
+			consigne_moteur_nombre_tours_par_seconde_gauche = consigne;
+			consigne_moteur_nombre_tours_par_seconde_droit = consigne;
 		}
 	}
 }
@@ -251,4 +254,115 @@ void tourne_droite(float vitesse)
 	changement_de_vitesse(BOTH_MOTOR, vitesse);
 }
 
+void virage(float roue_droite, float roue_gauche)
+{
+	int compteur = 5;
+	int temps = timer0;
+	if (consigne_moteur_nombre_tours_par_seconde_droit <= roue_droite && consigne_moteur_nombre_tours_par_seconde_gauche <= roue_gauche)
+	{
+		temps = timer0;
+		while (((consigne_moteur_nombre_tours_par_seconde_droit < roue_droite) || (consigne_moteur_nombre_tours_par_seconde_gauche < roue_gauche)) &&
+				(!((consigne_moteur_nombre_tours_par_seconde_droit == roue_droite) && (consigne_moteur_nombre_tours_par_seconde_gauche == roue_gauche))))
+		{
+			compteur+=20;
+
+			while (timer0 != (temps + compteur)){}
+			consigne_moteur_nombre_tours_par_seconde_droit += pente;
+			consigne_moteur_nombre_tours_par_seconde_gauche += pente;
+			if (consigne_moteur_nombre_tours_par_seconde_gauche > roue_gauche)
+			{
+				consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_droit > roue_droite)
+			{
+				consigne_moteur_nombre_tours_par_seconde_droit = roue_droite ;
+			}
+		}
+		consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+		consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
+	}
+	else if (consigne_moteur_nombre_tours_par_seconde_droit >= roue_droite && consigne_moteur_nombre_tours_par_seconde_gauche >= roue_gauche)
+	{
+
+		temps = timer0;
+		while (((consigne_moteur_nombre_tours_par_seconde_droit > roue_droite || consigne_moteur_nombre_tours_par_seconde_gauche > roue_gauche)) &&
+				(!((consigne_moteur_nombre_tours_par_seconde_droit == roue_droite) && (consigne_moteur_nombre_tours_par_seconde_gauche == roue_gauche))))
+		{
+			compteur+=20;
+			while (timer0 != (temps + compteur)){}
+			consigne_moteur_nombre_tours_par_seconde_droit -= pente;
+			consigne_moteur_nombre_tours_par_seconde_gauche -= pente;
+			if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
+			{
+				consigne_moteur_nombre_tours_par_seconde_droit = 0;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_gauche < 0)
+			{
+				consigne_moteur_nombre_tours_par_seconde_gauche = 0;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_droit < roue_droite)
+			{
+				consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_gauche < roue_gauche)
+			{
+				consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+			}
+		}
+		consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+		consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
+	}
+	else if (consigne_moteur_nombre_tours_par_seconde_droit >= roue_droite && consigne_moteur_nombre_tours_par_seconde_gauche <= roue_gauche)
+	{
+		temps = timer0;
+		while (((consigne_moteur_nombre_tours_par_seconde_droit > roue_droite || consigne_moteur_nombre_tours_par_seconde_gauche < roue_gauche)) &&
+				(!((consigne_moteur_nombre_tours_par_seconde_droit == roue_droite) && (consigne_moteur_nombre_tours_par_seconde_gauche == roue_gauche))))
+		{
+			compteur+=20;
+			while (timer0 != (temps + compteur)){}
+			consigne_moteur_nombre_tours_par_seconde_droit -= pente;
+			consigne_moteur_nombre_tours_par_seconde_gauche += pente;
+			if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
+			{
+				consigne_moteur_nombre_tours_par_seconde_droit = 0;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_droit < roue_droite)
+			{
+				consigne_moteur_nombre_tours_par_seconde_droit = roue_droite ;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_gauche > roue_gauche)
+			{
+				consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+			}
+		}
+		consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+		consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
+	}
+	else if (consigne_moteur_nombre_tours_par_seconde_gauche >= roue_gauche && consigne_moteur_nombre_tours_par_seconde_droit <= roue_droite)
+	{
+		temps = timer0;
+		while (((consigne_moteur_nombre_tours_par_seconde_gauche > roue_gauche || consigne_moteur_nombre_tours_par_seconde_droit < roue_droite)) &&
+				(!((consigne_moteur_nombre_tours_par_seconde_droit == roue_droite) && (consigne_moteur_nombre_tours_par_seconde_gauche == roue_gauche))))
+		{
+			compteur+=20;
+			while (timer0 != (temps + compteur)){}
+			consigne_moteur_nombre_tours_par_seconde_gauche -= pente;
+			consigne_moteur_nombre_tours_par_seconde_droit += pente;
+			if (consigne_moteur_nombre_tours_par_seconde_gauche < 0)
+			{
+				consigne_moteur_nombre_tours_par_seconde_gauche = 0;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_gauche < roue_gauche)
+			{
+				consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+			}
+			if (consigne_moteur_nombre_tours_par_seconde_droit > roue_droite)
+			{
+				consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
+			}
+		}
+		consigne_moteur_nombre_tours_par_seconde_gauche = roue_gauche;
+		consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
+	}
+}
 

@@ -50,8 +50,8 @@ void asservisement_vitesse_gauche(void)
 	{
 		pwm = 100;
 	}
-	nombre_a_regarder=(int)tick;
-	asserv=true;
+	nombre_a_regarder = (int)tick;
+	asserv = true;
 	PWM_SetDutyCycle(PWM2,(int)pwm );
 }
 

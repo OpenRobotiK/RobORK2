@@ -21,7 +21,7 @@ extern void arret_moteur(void);
 extern void marche_arriere(float vitesse);
 extern void tourne_gauche(float vitesse);
 extern void tourne_droite(float vitesse);
-
+extern void virage(float roue_droite, float roue_gauche);
 
 
 #endif /* MOOVE_H_ */
