@@ -54,7 +54,8 @@ void TIMER_Start(timerNum timerNb) {
 }
 
 
-void TIMER0_IRQHandler(void) {
+void TIMER0_IRQHandler(void)
+{
 
 	int irRegister = LPC_TIM0->IR;
 
@@ -68,19 +69,17 @@ void TIMER0_IRQHandler(void) {
 	}
 	if ((timer_ms % 20) == 0)
 	{
-		//timer_ms=0;
-		//asservisement_vitesse_droit();
 		asservisement_vitesse_gauche();
 	}
 	if (((timer_ms + 1) % 20) == 0)
 	{
-		//timer_ms=0;
 		asservisement_vitesse_droit();
-		//asservisement_vitesse_gauche();
 	}
-	if ((timer_ms % 500) == 0)
+	if ((timer_ms % 200) == 0)
 	{
 		test = true;
+		mesure_angle();
+		mesure_position();
 	}
 }
 

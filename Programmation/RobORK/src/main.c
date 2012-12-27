@@ -52,26 +52,10 @@ int main(void)
 		/******************************************************/
 		/************** debut du mode "demo" ******************/
 		/******************************************************/
-			/*if (test == true)  // fonction de test
+			if (test == true)  // fonction de test
 				{
 					test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
-					if (sens_droit == true)
-					{
-						send_message("sens1\t");
-					}
-					else
-					{
-						send_message("sens2\t");
-					}
-					if (sens_gauche == true)
-					{
-						send_message("sens1\n\r");
-					}
-					else
-					{
-						send_message("sens2\n\r");
-					}
-					int_to_char(tick_codeuse_gauche,buf);
+					int_to_char((int)angle,buf);
 					send_message(buf);
 				}//*/
 

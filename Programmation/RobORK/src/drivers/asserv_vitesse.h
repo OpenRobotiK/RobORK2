@@ -1,5 +1,5 @@
-#ifndef ASERV_H_
-#define ASERV_H_
+#ifndef ASSERV_VITESSE_H_
+#define ASSERV_VITESSE_H_
 
 #ifdef __USE_CMSIS
 #include "LPC17xx.h"
@@ -18,4 +18,4 @@ extern volatile int tick_codeuse_droit;
 extern void asservisement_vitesse_gauche(void);
 extern void asservisement_vitesse_droit(void);
 
-#endif /* ASERV_H_ */
+#endif /* ASSERV_VITESSE_H_ */

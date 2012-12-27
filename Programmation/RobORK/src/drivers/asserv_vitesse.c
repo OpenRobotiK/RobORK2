@@ -1,5 +1,5 @@
 
-#include "aserv.h"
+#include "asserv_vitesse.h"
 
 const float frequence_echantillonnage = 50;  // Fréquence du pid 10ms
 const int rapport_reducteur = 35;          // Rapport entre le nombre de tours de l'arbre moteur et de la roue

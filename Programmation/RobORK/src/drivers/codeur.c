@@ -8,30 +8,46 @@ volatile int tick_codeuse_gauche = 0;
 volatile int tick_codeuse_droit = 0;
 volatile bool sens_droit = false;
 volatile bool sens_gauche = false;
+volatile int tick_position_gauche = 0;
+volatile int tick_position_droit = 0;
 
 void EINT3_IRQHandler (void)
 {
-	//LPC_GPIO0->FIOMASK0  = 0x00;
-	if ((LPC_GPIO0->FIOPIN0 & 0x20) == 0x20)
-	{
-		sens_droit = true;
-	}
-	else
-	{
-		sens_droit = false;
-	}
+	LPC_GPIO0->FIOMASK0  = 0x00;
+
 
 	if ((LPC_SC->EXTPOLAR & EINT3_RISING) == EINT3_RISING)
 	{
 		LPC_SC->EXTPOLAR &= ~EINT3_RISING;
+		if ((LPC_GPIO0->FIOPIN0 & 0x20) == 0x20)
+			{
+				sens_gauche = false;
+				tick_position_gauche--;
+			}
+			else
+			{
+				sens_gauche = true;
+				tick_position_gauche++;
+			}
 	}
 	else
 	{
 		LPC_SC->EXTPOLAR |= EINT3_RISING;
+		if ((LPC_GPIO0->FIOPIN0 & 0x20) == 0x20)
+			{
+				sens_gauche = true;
+				tick_position_gauche++;
+			}
+			else
+			{
+				sens_gauche = false;
+				tick_position_gauche--;
+			}
 	}
 
 	//test=true;
 	tick_codeuse_gauche++;
+
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT3;	//clear l'interruption
 	LPC_GPIOINT->IO2IntClr |= CLEAR_EINT3;	//clear l'interruption sur pin
@@ -59,24 +75,38 @@ bool EINT3Init( void )
 
 void EINT2_IRQHandler (void)
 {
-	if ((LPC_GPIO0->FIOPIN0 & 0x10) == 0x10)
-		{
-			sens_gauche = true;
-		}
-		else
-		{
-			sens_gauche = false;
-		}
+	LPC_GPIO0->FIOMASK0  = 0x00;
+
 
 	if ((LPC_SC->EXTPOLAR & EINT2_RISING) == EINT2_RISING)
 		{
 			LPC_SC->EXTPOLAR &= ~EINT2_RISING;
+			if ((LPC_GPIO0->FIOPIN0 & 0x10) == 0x10)
+					{
+						sens_droit = true;
+						tick_position_droit++;
+					}
+					else
+					{
+						sens_droit = false;
+						tick_position_droit--;
+					}
 		}
 		else
 		{
 			LPC_SC->EXTPOLAR |= EINT2_RISING;
+			if ((LPC_GPIO0->FIOPIN0 & 0x10) == 0x10)
+					{
+						sens_droit = false;
+						tick_position_droit--;
+					}
+					else
+					{
+						sens_droit = true;
+						tick_position_droit++;
+					}
 		}
-
+	//tick_position_droit++;
 	tick_codeuse_droit++;
 	/* clear interrupt */
 	LPC_SC->EXTINT |= EINT2;	//clear l'interruption

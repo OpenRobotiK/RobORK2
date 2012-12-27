@@ -9,7 +9,8 @@
 #define TIMER_H_
 
 #include "defines.h"
-#include "aserv.h"
+#include "asserv_vitesse.h"
+#include "asserv_position.h"
 
 typedef enum timerNum timerNum;
 enum timerNum{TIMER0, TIMER1, TIMER2, TIMER3};
