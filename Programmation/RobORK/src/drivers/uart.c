@@ -15,7 +15,7 @@
  */
 
 #include "uart.h"
-
+#include "asserv_position.h"
 
 volatile int UART3Status;
 volatile char UART3TxEmpty = 1;
@@ -212,7 +212,16 @@ void send_message(char *message)
 
 bool int_to_char(int nombre, char* resultat)
 {
-	if (nombre>100000)return false;
+	if (nombre < 0)
+	{
+		resultat[0] = '-';
+		nombre = -nombre;
+	}
+	else
+	{
+		resultat[0] = '+';
+	}
+	if (nombre > 100000)return false;
 	int dixmille, mille, centaine, dixaine, unite;
 	int buffer = nombre;
 
@@ -229,16 +238,32 @@ bool int_to_char(int nombre, char* resultat)
 	unite = buffer % 10;
 
 
-	resultat[0] = dixmille + 0x30;
-	resultat[1] = mille + 0x30;
-	resultat[2] = centaine + 0x30;
-	resultat[3] = dixaine + 0x30;
-	resultat[4] = unite + 0x30;
-	resultat[5] = '\n';
-	//resultat[5] = '\0';
-	resultat[6] = '\r';
-	resultat[7] = '\0';
+	resultat[1] = dixmille + 0x30;
+	resultat[2] = mille + 0x30;
+	resultat[3] = centaine + 0x30;
+	resultat[4] = dixaine + 0x30;
+	resultat[5] = unite + 0x30;
+	resultat[6] = '\0';
+	/*resultat[6] = '\n';
+	resultat[7] = '\r';
+	resultat[8] = '\0';//*/
 	return true;
+}
+
+void affiche_position(void)
+{
+	char buf[100];
+	char chaine[100] = "X = ";
+	int_to_char((int)X,buf);
+	strcat(chaine, buf);
+	strcat(chaine, "\tY = ");
+	int_to_char((int)Y,buf);
+	strcat(chaine, buf);
+	strcat(chaine, "\tangle = ");
+	int_to_char((int)angle,buf);
+	strcat(chaine, buf);
+	strcat(chaine, "\n\r");
+	send_message(chaine);
 }
 
 /**

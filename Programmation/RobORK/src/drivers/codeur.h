@@ -35,6 +35,15 @@ enum codeur
 #define CLEAR_EINT2		0x00001000
 #define CLEAR_EINT3		0x00002000
 
+extern volatile uint32_t eint0_counter;
+extern volatile bool test;
+extern volatile int tick_codeuse_gauche;
+extern volatile int tick_codeuse_droit;
+extern volatile bool sens_droit;
+extern volatile bool sens_gauche;
+extern volatile int tick_position_gauche;
+extern volatile int tick_position_droit;
+
 extern void EINT3_IRQHandler(void);
 extern bool EINT3Init( void );
 extern void EINT2_IRQHandler(void);

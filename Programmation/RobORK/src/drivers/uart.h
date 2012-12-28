@@ -21,6 +21,7 @@
 #include <string.h>
 #include "defines.h"
 
+
 #define IER_RBR		0x01
 #define IER_THRE	0x02
 #define IER_RLS		0x04
@@ -48,6 +49,7 @@ extern void send_uart3(char *BufferPtr, int Length );
 extern void UART3_IRQHandler (void);
 extern void send_message(char *message);
 extern bool int_to_char(int nombre, char* resultat);
+extern void affiche_position(void);
 
 #endif /* end __UART_H */
 

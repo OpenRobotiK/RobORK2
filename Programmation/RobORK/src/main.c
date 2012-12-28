@@ -24,6 +24,7 @@ Description : main definition
 #include "autre.h"
 #include "moove.h"
 
+#include "string.h"
 
 int main(void)
 {
@@ -31,8 +32,6 @@ int main(void)
 	int tache1 = -1, tache2 = -1, tache3 = -1, tache4 = -1, tache5 = -1, tache6 = -1, tache7 = -1, tache8 = -1, tache9 = -1;
 	init_uart3(115200);
 
-	//EINT2Init();
-	//EINT3Init();
 	init_jack();
 	init_codeur();
 
@@ -52,12 +51,11 @@ int main(void)
 		/******************************************************/
 		/************** debut du mode "demo" ******************/
 		/******************************************************/
-			if (test == true)  // fonction de test
-				{
-					test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
-					int_to_char((int)angle,buf);
-					send_message(buf);
-				}//*/
+		if (test == true)  // fonction de test
+		{
+			test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
+			affiche_position();
+		}//*/
 
 		while(demo_mode == true)
 		{
@@ -208,17 +206,20 @@ int main(void)
 	timer0 = 0; //remise a zero du timer pour que le match puisse commencer
 	while (1)
 	{
-	    /*if (asserv == true)  // fonction de test
-            {
-                    asserv = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
-
-                    int_to_char(nombre_a_regarder,buf);
-                    send_message(buf);
-            }//*/
+		/*if (asserv == true)  // fonction de test
+		{
+				asserv = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
+				affiche_position();
+		}//*/
+		if (test == true)  // fonction de test
+		{
+				test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
+				affiche_position();
+		}//*/
 		if (timer_active == true)
 		{
 			timer_active = false;
-			if (timer0 == 0)
+			if (timer0 == 5)
 			{
 				erreur_precedente_gauche = 0;
 				somme_erreur_gauche = 0;

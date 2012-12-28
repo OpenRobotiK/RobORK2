@@ -15,6 +15,10 @@
 typedef enum timerNum timerNum;
 enum timerNum{TIMER0, TIMER1, TIMER2, TIMER3};
 
+extern volatile int timer0;
+extern volatile int timer_ms;
+extern volatile bool timer_active;
+
 void TIMER_Init(timerNum timerNb);
 void TIMER_Start(timerNum timerNb);
 void TIMER0_IRQHandler(void);

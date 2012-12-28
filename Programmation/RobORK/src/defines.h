@@ -37,6 +37,10 @@ extern volatile float somme_erreur_gauche;
 extern volatile float erreur_precedente_droit; // doit etre egale au nombre de tours de roue par seconde
 extern volatile float somme_erreur_droit;
 
+extern volatile float X;
+extern volatile float Y;
+
+
 extern volatile bool timer_active;
 
 #endif /* DEFINES_H_ */
