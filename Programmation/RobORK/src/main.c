@@ -26,6 +26,8 @@ Description : main definition
 
 #include "string.h"
 
+
+
 int main(void)
 {
 	int i =0;
@@ -43,7 +45,7 @@ int main(void)
 	TIMER_Start(TIMER0);
 	char buf[10];
 
-
+	marche_avant(0.00001);
 
 
 	while (attendre_jack() == false) //a inverser quand on aura le support jack
@@ -56,7 +58,10 @@ int main(void)
 			test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
 			affiche_position();
 		}//*/
-
+		if (timer_ms % 50 && timer_ms > 1000)
+		{
+			test_asserv();
+		}
 		while(demo_mode == true)
 		{
 			if (asserv == true)
@@ -219,6 +224,7 @@ int main(void)
 		if (timer_active == true)
 		{
 			timer_active = false;
+
 			if (timer0 == 5)
 			{
 				erreur_precedente_gauche = 0;
@@ -249,7 +255,7 @@ int main(void)
 			{
 				arret_moteur();
 				tache4 = tache3 + 1000;
-			}
+			}//*/
 			/*if (timer0 == 0)
 			{
 				erreur_precedente_gauche = 0;

@@ -85,6 +85,7 @@ void TIMER0_IRQHandler(void)
 	if ((timer_ms % 500) == 0)
 	{
 		test = true;
+		//test_asserv();
 	}
 }
 

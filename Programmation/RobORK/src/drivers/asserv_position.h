@@ -6,6 +6,7 @@
 #include "defines.h"
 #include "codeur.h"
 #include "math.h"
+#include "moove.h"
 
 extern const int rapport_reducteur;          // Rapport entre le nombre de tours de l'arbre moteur et de la roue
 extern const int tick_par_tour_codeuse;      // Nombre de tick codeuse par tour de l'arbre moteur
@@ -27,6 +28,7 @@ extern volatile float Y;
 extern void mesure_distance(void);
 extern void mesure_angle(void);
 extern void mesure_position(void);
+extern void test_asserv(void);
 
 #endif /* ASSERV_POSITION_H_ */
 
