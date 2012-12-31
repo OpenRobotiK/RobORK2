@@ -45,8 +45,10 @@ int main(void)
 	TIMER_Start(TIMER0);
 	char buf[10];
 
-	marche_avant(0.00001);
-
+	marche_avant(0.25);
+	consigne_angle = 0;
+	//marche_avant(1);
+	//changement_de_vitesse_des_roues(-1,-1);
 
 	while (attendre_jack() == false) //a inverser quand on aura le support jack
 	{
@@ -58,10 +60,24 @@ int main(void)
 			test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
 			affiche_position();
 		}//*/
-		if (timer_ms % 50 && timer_ms > 1000)
+		if (timer_ms % 2000 && timer_ms >= 1000)
 		{
-			test_asserv();
+			//changement_de_vitesse_des_roues(0.5,0.5);
+			//asservisement_angle();
+			//asservisement_distance();
+			float asservis = asservisement_distance();
+			changement_de_vitesse_des_roues((-asservis),(-asservis));
+			//asservi(asservisement_distance(),asservisement_distance());
+			//test_asserv();
 		}
+		if ((timer_ms + 1000) % 2000 && timer_ms >= 1000)
+		{
+			//changement_de_vitesse_des_roues(0.5,0.5);
+			float asservis = asservisement_angle();;
+			changement_de_vitesse_des_roues((-asservis),asservis);
+			//asservisement_distance();
+			//test_asserv();
+		}//*/
 		while(demo_mode == true)
 		{
 			if (asserv == true)

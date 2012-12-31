@@ -9,6 +9,9 @@
 #include "moove.h"
 #include "uart.h"
 
+volatile bool roue_gauche_avant = false;
+volatile bool roue_droite_avant = false;
+
 void MOOVE_Init(void) {
 
 	MOTOR_Init(RIGHT_MOTOR);
@@ -198,16 +201,18 @@ void marche_avant(float vitesse)
 	LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
 	LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
 	LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+	roue_gauche_avant = true;
 
 	LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
 	LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
 	LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+	roue_droite_avant = true;
 	changement_de_vitesse(BOTH_MOTOR, vitesse);
 }
 
 void arret_moteur (void)
 {
-	changement_de_vitesse(BOTH_MOTOR, 0.0);
+	changement_de_vitesse(BOTH_MOTOR, 0);
 	LPC_GPIO2->FIOCLR1 |= (1 << 0); //P2.8 is set to 1. Diag
 	LPC_GPIO0->FIOCLR |= (1 << 3); //p0.28 DIAG
 	erreur_precedente_gauche = 0;
@@ -221,10 +226,11 @@ void marche_arriere(float vitesse)
 	LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
 	LPC_GPIO0->FIOSET |=(1 << 21);//|= (1<<4); //p0.27 INb
 	LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
+	roue_gauche_avant = false;
 	LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
 	LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
 	LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+	roue_droite_avant = false;
 	changement_de_vitesse(BOTH_MOTOR, vitesse);
 }
 
@@ -233,11 +239,12 @@ void tourne_gauche(float vitesse)
 	LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
 	LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
 	LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+	roue_gauche_avant = true;
 
 	LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
 	LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
 	LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-
+	roue_droite_avant = false;
 	changement_de_vitesse(BOTH_MOTOR, vitesse);
 }
 
@@ -246,11 +253,11 @@ void tourne_droite(float vitesse)
 	LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
 	LPC_GPIO0->FIOSET |= (1 << 21);//|= (1<<4); //p0.27 INb
 	LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
-
+	roue_gauche_avant = false;
 	LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
 	LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
 	LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
-
+	roue_droite_avant = true;
 	changement_de_vitesse(BOTH_MOTOR, vitesse);
 }
 
@@ -366,3 +373,81 @@ void virage(float roue_droite, float roue_gauche)
 	}
 }
 
+
+void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
+{
+	if (roue_droite >= 0 && roue_gauche >= 0)
+	{
+		LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
+		LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
+		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+		roue_droite_avant = true;
+
+		LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+		roue_gauche_avant = true;
+
+		virage(roue_droite, roue_gauche);
+	}
+	else if (roue_droite < 0 && roue_gauche >= 0)
+	{
+		if (roue_droite_avant == true)
+		{
+			virage(0, roue_gauche);
+		}
+		LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+		roue_gauche_avant = true;
+		LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
+		LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
+		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+		roue_droite_avant = false;
+		//roue_droite = ;
+		virage((-roue_droite), roue_gauche);
+	}
+	else if (roue_droite >=0 && roue_gauche < 0)
+	{
+		if (roue_gauche_avant == true)
+		{
+			virage(roue_droite,0);
+		}
+		LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOSET |= (1 << 21);//|= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+		roue_gauche_avant = false;
+		LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
+		LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
+		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+		roue_droite_avant = true;
+		//roue_gauche = - roue_gauche;
+		virage(roue_droite, (-roue_gauche));
+	}
+	else if (roue_droite < 0 && roue_gauche < 0)
+	{
+		if (roue_gauche_avant == true && roue_droite_avant == true)
+		{
+			virage(0,0);
+		}
+		else if (roue_droite_avant == true)
+		{
+			virage(0,roue_gauche);
+		}
+		else if (roue_gauche_avant == true)
+		{
+			virage(roue_droite,0);
+		}
+		LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOSET |= (1 << 21);//|= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+		roue_gauche_avant = false;
+		LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
+		LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
+		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+		roue_droite_avant = false;
+		//roue_droite = - roue_droite;
+		//roue_gauche = - roue_gauche;
+		virage((-roue_droite), (-roue_gauche));
+	}
+}

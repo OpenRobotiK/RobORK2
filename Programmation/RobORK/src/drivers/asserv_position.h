@@ -24,11 +24,25 @@ extern volatile float distance;
 extern volatile float distance_precedent;
 extern volatile float X;
 extern volatile float Y;
+extern volatile float consigne_X;
+extern volatile float consigne_Y;
+
+extern volatile float consigne_distance;
+extern volatile float consigne_angle;
+extern volatile float somme_erreur_angle;
+extern volatile float erreur_angle_precedente;
+extern volatile float somme_erreur_distance;
+extern volatile float erreur_distance_precedente;
 
 extern void mesure_distance(void);
 extern void mesure_angle(void);
 extern void mesure_position(void);
 extern void test_asserv(void);
+extern float asservisement_angle(void);
+extern float reste_a_parcourir(float X_voulu,float Y_voulu);
+extern float reste_en_angle(float angle_voulu);
+extern float asservisement_distance(void);
+extern void asservi(float commande_distance, float commande_angle);
 
 #endif /* ASSERV_POSITION_H_ */
 
