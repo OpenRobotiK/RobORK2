@@ -45,11 +45,12 @@ int main(void)
 	TIMER_Start(TIMER0);
 	char buf[10];
 
-	marche_avant(0.25);
-	consigne_angle = 0;
+	//marche_avant(0.25);
+	//consigne_angle = 0;
 	//marche_avant(1);
-	//changement_de_vitesse_des_roues(-1,-1);
-
+	changement_de_vitesse_des_roues(1,1);
+	float asservis;
+	float asservis1;
 	while (attendre_jack() == false) //a inverser quand on aura le support jack
 	{
 		/******************************************************/
@@ -59,22 +60,52 @@ int main(void)
 		{
 			test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
 			affiche_position();
+			//int_to_char((int)consigne_angle,buf);
+			//send_message(buf);
 		}//*/
-		if (timer_ms % 2000 && timer_ms >= 1000)
+
+		if (timer_ms % 101 && timer_ms >= 1000)
 		{
 			//changement_de_vitesse_des_roues(0.5,0.5);
 			//asservisement_angle();
 			//asservisement_distance();
-			float asservis = asservisement_distance();
-			changement_de_vitesse_des_roues((-asservis),(-asservis));
+			asservis1 = asservisement_angle();
+			asservis = asservisement_distance();
+
 			//asservi(asservisement_distance(),asservisement_distance());
 			//test_asserv();
 		}
-		if ((timer_ms + 1000) % 2000 && timer_ms >= 1000)
+		if ((timer_ms + 50) % 101 && timer_ms >= 1000)
 		{
-			//changement_de_vitesse_des_roues(0.5,0.5);
-			float asservis = asservisement_angle();;
-			changement_de_vitesse_des_roues((-asservis),asservis);
+			//changement_de_vitesse_des_roues(-0.5,-0.5);
+			//asservis = -asservis;
+			//send_message("asserv\n\r");
+			if (erreur_angle < 25 && -25 < erreur_angle)
+			{
+				if (erreur_distance < 5 && -5 < erreur_distance)
+				{
+					arret_moteur();
+				}
+				else
+				{
+					changement_de_vitesse_des_roues((-asservis),-asservis);
+				}
+			}
+			else
+			{
+				if (erreur_distance < 5 && -5 < erreur_distance)
+				{
+					arret_moteur();
+				}
+				else
+				{
+					changement_de_vitesse_des_roues((-asservis1),asservis1);
+				}
+
+			}
+
+			//changement_de_vitesse_des_roues((asservis+asservis1),(asservis-asservis1));
+			//changement_de_vitesse_des_roues((-asservis),asservis);
 			//asservisement_distance();
 			//test_asserv();
 		}//*/

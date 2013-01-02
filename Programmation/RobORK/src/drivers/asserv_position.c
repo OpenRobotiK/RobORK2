@@ -6,12 +6,12 @@ const float correcteur_distance = 3; // a affiner avec une longue distance
 const float angle_initial = 0;
 
 const float vitesse_angle_max = 0.5;
-const float kp_angle = 0.001;
-const float ki_angle = 0;//0.00001;
+const float kp_angle = 0.01;
+const float ki_angle = 0.001;//0.00001;
 const float kd_angle = 0;//0.01;
 const float vitesse_distance_max = 0.5;
-const float kp_distance = 0.001;
-const float ki_distance = 0;
+const float kp_distance = 0.01;
+const float ki_distance = 0.001;
 const float kd_distance = 0;
 
 volatile float angle = 0;
@@ -29,7 +29,8 @@ volatile float erreur_angle_precedente = 0;
 volatile float somme_erreur_distance = 0;
 volatile float erreur_distance_precedente = 0;
 
-
+volatile float erreur_angle = 0;
+volatile float erreur_distance = 0;
 
 void mesure_distance(void)
 {
@@ -62,11 +63,31 @@ void mesure_position(void)
 	float delta_Y = vitesse * cos(angle * 2 * 3.141592654 / 360);
 	X = X + delta_X;
 	Y = Y + delta_Y;
-	consigne_angle = atan((consigne_Y-Y)/(consigne_X-X)) * 360 / (2 * 3.141592654);
-	if (-180 <= consigne_angle && consigne_angle < 0)
+
+	if (distance < 5 && -5 < distance)
 	{
-		consigne_angle = consigne_angle + 360;
+		//arret_moteur();
 	}
+	else
+	{
+		if ((Y-consigne_Y) >= 0)
+		{
+			consigne_angle = atanf((X-consigne_X)/(Y-consigne_Y)) * 360 / (2 * 3.141592654);
+			if (-180 <= consigne_angle && consigne_angle < 0)
+			{
+				consigne_angle = 360 + consigne_angle;
+			}
+		}
+		else
+		{
+			consigne_angle = atanf((X-consigne_X)/(Y-consigne_Y)) * 360 / (2 * 3.141592654) + 180;
+			if (-180 <= consigne_angle && consigne_angle < 0)
+			{
+				consigne_angle = 360 + consigne_angle;
+			}
+		}
+	}
+	//consigne_angle += 180;
 }
 
 void test_asserv(void)
@@ -122,12 +143,12 @@ void test_asserv(void)
 float asservisement_angle(void)
 {
 	float commande = 0;
-	float erreur = reste_en_angle(consigne_angle);
-	somme_erreur_angle += erreur;
-	float delta_erreur_angle = erreur - erreur_angle_precedente;
-	erreur_angle_precedente = erreur;
+	erreur_angle = reste_en_angle(consigne_angle);
+	somme_erreur_angle += erreur_angle;
+	float delta_erreur_angle = erreur_angle - erreur_angle_precedente;
+	erreur_angle_precedente = erreur_angle;
 	/* il faudra borner ki * somme_erreur_angle pour ne pas diverger ou le viré mais attention l'erreur statique n'est plus nulle */
-	commande = kp_angle * erreur + ki_angle * somme_erreur_angle + kd_angle * delta_erreur_angle;
+	commande = kp_angle * erreur_angle + ki_angle * somme_erreur_angle + kd_angle * delta_erreur_angle;
 
 	if (commande > vitesse_angle_max)
 	{
@@ -143,13 +164,13 @@ float asservisement_angle(void)
 
 float reste_a_parcourir(float X_voulu,float Y_voulu)
 {
-	float resultat = sqrt((X - X_voulu) * (X - X_voulu) + (Y - Y_voulu) * (Y - Y_voulu));
+	float resultat = fabs(sqrtf((X - X_voulu) * (X - X_voulu) + (Y - Y_voulu) * (Y - Y_voulu)));
 	if (resultat < 30)
 	{
 		return 0;
 	}
 	else
-	{
+	{//*/
 		return resultat;
 	}
 }
@@ -177,7 +198,7 @@ float reste_en_angle(float angle_voulu)
 float asservisement_distance(void)
 {
 	float commande_distance = 0;
-	float erreur_distance = reste_a_parcourir(consigne_X,consigne_Y);
+	erreur_distance = reste_a_parcourir(consigne_X,consigne_Y);
 	somme_erreur_distance += erreur_distance;
 	float delta_erreur_distance = erreur_distance - erreur_distance_precedente;
 	erreur_distance_precedente = erreur_distance;

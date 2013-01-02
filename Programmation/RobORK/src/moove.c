@@ -8,6 +8,7 @@
 
 #include "moove.h"
 #include "uart.h"
+#include "math.h"
 
 volatile bool roue_gauche_avant = false;
 volatile bool roue_droite_avant = false;
@@ -263,7 +264,7 @@ void tourne_droite(float vitesse)
 
 void virage(float roue_droite, float roue_gauche)
 {
-	int compteur = 5;
+	int compteur = 15;
 	int temps = timer0;
 	if (consigne_moteur_nombre_tours_par_seconde_droit <= roue_droite && consigne_moteur_nombre_tours_par_seconde_gauche <= roue_gauche)
 	{
@@ -290,13 +291,13 @@ void virage(float roue_droite, float roue_gauche)
 	}
 	else if (consigne_moteur_nombre_tours_par_seconde_droit >= roue_droite && consigne_moteur_nombre_tours_par_seconde_gauche >= roue_gauche)
 	{
-
+		compteur = 0;
 		temps = timer0;
 		while (((consigne_moteur_nombre_tours_par_seconde_droit > roue_droite || consigne_moteur_nombre_tours_par_seconde_gauche > roue_gauche)) &&
 				(!((consigne_moteur_nombre_tours_par_seconde_droit == roue_droite) && (consigne_moteur_nombre_tours_par_seconde_gauche == roue_gauche))))
 		{
-			compteur+=20;
-			while (timer0 != (temps + compteur)){}
+			compteur += 20;
+			while (timer0 <= (temps + compteur)){}
 			consigne_moteur_nombre_tours_par_seconde_droit -= pente;
 			consigne_moteur_nombre_tours_par_seconde_gauche -= pente;
 			if (consigne_moteur_nombre_tours_par_seconde_droit < 0)
@@ -388,13 +389,13 @@ void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
 		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
 		roue_gauche_avant = true;
 
-		virage(roue_droite, roue_gauche);
+		virage(fabs(roue_droite), fabs(roue_gauche));
 	}
 	else if (roue_droite < 0 && roue_gauche >= 0)
 	{
 		if (roue_droite_avant == true)
 		{
-			virage(0, roue_gauche);
+			virage(0, fabs(roue_gauche));
 		}
 		LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
 		LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
@@ -405,13 +406,13 @@ void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
 		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
 		roue_droite_avant = false;
 		//roue_droite = ;
-		virage((-roue_droite), roue_gauche);
+		virage(fabs(roue_droite), fabs(roue_gauche));
 	}
 	else if (roue_droite >=0 && roue_gauche < 0)
 	{
 		if (roue_gauche_avant == true)
 		{
-			virage(roue_droite,0);
+			virage(fabs(roue_droite),0);
 		}
 		LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
 		LPC_GPIO0->FIOSET |= (1 << 21);//|= (1<<4); //p0.27 INb
@@ -422,7 +423,7 @@ void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
 		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
 		roue_droite_avant = true;
 		//roue_gauche = - roue_gauche;
-		virage(roue_droite, (-roue_gauche));
+		virage(fabs(roue_droite), fabs(roue_gauche));
 	}
 	else if (roue_droite < 0 && roue_gauche < 0)
 	{
@@ -432,11 +433,11 @@ void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
 		}
 		else if (roue_droite_avant == true)
 		{
-			virage(0,roue_gauche);
+			virage(0,fabs(roue_gauche));
 		}
 		else if (roue_gauche_avant == true)
 		{
-			virage(roue_droite,0);
+			virage(fabs(roue_droite),0);
 		}
 		LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
 		LPC_GPIO0->FIOSET |= (1 << 21);//|= (1<<4); //p0.27 INb
@@ -448,6 +449,6 @@ void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
 		roue_droite_avant = false;
 		//roue_droite = - roue_droite;
 		//roue_gauche = - roue_gauche;
-		virage((-roue_droite), (-roue_gauche));
+		virage(fabs(roue_droite), fabs(roue_gauche));
 	}
 }

@@ -73,7 +73,7 @@ void TIMER0_IRQHandler(void)
 	{
 		asservisement_vitesse_droit();
 	}
-	if (((timer_ms + 5) % 20) == 0)
+	if (((timer_ms + 3) % 10) == 0)
 	{
 		mesure_angle();
 		mesure_distance();

@@ -17,6 +17,9 @@
 typedef enum bool bool;
 enum bool{ true, false};
 
+extern volatile float erreur_angle;
+extern volatile float erreur_distance;
+
 extern char commande[255];
 extern volatile bool validation;
 extern volatile bool avance, recule, gauche, droite, stop, regle_vitesse;
