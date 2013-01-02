@@ -80,7 +80,7 @@ int main(void)
 			//changement_de_vitesse_des_roues(-0.5,-0.5);
 			//asservis = -asservis;
 			//send_message("asserv\n\r");
-			if (erreur_angle < 25 && -25 < erreur_angle)
+			/*if (erreur_angle < 15 && -15 < erreur_angle)
 			{
 				if (erreur_distance < 5 && -5 < erreur_distance)
 				{
@@ -88,7 +88,7 @@ int main(void)
 				}
 				else
 				{
-					changement_de_vitesse_des_roues((-asservis),-asservis);
+					changement_de_vitesse_des_roues((-asservis),(-asservis));
 				}
 			}
 			else
@@ -102,8 +102,8 @@ int main(void)
 					changement_de_vitesse_des_roues((-asservis1),asservis1);
 				}
 
-			}
-
+			}//*/
+			asservi(asservis,asservis1);
 			//changement_de_vitesse_des_roues((asservis+asservis1),(asservis-asservis1));
 			//changement_de_vitesse_des_roues((-asservis),asservis);
 			//asservisement_distance();
@@ -255,6 +255,8 @@ int main(void)
 	/******************************************************/
 	/**************** debut de la strategie ***************/
 	/******************************************************/
+	consigne_X=200;
+	consigne_Y=-150;
 	timer0 = 0; //remise a zero du timer pour que le match puisse commencer
 	while (1)
 	{
@@ -272,7 +274,17 @@ int main(void)
 		{
 			timer_active = false;
 
-			if (timer0 == 5)
+			if (timer_ms % 101 && timer_ms >= 1000)
+			{
+
+			}
+			if ((timer_ms + 50) % 101 && timer_ms >= 1000)
+			{
+				asservis1 = asservisement_angle();
+				asservis = asservisement_distance();
+				asservi(asservis,asservis1);
+			}//*/
+			/*if (timer0 == 5)
 			{
 				erreur_precedente_gauche = 0;
 				somme_erreur_gauche = 0;

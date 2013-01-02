@@ -165,14 +165,14 @@ float asservisement_angle(void)
 float reste_a_parcourir(float X_voulu,float Y_voulu)
 {
 	float resultat = fabs(sqrtf((X - X_voulu) * (X - X_voulu) + (Y - Y_voulu) * (Y - Y_voulu)));
-	if (resultat < 30)
+	/*if (resultat < 30)
 	{
 		return 0;
 	}
 	else
 	{//*/
 		return resultat;
-	}
+	//}
 }
 
 float reste_en_angle(float angle_voulu)
@@ -213,12 +213,43 @@ float asservisement_distance(void)
 	{
 		commande_distance = (-vitesse_distance_max);
 	}
-	return commande_distance;
-	//changement_de_vitesse_des_roues((-commande_distance),(-commande_distance));
+	if (delta_erreur_distance < 0)
+	{
+		return commande_distance;
+	}
+	else
+	{
+		return (commande_distance);
+	}
+		//changement_de_vitesse_des_roues((-commande_distance),(-commande_distance));
 }
 
 
 void asservi(float commande_distance, float commande_angle)
 {
-	changement_de_vitesse_des_roues((-commande_distance-commande_angle),(-commande_distance+commande_angle));
+	if (erreur_angle < 15 && -15 < erreur_angle)
+	{
+		if (erreur_distance < 5 && -5 < erreur_distance)
+		{
+			arret_moteur();
+		}
+		else
+		{
+			changement_de_vitesse_des_roues((-commande_distance),(-commande_distance));
+		}
+	}
+	else
+	{
+		if (erreur_distance < 5 && -5 < erreur_distance)
+		{
+			arret_moteur();
+		}
+		else
+		{
+			changement_de_vitesse_des_roues((-commande_angle),commande_angle);
+		}
+
+	}
+
+	//changement_de_vitesse_des_roues((-commande_distance-commande_angle),(-commande_distance+commande_angle));
 }
