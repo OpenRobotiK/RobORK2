@@ -48,7 +48,7 @@ int main(void)
 	//marche_avant(0.25);
 	//consigne_angle = 0;
 	//marche_avant(1);
-	changement_de_vitesse_des_roues(1,1);
+	//changement_de_vitesse_des_roues(1,1);
 	float asservis;
 	float asservis1;
 	while (attendre_jack() == false) //a inverser quand on aura le support jack
@@ -255,8 +255,8 @@ int main(void)
 	/******************************************************/
 	/**************** debut de la strategie ***************/
 	/******************************************************/
-	consigne_X=200;
-	consigne_Y=-150;
+	consigne_X=500;
+	consigne_Y=250;
 	timer0 = 0; //remise a zero du timer pour que le match puisse commencer
 	while (1)
 	{

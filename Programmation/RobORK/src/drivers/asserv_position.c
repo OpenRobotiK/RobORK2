@@ -44,7 +44,7 @@ void mesure_angle(void)
 	float position_roue_D = taille_roue * (float)tick_position_droit / ((float)rapport_reducteur * (float)tick_par_tour_codeuse);
 	float position_roue_G = taille_roue * (float)tick_position_gauche / ((float)rapport_reducteur * (float)tick_par_tour_codeuse);
 	angle = angle_initial + correcteur_angle * (position_roue_D - position_roue_G);
-	angle = (angle / 360 - (int)(angle / 360)) * 360;
+	angle = (angle / 360. - (int)(angle / 360.)) * 360.;
 	if (angle < 0)
 	{
 		angle = 360 + angle;
@@ -213,21 +213,14 @@ float asservisement_distance(void)
 	{
 		commande_distance = (-vitesse_distance_max);
 	}
-	if (delta_erreur_distance < 0)
-	{
-		return commande_distance;
-	}
-	else
-	{
-		return (commande_distance);
-	}
-		//changement_de_vitesse_des_roues((-commande_distance),(-commande_distance));
+	return commande_distance;
+	//changement_de_vitesse_des_roues((-commande_distance),(-commande_distance));
 }
 
 
 void asservi(float commande_distance, float commande_angle)
 {
-	if (erreur_angle < 15 && -15 < erreur_angle)
+	/*if (erreur_angle < 15 && -15 < erreur_angle)
 	{
 		if (erreur_distance < 5 && -5 < erreur_distance)
 		{
@@ -237,8 +230,19 @@ void asservi(float commande_distance, float commande_angle)
 		{
 			changement_de_vitesse_des_roues((-commande_distance),(-commande_distance));
 		}
-	}
-	else
+	}*/
+	/*if ()
+	{
+		if (erreur_distance < 5 && -5 < erreur_distance)
+		{
+			arret_moteur();
+		}
+		else
+		{
+			changement_de_vitesse_des_roues((commande_distance),(commande_distance));
+		}
+	}*/
+	/*else
 	{
 		if (erreur_distance < 5 && -5 < erreur_distance)
 		{
@@ -249,7 +253,29 @@ void asservi(float commande_distance, float commande_angle)
 			changement_de_vitesse_des_roues((-commande_angle),commande_angle);
 		}
 
-	}
+	}*/
 
+	if (fabs(erreur_angle) < 90 )
+	{
+		if (erreur_distance > 15)
+		{
+			changement_de_vitesse_des_roues((-commande_distance - 2 * commande_angle),(-commande_distance + 2 * commande_angle));
+		}
+		else
+		{
+			arret_moteur();
+		}
+	}
+	else
+	{
+		if (erreur_distance > 15)
+		{
+			changement_de_vitesse_des_roues((commande_distance - 2 * commande_angle),(commande_distance + 2 * commande_angle));
+		}
+		else
+		{
+			arret_moteur();
+		}
+	}
 	//changement_de_vitesse_des_roues((-commande_distance-commande_angle),(-commande_distance+commande_angle));
 }
