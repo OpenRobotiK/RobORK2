@@ -79,9 +79,9 @@ void TIMER0_IRQHandler(void)
 		mesure_distance();
 		mesure_position();
 	}
-	if (((timer_ms + 10) % 20) == 0)
+	if (((timer_ms + 10) % 100) == 0)
 	{
-		//test_asserv();
+		calcul_de_consigne_PID();
 	}
 
 	if ((timer_ms % 500) == 0)

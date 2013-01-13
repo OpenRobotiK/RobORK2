@@ -17,6 +17,8 @@
 typedef enum bool bool;
 enum bool{ true, false};
 
+#define PI (3.141592653589793)
+
 extern volatile float erreur_angle;
 extern volatile float erreur_distance;
 

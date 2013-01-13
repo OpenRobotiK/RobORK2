@@ -43,6 +43,8 @@ extern float reste_a_parcourir(float X_voulu,float Y_voulu);
 extern float reste_en_angle(float angle_voulu);
 extern float asservisement_distance(void);
 extern void asservi(float commande_distance, float commande_angle);
+extern float changement_de_consigne_d_angle (void);
+extern void calcul_de_consigne_PID(void);
 
 #endif /* ASSERV_POSITION_H_ */
 

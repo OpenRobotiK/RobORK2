@@ -11,7 +11,7 @@
 
 #include "motors.h"
 
-#define pente 0.15
+#define pente 0.10 //0.15
 
 extern volatile bool roue_gauche_avant;
 extern volatile bool roue_droire_avant;

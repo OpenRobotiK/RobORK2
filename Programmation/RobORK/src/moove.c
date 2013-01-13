@@ -19,7 +19,6 @@ void MOOVE_Init(void) {
 	MOTOR_Init(LEFT_MOTOR);
 }
 
-
 void MOOVE_Direction(Direction direction, int speed)
 {
 
@@ -373,7 +372,6 @@ void virage(float roue_droite, float roue_gauche)
 		consigne_moteur_nombre_tours_par_seconde_droit = roue_droite;
 	}
 }
-
 
 void changement_de_vitesse_des_roues(float roue_droite, float roue_gauche)
 {
