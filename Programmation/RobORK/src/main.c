@@ -66,14 +66,8 @@ int main(void)
 
 		if (timer_ms % 101 && timer_ms >= 1000)
 		{
-			//changement_de_vitesse_des_roues(0.5,0.5);
-			//asservisement_angle();
-			//asservisement_distance();
-			asservis1 = asservisement_angle();
-			asservis = asservisement_distance();
-
-			//asservi(asservisement_distance(),asservisement_distance());
-			//test_asserv();
+			//asservis1 = asservisement_angle();
+			//asservis = asservisement_distance();
 		}
 		if ((timer_ms + 50) % 101 && timer_ms >= 1000)
 		{
@@ -225,10 +219,10 @@ int main(void)
 	/******************************************************/
 	/**************** debut de la strategie ***************/
 	/******************************************************/
-	consigne_X = 000;
-	consigne_Y = 1000;
-	//consigne_angle = 0;
-	//consigne_distance = -1000;
+	consigne_X = 70;
+	consigne_Y = 350;
+	//consigne_angle = -170;
+	//consigne_distance = 1000;
 	timer0 = 0; //remise a zero du timer pour que le match puisse commencer
 	while (1)
 	{
@@ -239,43 +233,44 @@ int main(void)
 		}//*/
 		if (test == true)  // fonction de test
 		{
-				test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
-				affiche_position();
+			test = false;//soit a mettre a true dans une interruption, soit tous les x temps dans l'interruption du timer0
+			affiche_position();
 		}//*/
 		if (timer_active == true)
 		{
 			timer_active = false;
 
-			if (timer_ms % 101 == 0 )
+			if (timer_ms % 50 == 0 )
 			{
 				asservis1 = asservisement_angle();
 				asservis = asservisement_distance();
 			}
-			if ((timer_ms + 50) % 101 == 0)
+			if ((timer_ms + 25) % 50 == 0)
 			{
 				asservi(asservis,asservis1);
 			}//*/
-			if ((timer_ms + 51) % 1000 == 0)
+			/*if ((timer_ms + 51) % 1000 == 0)
 			{
 				send_message("\n\rERREUR DISTANCE = ");
 				int_to_char((int)erreur_distance,buf);
 				send_message(buf);
 				//send_message("\n\r");
 			}//*/
-			if ((timer_ms + 101) % 1000 == 0)
+			/*if ((timer_ms + 101) % 1000 == 0)
 			{
 				send_message("\n\rconsigne distance = ");
 				int_to_char((int)consigne_distance,buf);
 				send_message(buf);
 				//send_message("\n\r");
 			}//*/
-			if ((timer_ms + 203) % 1000 == 0)
+
+			/*if ((timer_ms + 203) % 1000 == 0)
 			{
 				send_message("\n\rerreur d'angle = ");
 				int_to_char((int)erreur_angle,buf);
 				send_message(buf);
 				//send_message("\n\r");
-			}
+			}//*/
 			/*if (timer0 == 5)
 			{
 				erreur_precedente_gauche = 0;

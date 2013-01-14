@@ -33,6 +33,7 @@ extern volatile float somme_erreur_angle;
 extern volatile float erreur_angle_precedente;
 extern volatile float somme_erreur_distance;
 extern volatile float erreur_distance_precedente;
+extern volatile float erreur_angle_absolue;
 
 extern void mesure_distance(void);
 extern void mesure_angle(void);
@@ -45,6 +46,8 @@ extern float asservisement_distance(void);
 extern void asservi(float commande_distance, float commande_angle);
 extern float changement_de_consigne_d_angle (void);
 extern void calcul_de_consigne_PID(void);
+extern void normalise_angle(float* angle);
+extern float calcul_angle_relative(float erreur_absolue);
 
 #endif /* ASSERV_POSITION_H_ */
 

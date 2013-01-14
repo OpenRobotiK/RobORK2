@@ -28,6 +28,7 @@ volatile float somme_erreur_angle = 0;
 volatile float erreur_angle_precedente = 0;
 volatile float somme_erreur_distance = 0;
 volatile float erreur_distance_precedente = 0;
+volatile float erreur_angle_absolue = 0;
 
 volatile float erreur_angle = 0;
 volatile float erreur_distance = 0;
@@ -44,15 +45,7 @@ void mesure_angle(void)
 	float position_roue_D = taille_roue * (float)tick_position_droit / ((float)rapport_reducteur * (float)tick_par_tour_codeuse);
 	float position_roue_G = taille_roue * (float)tick_position_gauche / ((float)rapport_reducteur * (float)tick_par_tour_codeuse);
 	angle = angle_initial + correcteur_angle * (position_roue_D - position_roue_G);
-	angle = (angle / 360. - (int)(angle / 360.)) * 360.;
-	if (angle < 0)
-	{
-		angle = 360 + angle;
-	}
-	if (angle >= 360)
-	{
-		angle = angle - 360;
-	}
+	angle = ((angle + 180) / 360. - (int)((angle + 180) / 360.)) * 360. - 180;
 }
 
 void mesure_position(void)
@@ -73,27 +66,11 @@ float changement_de_consigne_d_angle (void)
 	float delta_X = consigne_X - X;
 	float delta_Y = consigne_Y - Y;
 
-	if (delta_X >= 0 && delta_X >= fabs(delta_Y) && delta_Y >= 0)
-	{
-		return (atan(delta_Y / delta_X) * 180 / PI);
-	}
-	if (delta_X > 0 && delta_X >= fabs(delta_Y) && delta_Y < 0)
-	{
-		return (atan(delta_Y / delta_X) * 180 / PI + 360);
-	}
-	if (delta_Y > 0 && delta_Y > fabs(delta_X))
-	{
-		return (atan(delta_X / delta_Y) * 180 / PI + 90);
-	}
-	if (delta_Y < 0 && fabs(delta_Y) > fabs(delta_X))
-	{
-		return (atan(delta_X / delta_Y) * 180 / PI + 270);
-	}
-	if (delta_X < 0 && fabs(delta_X) >= fabs(delta_Y))
-	{
-		return (atan(delta_Y / delta_X) * 180 / PI + 180);
-	}
-	return 1000;		//erreur car > 360
+	float a = atan2(delta_Y,delta_X) * 180 / PI;
+	float b = (a + 180) / 360;
+	int c = (int)b;
+	a = (b - c) * 360 - 180;
+	return a;
 }
 
 void test_asserv(void)
@@ -118,22 +95,23 @@ void test_asserv(void)
 float asservisement_angle(void)
 {
 	float commande = 0;
-	erreur_angle = /*consigne_angle - angle;//*/reste_en_angle(consigne_angle);
+	erreur_angle_absolue = reste_en_angle(consigne_angle);
+	erreur_angle = calcul_angle_relative(erreur_angle_absolue);
 	somme_erreur_angle += erreur_angle;
 	float delta_erreur_angle = erreur_angle - erreur_angle_precedente;
 	erreur_angle_precedente = erreur_angle;
 	/* il faudra borner ki * somme_erreur_angle pour ne pas diverger ou le viré mais attention l'erreur statique n'est plus nulle */
-	if (ki_angle * somme_erreur_angle > vitesse_angle_max/2)
+	if (ki_angle * somme_erreur_angle > vitesse_angle_max / 4)
 	{
 		if (somme_erreur_angle >= 0)
 		{
-			commande = kp_angle * erreur_angle + vitesse_angle_max / 2 + kd_angle * delta_erreur_angle;
+			commande = kp_angle * erreur_angle + vitesse_angle_max / 4 + kd_angle * delta_erreur_angle;
 		}
 		else
 		{
-			commande = kp_angle * erreur_angle - vitesse_angle_max / 2 + kd_angle * delta_erreur_angle;
+			commande = kp_angle * erreur_angle - vitesse_angle_max / 4 + kd_angle * delta_erreur_angle;
 		}
-		somme_erreur_angle=vitesse_angle_max/2;
+		somme_erreur_angle=vitesse_angle_max / 4;
 	}
 	else
 	{
@@ -144,7 +122,7 @@ float asservisement_angle(void)
 	{
 		commande = vitesse_angle_max;
 	}
-	if(commande < (-vitesse_angle_max))
+	if((-commande) > (vitesse_angle_max))
 	{
 		commande = (-vitesse_angle_max);
 	}
@@ -155,52 +133,23 @@ float asservisement_angle(void)
 
 float reste_a_parcourir(float X_voulu,float Y_voulu)
 {
-	float resultat = sqrtf((X - X_voulu) * (X - X_voulu) + (Y - Y_voulu) * (Y - Y_voulu));
+	float resultat = sqrtf((X - X_voulu) * (X - X_voulu) + (Y - Y_voulu) * (Y - Y_voulu)) * cos(erreur_angle_absolue);
 	return resultat;
 }
 
 float reste_en_angle(float angle_voulu)
 {
-	float delta_teta = angle_voulu - angle;
-	if (delta_teta >= 0 && fabs(delta_teta) <= 180)
-	{
-		return delta_teta;
-	}
-	if (delta_teta > 0 && fabs(delta_teta) > 180)
-	{
-		return delta_teta - 360;
-	}
-	if (delta_teta < 0 && fabs(delta_teta) < 180)
-	{
-		return delta_teta;
-	}
-	if (delta_teta < 0 && fabs(delta_teta) >= 180)
-	{
-		return delta_teta + 360;
-	}
-	return 1000;		//erreur cas pas possible
-	/*if (angle_voulu <= angle && angle < 180 + angle_voulu)
-	{
-		return angle - angle_voulu;
-	}
-	else if (0 <= angle && angle < angle_voulu)
-	{
-		return angle - angle_voulu;
-	}
-	else if (angle_voulu + 180 <= angle && angle < 360)
-	{
-		return angle - 360 - angle_voulu;
-	}
-	else
-	{
-		return 0;
-	}*/
+	float a = angle_voulu - angle;
+	float b = (a + 180) / 360;
+	int c = (int)b;
+	a = (b - c) * 360 - 180;
+	return a;
 }
 
 float asservisement_distance(void)
 {
 	float commande_distance = 0;
-	erreur_distance = (consigne_distance/* - distance*/);
+	erreur_distance = reste_a_parcourir(consigne_X,consigne_Y);
 	somme_erreur_distance += erreur_distance;
 	float delta_erreur_distance = erreur_distance - erreur_distance_precedente;
 	erreur_distance_precedente = erreur_distance;
@@ -252,5 +201,29 @@ void calcul_de_consigne_PID(void)
 	{
 		consigne_distance = reste_a_parcourir(consigne_X,consigne_Y);
 	}*/
-	consigne_distance = -reste_a_parcourir(consigne_X,consigne_Y) * (cos(consigne_angle * PI / 180));
+	consigne_distance = reste_a_parcourir(consigne_X,consigne_Y);
+}
+
+void normalise_angle(float* angle)
+{
+	float a = (*angle + 180) / 360;
+	int b = (int)b;
+	*angle = (a - b) * 360 - 180;
+}
+
+float calcul_angle_relative(float erreur_absolue)
+{
+	if (-90 < erreur_absolue && erreur_absolue <= 90)
+	{
+		return erreur_absolue;
+	}
+	else if (erreur_absolue > 90)
+	{
+		return erreur_absolue - 180;
+	}
+	else if (erreur_absolue <= -90)
+	{
+		return erreur_absolue + 180;
+	}
+	return 1000;		//erreur si 1000
 }
