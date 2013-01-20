@@ -44,11 +44,9 @@ int main(void)
 	TIMER_Init(TIMER0);
 	TIMER_Start(TIMER0);
 	char buf[10];
+	/*consigne_X = 70;
+	consigne_Y = 350;*/
 
-	//marche_avant(0.25);
-	//consigne_angle = 0;
-	//marche_avant(1);
-	//changement_de_vitesse_des_roues(1,1);
 	float asservis;
 	float asservis1;
 	while (attendre_jack() == false) //a inverser quand on aura le support jack
@@ -64,15 +62,15 @@ int main(void)
 			//send_message(buf);
 		}//*/
 
-		if (timer_ms % 101 && timer_ms >= 1000)
+		if (timer_ms % 50 == 0 )
 		{
-			//asservis1 = asservisement_angle();
-			//asservis = asservisement_distance();
+			asservis1 = asservisement_angle();
+			asservis = asservisement_distance();
 		}
-		if ((timer_ms + 50) % 101 && timer_ms >= 1000)
+		if ((timer_ms + 25) % 50 == 0)
 		{
-			//asservi(asservis,asservis1);
-		}//*/
+			asservi(asservis,asservis1);
+		}
 		while(demo_mode == true)
 		{
 			if (asserv == true)
@@ -219,8 +217,8 @@ int main(void)
 	/******************************************************/
 	/**************** debut de la strategie ***************/
 	/******************************************************/
-	consigne_X = 70;
-	consigne_Y = 350;
+	consigne_X = 00;
+	consigne_Y = 500;
 	//consigne_angle = -170;
 	//consigne_distance = 1000;
 	timer0 = 0; //remise a zero du timer pour que le match puisse commencer

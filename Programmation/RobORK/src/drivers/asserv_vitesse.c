@@ -21,6 +21,10 @@ const float kd = 30;           // Coefficient dérivateur
 volatile bool asserv=false;
 volatile int nombre_a_regarder=0;
 
+volatile int consigne_vitesse_droit_n_1 = 0;
+volatile int consigne_vitesse_gauche_n_1 = 0;
+
+
 void asservisement_vitesse_gauche(void)
 {
 	int cmd = 0, pwm = 0; //commande
@@ -42,9 +46,9 @@ void asservisement_vitesse_gauche(void)
 	// Normalisation et contrôle du moteur
 	pwm = cmd;
 
-	if(pwm < 0)
+	if(pwm < -100)
 	{
-		pwm=0;
+		pwm = -100;
 	}
 	else if(pwm > 100)
 	{
@@ -52,7 +56,8 @@ void asservisement_vitesse_gauche(void)
 	}
 	nombre_a_regarder = (int)tick;
 	asserv = true;
-	PWM_SetDutyCycle(PWM2,(int)pwm );
+	modifie_pwm_gauche(filtre_passe_bas_PID_vitesse_gauche(pwm));
+	//PWM_SetDutyCycle(PWM2,(int)pwm );
 }
 
 
@@ -77,14 +82,100 @@ void asservisement_vitesse_droit(void)
 	// Normalisation et contrôle du moteur
 	pwm = cmd;
 
-	if(pwm < 0)
+	if(pwm < -100)
 	{
-		pwm=0;
+		pwm = -100;
 	}
 	else if(pwm > 100)
 	{
 		pwm = 100;
 	}
+	modifie_pwm_droit(filtre_passe_bas_PID_vitesse_droit(pwm));
+	//PWM_SetDutyCycle(PWM1,(int)pwm );
+}
 
-	PWM_SetDutyCycle(PWM1,(int)pwm );
+
+void modifie_pwm_gauche(int pwm)
+{
+	if (pwm >= 0)
+	{
+		LPC_GPIO0->FIOSET |= (1 << 22);//|= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOCLR |= (1 << 21);//|= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+		roue_gauche_avant = true;
+		PWM_SetDutyCycle(PWM2,abs(pwm));
+	}
+	else
+	{
+		LPC_GPIO0->FIOCLR |= (1 << 22);//|= (1<<7); //p0.22 INa
+		LPC_GPIO0->FIOSET |= (1 << 21);//|= (1<<4); //p0.27 INb
+		LPC_GPIO0->FIOSET |= (1 << 3); //p0.28 DIAG
+		roue_gauche_avant = false;
+		PWM_SetDutyCycle(PWM2,abs(pwm));
+	}
+}
+
+void modifie_pwm_droit(int pwm)
+{
+	if (pwm >= 0)
+	{
+		LPC_GPIO2->FIOCLR0 |= (1 << 6) ; // P2.6 is set to 1. InA
+		LPC_GPIO2->FIOSET0 |= (1 << 7 ); //P2.7 is set to 0. InB
+		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+		roue_droite_avant = true;
+		PWM_SetDutyCycle(PWM1,abs(pwm));
+	}
+	else
+	{
+		LPC_GPIO2->FIOSET0 |= (1 << 6) ; // P2.6 is set to 1. InA
+		LPC_GPIO2->FIOCLR0 |= (1 << 7 ); //P2.7 is set to 0. InB
+		LPC_GPIO2->FIOSET1 |= (1 << 0); //P2.8 is set to 1. Diag
+		roue_droite_avant = false;
+		PWM_SetDutyCycle(PWM1,abs(pwm));
+	}
+}
+
+
+int filtre_passe_bas_PID_vitesse_droit(float consigne)
+{
+	int delta_pwm = consigne - consigne_vitesse_droit_n_1;
+	if (delta_pwm >= PENTE_PWM)
+	{
+		consigne += PENTE_PWM;
+		consigne = consigne_vitesse_droit_n_1;
+		return consigne;
+	}
+	else if (delta_pwm <= -PENTE_PWM)
+	{
+		consigne -= PENTE_PWM;
+		consigne = consigne_vitesse_droit_n_1;
+		return consigne;
+	}
+	else
+	{
+		consigne = consigne_vitesse_droit_n_1;
+		return consigne;
+	}
+}
+
+int filtre_passe_bas_PID_vitesse_gauche(float consigne)
+{
+	int delta_pwm = consigne - consigne_vitesse_gauche_n_1;
+	if (delta_pwm >= PENTE_PWM)
+	{
+		consigne += PENTE_PWM;
+		consigne = consigne_vitesse_gauche_n_1;
+		return consigne;
+	}
+	else if (delta_pwm <= -PENTE_PWM)
+	{
+		consigne -= PENTE_PWM;
+		consigne = consigne_vitesse_gauche_n_1;
+		return consigne;
+	}
+	else
+	{
+		consigne = consigne_vitesse_gauche_n_1;
+		return consigne;
+	}
 }

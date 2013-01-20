@@ -187,7 +187,12 @@ float asservisement_distance(void)
 
 void asservi(float commande_distance, float commande_angle)
 {
-	changement_de_vitesse_des_roues((commande_distance + commande_angle),(commande_distance - commande_angle));
+	float consigne_moteur_droit, consigne_moteur_gauche;
+	consigne_moteur_droit = commande_distance + commande_angle;
+	consigne_moteur_gauche = commande_distance - commande_angle;
+	consigne_moteur_nombre_tours_par_seconde_droit = consigne_moteur_droit;
+	consigne_moteur_nombre_tours_par_seconde_gauche = consigne_moteur_gauche;
+	//changement_de_vitesse_des_roues((commande_distance + commande_angle),(commande_distance - commande_angle));
 }
 
 void calcul_de_consigne_PID(void)
@@ -227,3 +232,6 @@ float calcul_angle_relative(float erreur_absolue)
 	}
 	return 1000;		//erreur si 1000
 }
+
+
+

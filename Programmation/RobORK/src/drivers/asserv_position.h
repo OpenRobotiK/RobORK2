@@ -49,6 +49,8 @@ extern void calcul_de_consigne_PID(void);
 extern void normalise_angle(float* angle);
 extern float calcul_angle_relative(float erreur_absolue);
 
+
+
 #endif /* ASSERV_POSITION_H_ */
 
 
