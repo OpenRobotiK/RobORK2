@@ -11,7 +11,7 @@
 #include "motors.h"
 #include "codeur.h"
 
-#define PENTE_PWM 10
+#define PENTE_PWM 1
 
 extern const float frequence_echantillonnage;  // Fréquence du pid 10ms
 extern const int rapport_reducteur;          // Rapport entre le nombre de tours de l'arbre moteur et de la roue

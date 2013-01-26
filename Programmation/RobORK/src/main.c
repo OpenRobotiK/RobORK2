@@ -49,6 +49,7 @@ int main(void)
 
 	float asservis;
 	float asservis1;
+	consigne_moteur_nombre_tours_par_seconde_droit = 1;
 	while (attendre_jack() == false) //a inverser quand on aura le support jack
 	{
 		/******************************************************/
@@ -62,14 +63,14 @@ int main(void)
 			//send_message(buf);
 		}//*/
 
-		if (timer_ms % 50 == 0 )
+		if (timer_ms % 50 == 0)
 		{
-			asservis1 = asservisement_angle();
-			asservis = asservisement_distance();
+			//asservis1 = asservisement_angle();
+			//asservis = asservisement_distance();
 		}
 		if ((timer_ms + 25) % 50 == 0)
 		{
-			asservi(asservis,asservis1);
+			//asservi(asservis,asservis1);
 		}
 		while(demo_mode == true)
 		{
@@ -240,12 +241,13 @@ int main(void)
 
 			if (timer_ms % 50 == 0 )
 			{
-				asservis1 = asservisement_angle();
-				asservis = asservisement_distance();
+				//asservis1 = asservisement_angle();
+				//asservis = asservisement_distance();
+
 			}
 			if ((timer_ms + 25) % 50 == 0)
 			{
-				asservi(asservis,asservis1);
+				//asservi(asservis,asservis1);
 			}//*/
 			/*if ((timer_ms + 51) % 1000 == 0)
 			{

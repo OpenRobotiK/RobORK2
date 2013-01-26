@@ -142,18 +142,18 @@ int filtre_passe_bas_PID_vitesse_droit(float consigne)
 	if (delta_pwm >= PENTE_PWM)
 	{
 		consigne += PENTE_PWM;
-		consigne = consigne_vitesse_droit_n_1;
+		consigne_vitesse_droit_n_1 = consigne;
 		return consigne;
 	}
 	else if (delta_pwm <= -PENTE_PWM)
 	{
 		consigne -= PENTE_PWM;
-		consigne = consigne_vitesse_droit_n_1;
+		consigne_vitesse_droit_n_1 = consigne;
 		return consigne;
 	}
 	else
 	{
-		consigne = consigne_vitesse_droit_n_1;
+		consigne_vitesse_droit_n_1 = consigne;
 		return consigne;
 	}
 }
@@ -164,18 +164,18 @@ int filtre_passe_bas_PID_vitesse_gauche(float consigne)
 	if (delta_pwm >= PENTE_PWM)
 	{
 		consigne += PENTE_PWM;
-		consigne = consigne_vitesse_gauche_n_1;
+		consigne_vitesse_gauche_n_1 = consigne;
 		return consigne;
 	}
 	else if (delta_pwm <= -PENTE_PWM)
 	{
 		consigne -= PENTE_PWM;
-		consigne = consigne_vitesse_gauche_n_1;
+		consigne_vitesse_gauche_n_1 = consigne;
 		return consigne;
 	}
 	else
 	{
-		consigne = consigne_vitesse_gauche_n_1;
+		consigne_vitesse_gauche_n_1 = consigne;
 		return consigne;
 	}
 }
