@@ -3,10 +3,13 @@
  *
  *\mainpage Projet Open RobotiK
  *\section intro Introduction
- * Nous sommes une assosiation de loi 1901 qui a pour but de : \n
+ * Nous sommes une assosiation de loi 1901 don le statut est : \n
  * La mutualisation et la diffusion de savoirs, autour de la robotique, grâce à des procédés open-sources 
  * et open-hardware. La diffusion se fera via un site internet, et par la participation à des événements 
  * publiques tel que la Coupe de France de Robotique ou Eurobot. \n
+ *
+ * Notre principal objectif est donc très simple: Participer à la coupe de France de robotique. Nous sommes une
+ * nouvelle équipe, en conséquence de quoi notre objectif de performance est modeste.
  *
  * \section membreinfo Information sur les membres
  * \subpage Mael \n
@@ -64,7 +67,9 @@
  *\defgroup Mael Mael Gaudy
  * @{
  *\page Mael Mael Gaudy
- *
+ * Jeune ingénieur de 23, je suis diplomé de l'ENSSAT depuis septembre 2012.\n
+ * Je suis actuellement consultant pour la société ALTEN, en poste dans la PME aviwest. Mes travaux consiste en du développement d'IHM sous le framework Qt.\n
+ * Si vous avez des questions ou si vous voulez plus de renseignements vous pouvez me contacter à cette adresse : <a href="mailto:mael.gaudy@gmail.com?subject=Renseignement Open Robotik">\link mael.gaudy@gmail.com </a>  \n
  *
  * 
  * \n\n
@@ -151,3 +156,34 @@
 */
  
  
+ /** 
+ *\addtogroup robORK
+ * @{
+ *\defgroup Robot Notre robot
+ * @{
+
+ *\page Robot Notre robot
+ * 
+ * Répondant au doux nom de code RobORK notre robot se veut simple mais efficace. Il est réalisé, pour la plus grande partie,
+ * à l'aide de l'imprimante 3D que nous nous sommes mis à disposition.
+ *
+ *\section Méca Conception Mécanique
+ * Le règlement pour cette année 2013 demandant des dimensions non déployées "réduites" nous avons cherché à mettre au point un système
+ * de motorisation peu encombrant. La solution la moins couteuse en temps et ressources qui nous est apparu était de désaxer les moteurs
+ * l'un par rapport à l'autre. Bien que cette solution soit un peu déroutante elle fonctionne. Il convient tout de même d'émmetre quelques
+ * réserves sur ce principe. Il faut éviter au maximums les grands arc de cercles pour se déplacer, ils provoquent des glissements non déterminés.
+ * Notre robot n'a pas pour vocation de se déplacer à de grandes vitesses ce qui tant également à les diminuer.
+ *
+ *\section Stratégie Stratégie
+ * Notre objectif de stratégie pour ce robot est simple. Dans un premier mouvement il va chercher à faire basculer tous ses cadeaux, il va ensuite
+ * se diriger vers sa zone de départ en attrapant/poussant un maximum de verres. Son troisième mouvement sera d'aller souffler quelques bougies
+ * à l'aide d'un bras télescopique au bout du quel sera accroché une bobine de flipper (pour venir percuter les balles de tenis).
+ * 
+ * \n\n
+ *\section infodoc Information sur cette documentation
+ * Cette documentation a été générée avec \ref Doxywizard \n
+ *
+ *
+ * @}
+ * @}
+*/
